@@ -22,7 +22,13 @@
 		rgba(50, 89, 202, 0.2) 100%
 	); */
 
-	--hader-height: 50px;
+	--hader-height: 80px;
+	--padding: 8%;
+}
+
+@font-face {
+	font-family: "Manrope";
+	src: url("/src/assets/fonts/Manrope-VariableFont_wght.ttf");
 }
 
 .container {
@@ -30,6 +36,7 @@
 	min-height: 100vh;
 	position: relative;
 	flex-direction: column;
+	font-family: Manrope;
 }
 
 main {
@@ -37,23 +44,55 @@ main {
 	flex-grow: 1;
 	/* min-height: 100vh; */
 	padding-top: var(--hader-height);
-	padding-left: 10px;
+	padding-left: var(--padding);
+	padding-right: var(--padding);
 }
 
 header {
 	position: fixed;
 	top: 0px;
+	left: 0px;
+	box-sizing: border-box;
 	height: var(--hader-height);
-	background-color: #c65252;
+	background-color: var(--grey-light-color);
 	width: 100%;
+	padding-left: var(--padding);
+	padding-right: var(--padding);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
 }
 
 footer {
 	height: var(--hader-height);
 	background-color: #c65252;
+	padding-left: var(--padding);
+	padding-right: var(--padding);
 }
 
 .test {
 	height: 150px;
 	background-color: #838383;
+}
+
+.link-to-login {
+	display: flex;
+	gap: 20px;
+	font-family: inherit;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 20px;
+	padding-left: 17px;
+	padding-right: 17px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	background-color: var(--brand-color);
+	text-decoration: none;
+	color: var(--white-color);
+}
+
+.link-content {
+	display: flex;
+	align-items: center;
 }
