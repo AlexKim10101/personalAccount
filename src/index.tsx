@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
+import "normalize.css";
 
 import "./index.css";
-import App from "./App";
+import App from "./pages/App";
 import Home from "./pages/Home";
 import Account from "./pages/Account";
 
@@ -16,8 +17,9 @@ root.render(
 			<Routes>
 				<Route path="/" element={<App />}>
 					<Route index element={<Home />} />
-					<Route path="login" element={<Account />} />
+					<Route path="account" element={<Account />} />
 				</Route>
+				<Route path="login" element={<Account />} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>
