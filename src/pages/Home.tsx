@@ -1,11 +1,11 @@
 import React from "react";
 import imgPath from "@assets/img/first-section-bg-image.png";
-import CardGallery from "@components/Gallery";
+import CardGallery from "@components/Slider";
 
 function Home() {
 	return (
 		<>
-			<section className="section-home">
+			{/* <section className="section-home">
 				<img className="background-image" src={imgPath} alt="section-bg" />
 				<div className="background-container"></div>
 				<div className="section-home-content">
@@ -29,11 +29,11 @@ function Home() {
 						</div>
 					</div>
 				</div>
-			</section>
-
-			{/* <section className="section-clients">
-				<CardGallery />
 			</section> */}
+
+			<section className="section-clients">
+				<CardGallery />
+			</section>
 		</>
 	);
 }
