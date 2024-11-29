@@ -13,6 +13,8 @@ import { Link } from "react-router";
 import { ReactComponent as BurgerIcon } from "@assets/icons/burger-menu-icon.svg";
 import { ReactComponent as MyIcon } from "@assets/icons/icon1.svg";
 import { ReactComponent as LogoIcon } from "@assets/icons/logo_kpi.svg";
+
+import "./header.css";
 // import myIconPath from "../assets/icons/icon1.svg";
 // import myIconPath from "..assets/icon";
 
@@ -36,99 +38,99 @@ const Header: React.FC = () => {
 	const handleMenuClose = () => {
 		setAnchorEl(null);
 	};
-
 	return (
 		<header>
-			{/* Иконка меню для мобильных */}
-			<Box sx={{ display: { xs: "flex", md: "none" } }}>
-				<IconButton
-					size="large"
-					edge="start"
-					color="inherit"
-					aria-label="menu"
-					onClick={handleMenuOpen}
-				>
-					<BurgerIcon />
-				</IconButton>
+			<div className="header-container">
+				{/* Иконка меню для мобильных */}
+				<Box sx={{ display: { xs: "flex", md: "none" } }}>
+					<IconButton
+						size="large"
+						edge="start"
+						color="inherit"
+						aria-label="menu"
+						onClick={handleMenuOpen}
+					>
+						<BurgerIcon />
+					</IconButton>
 
-				{/* Мобильное меню */}
-				<Menu
-					anchorEl={anchorEl}
-					open={isMenuOpen}
-					onClose={handleMenuClose}
-					slotProps={{
-						paper: {
-							style: {
-								width: "200px",
+					{/* Мобильное меню */}
+					<Menu
+						anchorEl={anchorEl}
+						open={isMenuOpen}
+						onClose={handleMenuClose}
+						slotProps={{
+							paper: {
+								style: {
+									width: "200px",
+								},
 							},
-						},
+						}}
+					>
+						{pages.map(page => (
+							<MenuItem
+								key={page.name}
+								component={Link}
+								to={page.path}
+								onClick={handleMenuClose}
+								style={{
+									margin: "0px",
+									fontFamily: "inherit",
+									display: "block",
+								}}
+							>
+								{page.name}
+							</MenuItem>
+						))}
+					</Menu>
+				</Box>
+				{/* Горизонтальное меню для Desktop */}
+				<Box
+					sx={{
+						display: { xs: "none", md: "flex" },
+						gap: "12px",
+						alignItems: "center",
 					}}
 				>
+					<Typography
+						key="logo"
+						sx={{
+							display: "block",
+							color: "inherit",
+							textDecoration: "none",
+							margin: "0px",
+						}}
+					>
+						<LogoIcon />
+					</Typography>
+
 					{pages.map(page => (
-						<MenuItem
+						<Typography
 							key={page.name}
 							component={Link}
 							to={page.path}
-							onClick={handleMenuClose}
-							style={{ margin: "0px", fontFamily: "inherit", display: "block" }}
+							sx={{
+								display: "flex",
+								alignItems: "center",
+								color: "inherit",
+								fontFamily: "inherit",
+								textDecoration: "none",
+								margin: "0px",
+								"&:hover": { textDecoration: "underline" },
+							}}
 						>
 							{page.name}
-						</MenuItem>
+						</Typography>
 					))}
-				</Menu>
-			</Box>
-
-			{/* Горизонтальное меню для Desktop */}
-			<Box
-				sx={{
-					display: { xs: "none", md: "flex" },
-					gap: "12px",
-					alignItems: "center",
-				}}
-			>
-				<Typography
-					key="logo"
-					sx={{
-						display: "block",
-						color: "inherit",
-						textDecoration: "none",
-						margin: "0px",
-					}}
-				>
-					<LogoIcon />
-				</Typography>
-
-				{pages.map(page => (
-					<Typography
-						key={page.name}
-						component={Link}
-						to={page.path}
-						sx={{
-							display: "flex",
-							alignItems: "center",
-							color: "inherit",
-							fontFamily: "inherit",
-							textDecoration: "none",
-							margin: "0px",
-							"&:hover": { textDecoration: "underline" },
-						}}
-					>
-						{page.name}
-					</Typography>
-				))}
-			</Box>
-
-			<Link to="/login" className="link-to-login">
-				<div className="link-content">Попробовать</div>
-				<div className="link-content">
-					<MyIcon />
-				</div>
-			</Link>
+				</Box>
+				<Link to="/login" className="link-to-login">
+					<div className="link-content">Попробовать</div>
+					<div className="link-content">
+						<MyIcon />
+					</div>
+				</Link>
+			</div>
 		</header>
 	);
 };
 
 export default Header;
-// element.style {
-
-// }
