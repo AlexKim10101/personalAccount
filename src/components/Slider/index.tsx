@@ -10,7 +10,19 @@ import {
 	Typography,
 	IconButton,
 } from "@mui/material";
+import SvgIcon from "@mui/material/SvgIcon";
+import { ReactComponent as ErLogo } from "@assets/icons/er-logo.svg";
+import { ReactComponent as GorenjeLogo } from "@assets/icons/gorenje-logo.svg";
+import { ReactComponent as MeiLogo } from "@assets/icons/mei-logo.svg";
+import { ReactComponent as MosoblLogo } from "@assets/icons/mosobl-logo.svg";
+import { ReactComponent as PgcLogo } from "@assets/icons/pgc-logo.svg";
+import { ReactComponent as RaffLogo } from "@assets/icons/raff-logo.svg";
+
+import { companies } from "./const";
+
 import "./slider.css";
+
+const logos = [ErLogo, GorenjeLogo, MeiLogo, MosoblLogo, PgcLogo, RaffLogo];
 
 const CardGallery = () => {
 	const sliderRef = useRef<Slider | null>(null);
@@ -49,11 +61,19 @@ const CardGallery = () => {
 	return (
 		<div className="slider-container">
 			<Slider ref={sliderRef} {...settings}>
-				{[1, 2, 3, 4, 5, 6].map(item => (
-					<div key={item} className="slide">
-						<div className="card">{item}</div>
-					</div>
-				))}
+				{companies.map((item, index) => {
+					const IconComponent = logos[index];
+
+					return (
+						<div key={index} className="slide">
+							<div className="card">
+								{item.name}
+
+								<IconComponent />
+							</div>
+						</div>
+					);
+				})}
 			</Slider>
 			<div style={{ textAlign: "center" }}>
 				<button className="button" onClick={previous}>

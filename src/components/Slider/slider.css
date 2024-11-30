@@ -7,7 +7,7 @@
 }
 
 .slide {
-	background-color: #f5f5f5;
+	/* background-color: #f5f5f5; */
 	/* border: 1px solid #ddd; */
 	/* border-radius: 8px; */
 	width: 100%;
@@ -25,18 +25,28 @@
 	position: absolute;
 	margin: 0;
 	font-size: 24px;
-	color: #333;
+	/* color: #333; */
 	height: 100px;
 	display: block;
 }
 
 .card {
-	background-color: aqua;
+	background: linear-gradient(
+		180deg,
+		rgba(246, 108, 30, 0.2) 0%,
+		rgba(255, 153, 179, 0.2) 50%,
+		rgba(50, 89, 202, 0.2) 100%
+	);
 	position: absolute;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
 	margin: 5px;
+	border-radius: 1rem;
+
 	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
 }
