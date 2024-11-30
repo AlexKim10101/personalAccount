@@ -10,19 +10,21 @@ import {
 	Typography,
 	IconButton,
 } from "@mui/material";
-import SvgIcon from "@mui/material/SvgIcon";
-import { ReactComponent as ErLogo } from "@assets/icons/er-logo.svg";
-import { ReactComponent as GorenjeLogo } from "@assets/icons/gorenje-logo.svg";
-import { ReactComponent as MeiLogo } from "@assets/icons/mei-logo.svg";
-import { ReactComponent as MosoblLogo } from "@assets/icons/mosobl-logo.svg";
-import { ReactComponent as PgcLogo } from "@assets/icons/pgc-logo.svg";
-import { ReactComponent as RaffLogo } from "@assets/icons/raff-logo.svg";
+import { ReactComponent as ForwardIcon } from "@assets/icons/forward-icon.svg";
+import { ReactComponent as BackIcon } from "@assets/icons/back-icon.svg";
+import erLogo from "@assets/icons/er-logo.png";
+import gorLogo from "@assets/icons/gorenje-logo.png";
+import meiLogo from "@assets/icons/mei-logo.png";
+import mosoblLogo from "@assets/icons/mosobl-logo.png";
+import pgcLogo from "@assets/icons/pgc-logo.png";
+import raffLogo from "@assets/icons/raff-logo.png";
 
 import { companies } from "./const";
 
 import "./slider.css";
 
-const logos = [ErLogo, GorenjeLogo, MeiLogo, MosoblLogo, PgcLogo, RaffLogo];
+// const logos = [ErLogo, GorenjeLogo, MeiLogo, MosoblLogo, PgcLogo, RaffLogo];
+const imgPaths = [erLogo, gorLogo, meiLogo, mosoblLogo, pgcLogo, raffLogo];
 
 const CardGallery = () => {
 	const sliderRef = useRef<Slider | null>(null);
@@ -31,7 +33,7 @@ const CardGallery = () => {
 		sliderRef.current?.slickNext();
 	};
 
-	const previous = () => {
+	const prev = () => {
 		sliderRef.current?.slickPrev();
 	};
 
@@ -56,32 +58,33 @@ const CardGallery = () => {
 				},
 			},
 		],
+		autoplay: true,
+		autoplaySpeed: 2000,
+		pauseOnHover: true,
 	};
 
 	return (
 		<div className="slider-container">
 			<Slider ref={sliderRef} {...settings}>
 				{companies.map((item, index) => {
-					const IconComponent = logos[index];
-
+					const imgPath = imgPaths[index];
 					return (
 						<div key={index} className="slide">
 							<div className="card">
-								{item.name}
-
-								<IconComponent />
+								<div className="card-title">{item.name}</div>
+								<img src={imgPath} alt={"logo" + item.name} />
 							</div>
 						</div>
 					);
 				})}
 			</Slider>
-			<div style={{ textAlign: "center" }}>
-				<button className="button" onClick={previous}>
-					Previous
-				</button>
-				<button className="button" onClick={next}>
-					Next
-				</button>
+			<div className="button-container">
+				<IconButton onClick={prev} className="icon-button">
+					<BackIcon />
+				</IconButton>
+				<IconButton onClick={next} className="icon-button">
+					<ForwardIcon />
+				</IconButton>
 			</div>
 		</div>
 	);

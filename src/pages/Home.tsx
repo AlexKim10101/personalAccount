@@ -1,11 +1,19 @@
 import React from "react";
 import imgPath from "@assets/img/first-section-bg-image.png";
 import CardGallery from "@components/Slider";
+import {
+	Box,
+	Button,
+	Card,
+	CardContent,
+	Typography,
+	IconButton,
+} from "@mui/material";
 
 function Home() {
 	return (
 		<>
-			{/* <section className="section-home">
+			<section className="section-home">
 				<img className="background-image" src={imgPath} alt="section-bg" />
 				<div className="background-container"></div>
 				<div className="section-home-content">
@@ -29,10 +37,19 @@ function Home() {
 						</div>
 					</div>
 				</div>
-			</section> */}
+			</section>
 
 			<section className="section-clients">
+				<Typography>
+					Нашей компании доверяют более 50 клиентов из различных <br />
+					сфер: финансы, энергетика, ритейл и другие.
+				</Typography>
+
 				<CardGallery />
+			</section>
+
+			<section className="section-about-product">
+				<Typography>О продукте</Typography>
 			</section>
 		</>
 	);
