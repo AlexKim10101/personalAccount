@@ -9,6 +9,7 @@ import {
 	Typography,
 	IconButton,
 } from "@mui/material";
+import GridComponent from "@components/GridComponent";
 
 function Home() {
 	return (
@@ -49,7 +50,8 @@ function Home() {
 			</section>
 
 			<section className="section-about-product">
-				<Typography>О продукте</Typography>
+				<div className="section-about-product-title">О продукте</div>
+				<GridComponent />
 			</section>
 		</>
 	);

@@ -211,3 +211,9 @@ footer {
 @media (min-width: 1281px) {
 	/* hi-res laptops and desktops */
 }
+
+.section-about-product-title {
+	display: block;
+	margin-bottom: 20px;
+	font-size: 2rem;
+}

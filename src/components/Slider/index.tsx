@@ -2,14 +2,7 @@ import React, { useRef } from "react";
 import Slider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {
-	Box,
-	Button,
-	Card,
-	CardContent,
-	Typography,
-	IconButton,
-} from "@mui/material";
+import { IconButton } from "@mui/material";
 import { ReactComponent as ForwardIcon } from "@assets/icons/forward-icon.svg";
 import { ReactComponent as BackIcon } from "@assets/icons/back-icon.svg";
 import erLogo from "@assets/icons/er-logo.png";
@@ -23,7 +16,6 @@ import { companies } from "./const";
 
 import "./slider.css";
 
-// const logos = [ErLogo, GorenjeLogo, MeiLogo, MosoblLogo, PgcLogo, RaffLogo];
 const imgPaths = [erLogo, gorLogo, meiLogo, mosoblLogo, pgcLogo, raffLogo];
 
 const CardGallery = () => {
