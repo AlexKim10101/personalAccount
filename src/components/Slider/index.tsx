@@ -53,7 +53,7 @@ const CardGallery: React.FC<ICardGallery> = ({
 			},
 		],
 		autoplay: true,
-		autoplaySpeed: 2000,
+		autoplaySpeed: 3000,
 		pauseOnHover: true,
 	};
 

@@ -3,3 +3,9 @@ export type IAboutProductItem = {
 	title: string;
 	content: string[];
 };
+
+export type IDemoDataItem = {
+	imgPath: string;
+	title: string;
+	content: string;
+};

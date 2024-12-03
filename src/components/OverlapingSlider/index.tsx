@@ -1,39 +1,36 @@
-import React, { Component } from "react";
+import React, { Component, forwardRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./SliderStyles.css";
 
-function CenterMode() {
-	const settings = {
-		infinite: true,
-		slidesToShow: 2,
-		speed: 500,
-	};
-	return (
-		<div className="overlapping-slider">
-			<Slider {...settings}>
-				<div className="my-super-slide">
-					<h3>1</h3>
-				</div>
-				<div className="my-super-slide">
-					<h3>2</h3>
-				</div>
-				<div className="my-super-slide">
-					<h3>3</h3>
-				</div>
-				<div className="my-super-slide">
-					<h3>4</h3>
-				</div>
-				<div className="my-super-slide">
-					<h3>5</h3>
-				</div>
-				<div className="my-super-slide">
-					<h3>6</h3>
-				</div>
-			</Slider>
-		</div>
-	);
-}
+type IDemoSlider = {
+	children: any;
+	handleActive: (count: number) => void;
+};
+// forwardRef<Slider, OverlappingSliderProps>((_, ref)
+const DemoSlider = forwardRef<Slider, IDemoSlider>(
+	({ children, handleActive }, ref) => {
+		const settings = {
+			infinite: true,
+			slidesToShow: 1,
+			speed: 500,
+			arrows: false,
 
-export default CenterMode;
+			// beforeChange: (current, next) => {
+			// 	setOldSlide(current);
+			// 	setActiveSlide(next);
+			// },
+			afterChange: (current: number) => handleActive(current),
+		};
+		return (
+			<div className="overlapping-slider">
+				<Slider ref={ref} {...settings}>
+					{children}
+				</Slider>
+			</div>
+		);
+	}
+);
+
+export default DemoSlider;

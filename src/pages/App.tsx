@@ -3,7 +3,8 @@ import Button from "@mui/material/Button";
 // import logo from './logo.svg';
 import "../index.css";
 import { Outlet } from "react-router";
-import Header from "@components/Header";
+import Header from "widgets/Header";
+import Footer from "widgets/Footer";
 
 function App() {
 	return (
@@ -12,7 +13,7 @@ function App() {
 			<main>
 				<Outlet />
 			</main>
-			<footer></footer>
+			<Footer />
 		</div>
 	);
 }

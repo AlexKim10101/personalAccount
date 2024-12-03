@@ -16,11 +16,48 @@ import meiLogo from "@assets/icons/mei-logo.png";
 import mosoblLogo from "@assets/icons/mosobl-logo.png";
 import pgcLogo from "@assets/icons/pgc-logo.png";
 import raffLogo from "@assets/icons/raff-logo.png";
+
 import { aboutProductData, companies } from "consts/data";
 import OverlappingSlider from "@components/OverlapingSlider";
+import AboutProductSection from "widgets/Sections/AboutProduct";
+import { IDemoDataItem } from "types";
 
 function Home() {
-	const imgPaths = [erLogo, gorLogo, meiLogo, mosoblLogo, pgcLogo, raffLogo];
+	const companiesImgPaths = [
+		erLogo,
+		gorLogo,
+		meiLogo,
+		mosoblLogo,
+		pgcLogo,
+		raffLogo,
+	];
+
+	const demoData: IDemoDataItem[] = [
+		{
+			title: "Управление анкетами",
+			content:
+				"С помощью этого модуля вы сможете создавать анкеты, публиковать их для заполнения и делиться результатами. Это отличный способ собрать нужную информацию быстро и эффективно.",
+			imgPath: "/demo-slides/slide-1.png",
+		},
+		{
+			title: "Стилизация",
+			content:
+				"Персонализируйте свою анкету, выбрав настройки, соответствующие вашему корпоративному стилю. Выделитесь среди других пользователей, показав свою индивидуальность.",
+			imgPath: "/demo-slides/slide-2.png",
+		},
+		{
+			title: "Мобильная адаптивность",
+			content:
+				"Заполнять анкету можно с любого мобильного устройства. Система запоминает ваши ответы, так что вы можете начать работу на компьютере и продолжить на смартфоне.",
+			imgPath: "/demo-slides/slide-3.png",
+		},
+		{
+			title: "Гибкая настройка",
+			content:
+				"Анкета может быть настроена под ваши нужды. Выбирайте типы вопросов, добавляйте пользовательские поля и устанавливайте различные правила для ответов.",
+			imgPath: "/demo-slides/slide-4.png",
+		},
+	];
 
 	return (
 		<>
@@ -62,7 +99,7 @@ function Home() {
 					desctopSlidesToShow={5}
 				>
 					{companies.map((item, index) => {
-						const imgPath = imgPaths[index];
+						const imgPath = companiesImgPaths[index];
 						return (
 							<div key={index} className="my-slide">
 								<div className="card">
@@ -74,55 +111,56 @@ function Home() {
 					})}
 				</CardGallery>
 			</section>
-
-			<section className="section-about-product">
-				<div className="section-about-product-title">О продукте</div>
-				<div className="desctop-version">
-					<GridComponent data={aboutProductData} />
-				</div>
-				<div className="mobile-version">
-					<CardGallery
-						mobileSlidesToShow={1}
-						laptopSlidesToShow={3}
-						desctopSlidesToShow={4}
-					>
-						{aboutProductData.map((item, index) => {
-							const imgPath = imgPaths[index];
-
-							return (
-								<div key={"galleryProductItem" + index}>
-									<div className="product-item">
-										<div className="product-item-header">
-											<div className="product-icon-wrapper">{item.logo}</div>
-											{/* <img src={imgPath} /> */}
-											<div className="product-item-title">{item.title}</div>
-										</div>
-
-										<div className="product-item-content">
-											{item.content.length === 1 ? (
-												<Typography>{item.content[0]}</Typography>
-											) : (
-												<ul className="product-list">
-													{item.content.map((itemContent, index) => (
-														<li
-															className="product-list-item"
-															key={"productItem" + index}
-														>
-															{itemContent}
-														</li>
-													))}
-												</ul>
-											)}
-										</div>
-									</div>
-								</div>
-							);
-						})}
-					</CardGallery>
-				</div>
-			</section>
+			<AboutProductSection data={demoData} />
 		</>
 	);
 }
 
 export default Home;
+
+// <section className="section-about-product">
+// 	<div className="section-about-product-title">О продукте</div>
+// 	<div className="desctop-version">
+// 		<GridComponent data={aboutProductData} />
+// 	</div>
+// 	<div className="mobile-version">
+// 		<CardGallery
+// 			mobileSlidesToShow={1}
+// 			laptopSlidesToShow={3}
+// 			desctopSlidesToShow={4}
+// 		>
+// 			{aboutProductData.map((item, index) => {
+// 				const imgPath = imgPaths[index];
+
+// 				return (
+// 					<div key={"galleryProductItem" + index}>
+// 						<div className="product-item">
+// 							<div className="product-item-header">
+// 								<div className="product-icon-wrapper">{item.logo}</div>
+// 								{/* <img src={imgPath} /> */}
+// 								<div className="product-item-title">{item.title}</div>
+// 							</div>
+
+// 							<div className="product-item-content">
+// 								{item.content.length === 1 ? (
+// 									<Typography>{item.content[0]}</Typography>
+// 								) : (
+// 									<ul className="product-list">
+// 										{item.content.map((itemContent, index) => (
+// 											<li
+// 												className="product-list-item"
+// 												key={"productItem" + index}
+// 											>
+// 												{itemContent}
+// 											</li>
+// 										))}
+// 									</ul>
+// 								)}
+// 							</div>
+// 						</div>
+// 					</div>
+// 				);
+// 			})}
+// 		</CardGallery>
+// 	</div>
+// </section>;
