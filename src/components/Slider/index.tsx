@@ -5,20 +5,22 @@ import "slick-carousel/slick/slick-theme.css";
 import { IconButton } from "@mui/material";
 import { ReactComponent as ForwardIcon } from "@assets/icons/forward-icon.svg";
 import { ReactComponent as BackIcon } from "@assets/icons/back-icon.svg";
-import erLogo from "@assets/icons/er-logo.png";
-import gorLogo from "@assets/icons/gorenje-logo.png";
-import meiLogo from "@assets/icons/mei-logo.png";
-import mosoblLogo from "@assets/icons/mosobl-logo.png";
-import pgcLogo from "@assets/icons/pgc-logo.png";
-import raffLogo from "@assets/icons/raff-logo.png";
-
-import { companies } from "./const";
 
 import "./slider.css";
 
-const imgPaths = [erLogo, gorLogo, meiLogo, mosoblLogo, pgcLogo, raffLogo];
+type ICardGallery = {
+	children: any;
+	mobileSlidesToShow: number;
+	laptopSlidesToShow: number;
+	desctopSlidesToShow: number;
+};
 
-const CardGallery = () => {
+const CardGallery: React.FC<ICardGallery> = ({
+	children,
+	mobileSlidesToShow,
+	laptopSlidesToShow,
+	desctopSlidesToShow,
+}) => {
 	const sliderRef = useRef<Slider | null>(null);
 
 	const next = () => {
@@ -33,20 +35,20 @@ const CardGallery = () => {
 		dots: false,
 		infinite: true,
 		speed: 500,
-		slidesToShow: 5,
+		slidesToShow: desctopSlidesToShow,
 		slidesToScroll: 1,
 		arrows: false,
 		responsive: [
 			{
 				breakpoint: 768,
 				settings: {
-					slidesToShow: 4,
+					slidesToShow: laptopSlidesToShow,
 				},
 			},
 			{
 				breakpoint: 480,
 				settings: {
-					slidesToShow: 2,
+					slidesToShow: mobileSlidesToShow,
 				},
 			},
 		],
@@ -58,17 +60,7 @@ const CardGallery = () => {
 	return (
 		<div className="slider-container">
 			<Slider ref={sliderRef} {...settings}>
-				{companies.map((item, index) => {
-					const imgPath = imgPaths[index];
-					return (
-						<div key={index} className="slide">
-							<div className="card">
-								<div className="card-title">{item.name}</div>
-								<img src={imgPath} alt={"logo" + item.name} />
-							</div>
-						</div>
-					);
-				})}
+				{children}
 			</Slider>
 			<div className="button-container">
 				<IconButton onClick={prev} className="icon-button">
