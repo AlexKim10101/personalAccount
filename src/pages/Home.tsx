@@ -20,7 +20,8 @@ import raffLogo from "@assets/icons/raff-logo.png";
 import { aboutProductData, companies } from "consts/data";
 import OverlappingSlider from "@components/OverlapingSlider";
 import AboutProductSection from "widgets/Sections/AboutProduct";
-import { IDemoDataItem } from "types";
+import { ICaseDataItem, IDemoDataItem } from "types";
+import CasesSection from "widgets/Sections/Cases";
 
 function Home() {
 	const companiesImgPaths = [
@@ -56,6 +57,71 @@ function Home() {
 			content:
 				"Анкета может быть настроена под ваши нужды. Выбирайте типы вопросов, добавляйте пользовательские поля и устанавливайте различные правила для ответов.",
 			imgPath: "/demo-slides/slide-4.png",
+		},
+	];
+
+	const caseData: ICaseDataItem[] = [
+		{
+			caption: "Мониторинг Инклюзивной образовательной среды",
+			description: {
+				title:
+					"Проведение Всероссийского Мониторинга Инклюзивной образовательной среды 2023",
+				content:
+					"Итогом работы стал интерактивный отчет о состоянии Инклюзивной образовательной среды каждого региона РФ с возможностью агрегации и оценки интегрального индекса РФ. Мониторинг проводился совместно с Федеральным центром по развитию инклюзивного общего и дополнительного образования.",
+			},
+			slides: [
+				"/case-slides/case-one-slide1.jpg",
+				"/case-slides/case-one-slide2.jpg",
+				"/case-slides/case-one-slide3.jpg",
+				"/case-slides/case-one-slide4.jpg",
+				"/case-slides/case-one-slide5.jpg",
+			],
+			statisticPoints: [
+				{ title: "Длительность кампании:", content: "2 месяца" },
+				{ title: "Количество респондентов:", content: "146 тысяч" },
+				{ title: "Объём результатов:", content: "20 Гб" },
+				{ title: "Количество видов анкет:", content: "9 видов" },
+			],
+			functionPoints: {
+				title: "Реализованный функционал:",
+				content: [
+					"Генерация и рассылка индивидуальных ссылок для каждой образовательной организации",
+					"Применение правил логической корректности для получения достоверных данных",
+					"Онлайн-мониторинг процесса заполнения анкет",
+					"Применение индексного анализа полученных ответов",
+					"Применение частоного анализа полученных ответов",
+					"Применение кластерного анализа полученных ответов",
+				],
+			},
+		},
+		{
+			caption: "Кампания по оценке результативности",
+			description: {
+				title:
+					"Ежегодная кампания по оценке результативности кафедр Университета МЭИ",
+				content:
+					"На основе расчета показателей и собранной во время анкетирования информации ежегодно рассчитывается коэффициент результативности кафедр, влияющий на стратегию развития ВУЗа.",
+			},
+			slides: [
+				"/case-slides/case-two-slide1.jpg",
+				"/case-slides/case-two-slide2.jpg",
+				"/case-slides/case-two-slide3.jpg",
+			],
+			statisticPoints: [
+				{ title: "Число сотрудников:", content: "2 тысячи" },
+				{ title: "Количество вопросов:", content: "63 вопроса" },
+				{ title: "Среднее время заполнения анкеты:", content: "29 минут" },
+				{ title: "Время обработки результатов:", content: "<1 секунды" },
+			],
+			functionPoints: {
+				title: "Реализованный функционал:",
+				content: [
+					"Анализ корреляции ответов со значениями фактически достигнутых показателей",
+					"Обработка результатов с применением нейронных сетей",
+					"Напоминания о заполнении и уведомления о результатах на почту и в телеграм ",
+					"Визуализация данных в виде рейтингов и радаров",
+				],
+			},
 		},
 	];
 
@@ -112,55 +178,9 @@ function Home() {
 				</CardGallery>
 			</section>
 			<AboutProductSection data={demoData} />
+			<CasesSection data={caseData} />
 		</>
 	);
 }
 
 export default Home;
-
-// <section className="section-about-product">
-// 	<div className="section-about-product-title">О продукте</div>
-// 	<div className="desctop-version">
-// 		<GridComponent data={aboutProductData} />
-// 	</div>
-// 	<div className="mobile-version">
-// 		<CardGallery
-// 			mobileSlidesToShow={1}
-// 			laptopSlidesToShow={3}
-// 			desctopSlidesToShow={4}
-// 		>
-// 			{aboutProductData.map((item, index) => {
-// 				const imgPath = imgPaths[index];
-
-// 				return (
-// 					<div key={"galleryProductItem" + index}>
-// 						<div className="product-item">
-// 							<div className="product-item-header">
-// 								<div className="product-icon-wrapper">{item.logo}</div>
-// 								{/* <img src={imgPath} /> */}
-// 								<div className="product-item-title">{item.title}</div>
-// 							</div>
-
-// 							<div className="product-item-content">
-// 								{item.content.length === 1 ? (
-// 									<Typography>{item.content[0]}</Typography>
-// 								) : (
-// 									<ul className="product-list">
-// 										{item.content.map((itemContent, index) => (
-// 											<li
-// 												className="product-list-item"
-// 												key={"productItem" + index}
-// 											>
-// 												{itemContent}
-// 											</li>
-// 										))}
-// 									</ul>
-// 								)}
-// 							</div>
-// 						</div>
-// 					</div>
-// 				);
-// 			})}
-// 		</CardGallery>
-// 	</div>
-// </section>;

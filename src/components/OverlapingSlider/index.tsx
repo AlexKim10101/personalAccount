@@ -16,7 +16,9 @@ const DemoSlider = forwardRef<Slider, IDemoSlider>(
 			slidesToShow: 1,
 			speed: 500,
 			arrows: false,
-
+			// autoplay: true,
+			autoplaySpeed: 3000,
+			pauseOnHover: true,
 			// beforeChange: (current, next) => {
 			// 	setOldSlide(current);
 			// 	setActiveSlide(next);

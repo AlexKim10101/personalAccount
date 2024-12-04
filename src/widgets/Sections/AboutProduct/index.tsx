@@ -31,47 +31,49 @@ const AboutProductSection: React.FC<IAboutProductSection> = ({ data }) => {
 	return (
 		<>
 			<section className="section-about-product">
-				<div className="section-about-product-title">О продукте</div>
-				<div className="desctop-version">
-					<GridComponent data={aboutProductData} />
-				</div>
-				<div className="mobile-version">
-					<CardGallery
-						mobileSlidesToShow={1}
-						laptopSlidesToShow={3}
-						desctopSlidesToShow={4}
-					>
-						{aboutProductData.map((item, index) => {
-							return (
-								<div key={"galleryProductItem" + index}>
-									<div className="product-item">
-										<div className="product-item-header">
-											<div className="product-icon-wrapper">{item.logo}</div>
-											{/* <img src={imgPath} /> */}
-											<div className="product-item-title">{item.title}</div>
-										</div>
+				<div className="subsection-grid">
+					<div className="section-about-product-title">О продукте</div>
+					<div className="desctop-version">
+						<GridComponent data={aboutProductData} />
+					</div>
+					<div className="mobile-version">
+						<CardGallery
+							mobileSlidesToShow={1}
+							laptopSlidesToShow={3}
+							desctopSlidesToShow={4}
+						>
+							{aboutProductData.map((item, index) => {
+								return (
+									<div key={"galleryProductItem" + index}>
+										<div className="product-item">
+											<div className="product-item-header">
+												<div className="product-icon-wrapper">{item.logo}</div>
+												{/* <img src={imgPath} /> */}
+												<div className="product-item-title">{item.title}</div>
+											</div>
 
-										<div className="product-item-content">
-											{item.content.length === 1 ? (
-												<Typography>{item.content[0]}</Typography>
-											) : (
-												<ul className="product-list">
-													{item.content.map((itemContent, index) => (
-														<li
-															className="product-list-item"
-															key={"productItem" + index}
-														>
-															{itemContent}
-														</li>
-													))}
-												</ul>
-											)}
+											<div className="product-item-content">
+												{item.content.length === 1 ? (
+													<Typography>{item.content[0]}</Typography>
+												) : (
+													<ul className="product-list">
+														{item.content.map((itemContent, index) => (
+															<li
+																className="product-list-item"
+																key={"productItem" + index}
+															>
+																{itemContent}
+															</li>
+														))}
+													</ul>
+												)}
+											</div>
 										</div>
 									</div>
-								</div>
-							);
-						})}
-					</CardGallery>
+								);
+							})}
+						</CardGallery>
+					</div>
 				</div>
 
 				<div className="demo-slider-container">
@@ -91,8 +93,8 @@ const AboutProductSection: React.FC<IAboutProductSection> = ({ data }) => {
 							ref={sliderRef}
 							handleActive={(count: number) => setActiveSlide(count)}
 						>
-							{data.map(item => (
-								<div className="demo-slide-item">
+							{data.map((item, index) => (
+								<div key={"slide" + index} className="demo-slide-item">
 									<img src={item.imgPath} alt={"slide" + item.title} />
 								</div>
 							))}

@@ -45,7 +45,7 @@ main {
 	padding-top: var(--header-height);
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 40px;
 }
 
 footer {
@@ -73,7 +73,7 @@ footer {
 .section-clients {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 10px;
 }
 .section-home-content {
 	/* background-color: rgba(202, 72, 72, 0.4); */
@@ -156,12 +156,12 @@ footer {
 .section-about-product {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 60px;
 }
 
 .section-about-product-title {
 	display: block;
-	/* margin-bottom: 1rem; */
+	margin-bottom: 1rem;
 	font-size: 1.5rem;
 }
 
@@ -238,10 +238,11 @@ footer {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .slider-wrapper {
-	width: 100%%;
+	width: 100%;
 
 	/* width: 70%; */
 }

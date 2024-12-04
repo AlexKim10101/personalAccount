@@ -9,3 +9,20 @@ export type IDemoDataItem = {
 	title: string;
 	content: string;
 };
+
+export type ICaseDataItem = {
+	caption: string;
+	description: {
+		title: string;
+		content: string;
+	};
+	statisticPoints: {
+		title: string;
+		content: string;
+	}[];
+	functionPoints: {
+		title: string;
+		content: string[];
+	};
+	slides: string[];
+};
