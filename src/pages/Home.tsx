@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import imgPath from "@assets/img/first-section-bg-image.png";
 import CardGallery from "@components/Slider";
 import {
@@ -16,6 +17,7 @@ import meiLogo from "@assets/icons/mei-logo.png";
 import mosoblLogo from "@assets/icons/mosobl-logo.png";
 import pgcLogo from "@assets/icons/pgc-logo.png";
 import raffLogo from "@assets/icons/raff-logo.png";
+import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
 
 import { aboutProductData, companies } from "consts/data";
 import OverlappingSlider from "@components/OverlapingSlider";
@@ -179,8 +181,73 @@ function Home() {
 			</section>
 			<AboutProductSection data={demoData} />
 			<CasesSection data={caseData} />
+			<section className="section">
+				<div className="section-title">Прайс и комплектация</div>
+				<div className="text">
+					Мы предлагаем возможность выбора{" "}
+					<span>коробочной или облачной версии</span>.
+				</div>
+				<div className="cloud-version">
+					<div className="version-title">Облачная версия</div>
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th>Демо-доступ</th>
+								<th>Базовая лицензия</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Стоимость</td>
+								<td>Бесплатно </td>
+								<td>5000 ₽/месяц</td>
+							</tr>
+							<tr>
+								<td>Количество анкет</td>
+								<td>2 </td>
+								<td>∞</td>
+							</tr>
+							<tr>
+								<td>Количество администраторов</td>
+								<td>1 </td>
+								<td>5</td>
+							</tr>
+							<tr>
+								<td>Количество собранных ответов</td>
+								<td>50 </td>
+								<td>∞</td>
+							</tr>
+							<tr>
+								<td>Количество ссылок на заполнение</td>
+								<td>2 </td>
+								<td>∞</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div className="box-version">
+					<div className="version-title">Коробочная версия</div>
+					<div className="text">
+						Стоимость коробочной версии может варьироваться, поэтому просим вас
+						оставить заявку на запрос цены, и наш менеджер свяжется с вами
+						в ближайшее время.
+					</div>
+					<Link to="/login" className="link-to-login">
+						<div className="link-content">Запросить цену</div>
+						<div className="link-content">
+							<ArrowIcon />
+						</div>
+					</Link>
+				</div>
+			</section>
 		</>
 	);
 }
 
 export default Home;
+// Стоимость
+// Количество анкет
+// Количество администраторов
+// Количество собранных ответов
+// Количество ссылок на заполнение

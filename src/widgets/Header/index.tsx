@@ -11,7 +11,7 @@ import {
 import { Link } from "react-router";
 
 import { ReactComponent as BurgerIcon } from "@assets/icons/burger-menu-icon.svg";
-import { ReactComponent as MyIcon } from "@assets/icons/icon1.svg";
+import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
 import { ReactComponent as LogoIcon } from "@assets/icons/logo_kpi.svg";
 
 import "./header.css";
@@ -125,7 +125,7 @@ const Header: React.FC = () => {
 				<Link to="/login" className="link-to-login">
 					<div className="link-content">Попробовать</div>
 					<div className="link-content">
-						<MyIcon />
+						<ArrowIcon />
 					</div>
 				</Link>
 			</div>
