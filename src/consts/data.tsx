@@ -4,7 +4,13 @@ import { ReactComponent as AnsIcon } from "@assets/icons/ic_collect.svg";
 import { ReactComponent as ChartIcon } from "@assets/icons/ic_chart.svg";
 import { ReactComponent as GroupIcon } from "@assets/icons/ic_group.svg";
 import { ReactComponent as AutoIcon } from "@assets/icons/ic_auto.svg";
-import { IAboutProductItem } from "types";
+import {
+	IAboutProductItem,
+	ICaseDataItem,
+	IDemoDataItem,
+	ITableField,
+	IVersionData,
+} from "types";
 
 export const companies = [
 	{ name: "Телекоммуникация", path: "" },
@@ -69,5 +75,130 @@ export const aboutProductData: IAboutProductItem[] = [
 			"Условия видимости вопросов и страниц анкеты",
 			"Завершение анкетирования по сроку или сбору необходимого числа ответов",
 		],
+	},
+];
+
+export const demoData: IDemoDataItem[] = [
+	{
+		title: "Управление анкетами",
+		content:
+			"С помощью этого модуля вы сможете создавать анкеты, публиковать их для заполнения и делиться результатами. Это отличный способ собрать нужную информацию быстро и эффективно.",
+		imgPath: "/demo-slides/slide-1.png",
+	},
+	{
+		title: "Стилизация",
+		content:
+			"Персонализируйте свою анкету, выбрав настройки, соответствующие вашему корпоративному стилю. Выделитесь среди других пользователей, показав свою индивидуальность.",
+		imgPath: "/demo-slides/slide-2.png",
+	},
+	{
+		title: "Мобильная адаптивность",
+		content:
+			"Заполнять анкету можно с любого мобильного устройства. Система запоминает ваши ответы, так что вы можете начать работу на компьютере и продолжить на смартфоне.",
+		imgPath: "/demo-slides/slide-3.png",
+	},
+	{
+		title: "Гибкая настройка",
+		content:
+			"Анкета может быть настроена под ваши нужды. Выбирайте типы вопросов, добавляйте пользовательские поля и устанавливайте различные правила для ответов.",
+		imgPath: "/demo-slides/slide-4.png",
+	},
+];
+
+export const caseData: ICaseDataItem[] = [
+	{
+		caption: "Мониторинг Инклюзивной образовательной среды",
+		description: {
+			title:
+				"Проведение Всероссийского Мониторинга Инклюзивной образовательной среды 2023",
+			content:
+				"Итогом работы стал интерактивный отчет о состоянии Инклюзивной образовательной среды каждого региона РФ с возможностью агрегации и оценки интегрального индекса РФ. Мониторинг проводился совместно с Федеральным центром по развитию инклюзивного общего и дополнительного образования.",
+		},
+		slides: [
+			"/case-slides/case-one-slide1.jpg",
+			"/case-slides/case-one-slide2.jpg",
+			"/case-slides/case-one-slide3.jpg",
+			"/case-slides/case-one-slide4.jpg",
+			"/case-slides/case-one-slide5.jpg",
+		],
+		statisticPoints: [
+			{ title: "Длительность кампании:", content: "2 месяца" },
+			{ title: "Количество респондентов:", content: "146 тысяч" },
+			{ title: "Объём результатов:", content: "20 Гб" },
+			{ title: "Количество видов анкет:", content: "9 видов" },
+		],
+		functionPoints: {
+			title: "Реализованный функционал:",
+			content: [
+				"Генерация и рассылка индивидуальных ссылок для каждой образовательной организации",
+				"Применение правил логической корректности для получения достоверных данных",
+				"Онлайн-мониторинг процесса заполнения анкет",
+				"Применение индексного анализа полученных ответов",
+				"Применение частоного анализа полученных ответов",
+				"Применение кластерного анализа полученных ответов",
+			],
+		},
+	},
+	{
+		caption: "Кампания по оценке результативности",
+		description: {
+			title:
+				"Ежегодная кампания по оценке результативности кафедр Университета МЭИ",
+			content:
+				"На основе расчета показателей и собранной во время анкетирования информации ежегодно рассчитывается коэффициент результативности кафедр, влияющий на стратегию развития ВУЗа.",
+		},
+		slides: [
+			"/case-slides/case-two-slide1.jpg",
+			"/case-slides/case-two-slide2.jpg",
+			"/case-slides/case-two-slide3.jpg",
+		],
+		statisticPoints: [
+			{ title: "Число сотрудников:", content: "2 тысячи" },
+			{ title: "Количество вопросов:", content: "63 вопроса" },
+			{ title: "Среднее время заполнения анкеты:", content: "29 минут" },
+			{ title: "Время обработки результатов:", content: "<1 секунды" },
+		],
+		functionPoints: {
+			title: "Реализованный функционал:",
+			content: [
+				"Анализ корреляции ответов со значениями фактически достигнутых показателей",
+				"Обработка результатов с применением нейронных сетей",
+				"Напоминания о заполнении и уведомления о результатах на почту и в телеграм ",
+				"Визуализация данных в виде рейтингов и радаров",
+			],
+		},
+	},
+];
+
+export const tableFields: ITableField[] = [
+	{ id: "price", title: "Стоимость" },
+	{ id: "totalSurveys", title: "Количество анкет" },
+	{ id: "totalAdmins", title: "Количество администраторов" },
+	{ id: "responseCount", title: "Количество собранных ответов" },
+	{ id: "linkCount", title: "Количество ссылок на заполнение" },
+];
+
+export const versions: IVersionData[] = [
+	{
+		id: "demo",
+		title: "Демо-доступ",
+		data: {
+			price: "Бесплатно",
+			totalSurveys: "2",
+			totalAdmins: "1",
+			responseCount: "50",
+			linkCount: "2",
+		},
+	},
+	{
+		id: "base",
+		title: "Базовая лицензия",
+		data: {
+			price: "5000 ₽/месяц",
+			totalSurveys: "∞",
+			totalAdmins: "5",
+			responseCount: "∞",
+			linkCount: "∞",
+		},
 	},
 ];

@@ -115,15 +115,3 @@ const CasesSection: React.FC<ICasesSection> = ({ data }) => {
 };
 
 export default CasesSection;
-
-// const sliderRef = useRef<Slider | null>(null);
-
-// const [activeSlide, setActiveSlide] = useState(0);
-
-// const handleNext = () => {
-// 	sliderRef.current?.slickNext();
-// };
-
-// const handlePrev = () => {
-// 	sliderRef.current?.slickPrev();
-// };
