@@ -1,4 +1,4 @@
-.section-cases {
+.section {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
@@ -9,6 +9,34 @@
 	font-size: 1.5rem;
 }
 
+.text {
+	font-weight: 400;
+	max-width: 50%;
+}
+
+.text > span {
+	font-weight: 800;
+}
+
+.cloud-version {
+	position: relative;
+}
+
+.box-version {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.version-title {
+	font-size: 1.5rem;
+	font-weight: 800;
+	color: var(--brand-color);
+}
+.title-shift {
+	position: absolute;
+	/* top: 1.5rem; */
+}
 .tabs {
 	font-size: 0.7rem;
 	display: flex;
@@ -143,6 +171,10 @@ ol > li {
 
 .list-item-text {
 	font-size: 0.875rem;
+}
+
+.link-align-start {
+	align-self: flex-start;
 }
 
 .demo-slide-item {

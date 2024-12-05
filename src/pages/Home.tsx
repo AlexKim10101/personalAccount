@@ -188,7 +188,7 @@ function Home() {
 					<span>коробочной или облачной версии</span>.
 				</div>
 				<div className="cloud-version">
-					<div className="version-title">Облачная версия</div>
+					<div className="version-title title-shift">Облачная версия</div>
 					<table>
 						<thead>
 							<tr>
@@ -233,7 +233,7 @@ function Home() {
 						оставить заявку на запрос цены, и наш менеджер свяжется с вами
 						в ближайшее время.
 					</div>
-					<Link to="/login" className="link-to-login">
+					<Link to="/login" className="link-to-login link-align-start">
 						<div className="link-content">Запросить цену</div>
 						<div className="link-content">
 							<ArrowIcon />
@@ -241,6 +241,8 @@ function Home() {
 					</Link>
 				</div>
 			</section>
+
+			<section className="section"></section>
 		</>
 	);
 }
