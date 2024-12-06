@@ -12,6 +12,15 @@ import {
 	IVersionData,
 } from "types";
 
+export const anchorData = [
+	{ name: "Главная", path: "/" },
+	{ name: "О продукте", path: "/login" },
+	{ name: "Кейсы", path: "/account" },
+	{ name: "Прайс и комплектации", path: "/" },
+	{ name: "Документация", path: "/login" },
+	{ name: "Контакты", path: "/account" },
+];
+
 export const companies = [
 	{ name: "Телекоммуникация", path: "" },
 	{ name: "Ритейл", path: "" },

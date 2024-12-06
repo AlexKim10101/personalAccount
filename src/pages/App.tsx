@@ -8,13 +8,15 @@ import Footer from "widgets/Footer";
 
 function App() {
 	return (
-		<div className="container">
-			<Header />
-			<main>
-				<Outlet />
-			</main>
+		<>
+			<div className="container">
+				<Header />
+				<main>
+					<Outlet />
+				</main>
+			</div>
 			<Footer />
-		</div>
+		</>
 	);
 }
 

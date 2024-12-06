@@ -15,6 +15,7 @@ import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
 import { ReactComponent as LogoIcon } from "@assets/icons/logo_kpi.svg";
 
 import "./header.css";
+import { anchorData } from "consts/data";
 // import myIconPath from "../assets/icons/icon1.svg";
 // import myIconPath from "..assets/icon";
 
@@ -66,11 +67,11 @@ const Header: React.FC = () => {
 							},
 						}}
 					>
-						{pages.map(page => (
+						{anchorData.map(data => (
 							<MenuItem
-								key={page.name}
+								key={data.name}
 								component={Link}
-								to={page.path}
+								to={data.path}
 								onClick={handleMenuClose}
 								style={{
 									margin: "0px",
@@ -78,7 +79,7 @@ const Header: React.FC = () => {
 									display: "block",
 								}}
 							>
-								{page.name}
+								{data.name}
 							</MenuItem>
 						))}
 					</Menu>
@@ -103,11 +104,11 @@ const Header: React.FC = () => {
 						<LogoIcon />
 					</Typography>
 
-					{pages.map(page => (
+					{anchorData.map(data => (
 						<Typography
-							key={page.name}
+							key={data.name}
 							component={Link}
-							to={page.path}
+							to={data.path}
 							sx={{
 								display: "flex",
 								alignItems: "center",
@@ -118,7 +119,7 @@ const Header: React.FC = () => {
 								"&:hover": { textDecoration: "underline" },
 							}}
 						>
-							{page.name}
+							{data.name}
 						</Typography>
 					))}
 				</Box>
