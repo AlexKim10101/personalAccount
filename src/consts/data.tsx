@@ -12,6 +12,8 @@ import {
 	IVersionData,
 } from "types";
 
+export const SCROLL_LIMIT = 2500;
+
 export const anchorData = [
 	{ name: "Главная", path: "#home" },
 	{ name: "О продукте", path: "#about-product" },

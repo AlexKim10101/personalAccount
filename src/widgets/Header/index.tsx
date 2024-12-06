@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
 	AppBar,
 	Box,
@@ -9,27 +9,15 @@ import {
 	MenuItem,
 } from "@mui/material";
 import { Link } from "react-router";
-
 import { ReactComponent as BurgerIcon } from "@assets/icons/burger-menu-icon.svg";
 import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
 import { ReactComponent as LogoIcon } from "@assets/icons/logo_kpi.svg";
-
+import { anchorData, SCROLL_LIMIT } from "consts/data";
 import "./header.css";
-import { anchorData } from "consts/data";
-// import myIconPath from "../assets/icons/icon1.svg";
-// import myIconPath from "..assets/icon";
-
-const pages = [
-	{ name: "Главная", path: "/" },
-	{ name: "О продукте", path: "/login" },
-	{ name: "Кейсы", path: "/account" },
-	{ name: "Прайс и комплектации", path: "/" },
-	{ name: "Документация", path: "/login" },
-	{ name: "Контакты", path: "/account" },
-];
 
 const Header: React.FC = () => {
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+	const [hidden, setHidden] = useState(false);
 	const isMenuOpen = Boolean(anchorEl);
 
 	const handleMenuOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -39,11 +27,25 @@ const Header: React.FC = () => {
 	const handleMenuClose = () => {
 		setAnchorEl(null);
 	};
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const scrollLimit = SCROLL_LIMIT;
+			setHidden(window.scrollY > scrollLimit);
+		};
+
+		window.addEventListener("scroll", handleScroll);
+
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
 	return (
-		<header>
+		<header className={hidden ? "hidden" : ""}>
 			<div className="header-container">
 				{/* Иконка меню для мобильных */}
-				<Box sx={{ display: { xs: "flex", md: "none" } }}>
+				<div className="block-mob">
 					<IconButton
 						size="large"
 						edge="start"
@@ -75,23 +77,18 @@ const Header: React.FC = () => {
 								onClick={handleMenuClose}
 								style={{
 									margin: "0px",
-									fontFamily: "inherit",
 									display: "block",
+									fontFamily: "Manrope",
 								}}
 							>
 								{data.name}
 							</MenuItem>
 						))}
 					</Menu>
-				</Box>
+				</div>
+
 				{/* Горизонтальное меню для Desktop */}
-				<Box
-					sx={{
-						display: { xs: "none", md: "flex" },
-						gap: "12px",
-						alignItems: "center",
-					}}
-				>
+				<div className="block-desk">
 					<Typography
 						key="logo"
 						sx={{
@@ -113,7 +110,7 @@ const Header: React.FC = () => {
 								display: "flex",
 								alignItems: "center",
 								color: "inherit",
-								fontFamily: "inherit",
+								fontFamily: "Manrope",
 								textDecoration: "none",
 								margin: "0px",
 								"&:hover": { textDecoration: "underline" },
@@ -122,7 +119,8 @@ const Header: React.FC = () => {
 							{data.name}
 						</Typography>
 					))}
-				</Box>
+				</div>
+
 				<Link to="/login" className="link">
 					<div className="link-content">Попробовать</div>
 					<div className="link-content">

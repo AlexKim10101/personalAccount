@@ -64,11 +64,10 @@ function Home() {
 			</section>
 
 			<section className="section-clients">
-				<Typography>
+				<div className="text">
 					Нашей компании доверяют более 50 клиентов из различных <br />
 					сфер: финансы, энергетика, ритейл и другие.
-				</Typography>
-
+				</div>
 				<CardGallery
 					mobileSlidesToShow={2}
 					laptopSlidesToShow={4}

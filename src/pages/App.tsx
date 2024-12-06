@@ -9,8 +9,8 @@ import Footer from "widgets/Footer";
 function App() {
 	return (
 		<>
+			<Header />
 			<div className="container">
-				<Header />
 				<main>
 					<Outlet />
 				</main>
