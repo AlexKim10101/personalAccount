@@ -15,7 +15,7 @@ const PriceSection: React.FC<ICasesSection> = ({ versions, tableFields }) => {
 	const filteredVersions = [currentVersion];
 
 	return (
-		<section className="section">
+		<section className="section" id="prices">
 			<div className="section-title">Прайс и комплектация</div>
 			<div className="text">
 				Мы предлагаем возможность выбора{" "}

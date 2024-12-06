@@ -34,7 +34,7 @@ const CasesSection: React.FC<ICasesSection> = ({ data }) => {
 	const activeCase = data[activeCaseIndex];
 
 	return (
-		<section className="section">
+		<section className="section" id="cases">
 			<div className="section-title">Кейсы</div>
 			<div className="tabs ">
 				{data.map((item, index) => {

@@ -37,7 +37,7 @@ function Home() {
 
 	return (
 		<>
-			<section className="section-home">
+			<section className="section-home" id="home">
 				<img className="background-image" src={imgPath} alt="section-bg" />
 				<div className="background-container"></div>
 				<div className="section-home-content">
@@ -90,7 +90,7 @@ function Home() {
 			<AboutProductSection data={demoData} />
 			<CasesSection data={caseData} />
 			<PriceSection versions={versions} tableFields={tableFields} />
-			<section className="section">
+			<section className="section" id="documentation">
 				<div className="section-title">Документация</div>
 				<div className="text">
 					Вы можете ознакомиться с презентацией возможностей продукта,
@@ -118,7 +118,7 @@ function Home() {
 				</div>
 			</section>
 
-			<section className="section">
+			<section className="section" id="contacts">
 				<div className="info-wrapper">
 					<div className="section-title title-width">Контакты</div>
 					<div className="text">

@@ -13,12 +13,12 @@ import {
 } from "types";
 
 export const anchorData = [
-	{ name: "Главная", path: "/" },
-	{ name: "О продукте", path: "/login" },
-	{ name: "Кейсы", path: "/account" },
-	{ name: "Прайс и комплектации", path: "/" },
-	{ name: "Документация", path: "/login" },
-	{ name: "Контакты", path: "/account" },
+	{ name: "Главная", path: "#home" },
+	{ name: "О продукте", path: "#about-product" },
+	{ name: "Кейсы", path: "#cases" },
+	{ name: "Прайс и комплектации", path: "#prices" },
+	{ name: "Документация", path: "#documentation" },
+	{ name: "Контакты", path: "#contacts" },
 ];
 
 export const companies = [

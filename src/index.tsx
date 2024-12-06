@@ -6,6 +6,8 @@ import "normalize.css";
 import App from "./pages/App";
 import Home from "./pages/Home";
 import Account from "./pages/Account";
+import ScrollToHash from "@components/Scroll";
+
 import "./index.css";
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement
@@ -13,6 +15,7 @@ const root = ReactDOM.createRoot(
 root.render(
 	<React.StrictMode>
 		<BrowserRouter>
+			<ScrollToHash />
 			<Routes>
 				<Route path="/" element={<App />}>
 					<Route index element={<Home />} />
