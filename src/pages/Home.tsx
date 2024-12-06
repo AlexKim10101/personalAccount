@@ -10,6 +10,9 @@ import mosoblLogo from "@assets/icons/mosobl-logo.png";
 import pgcLogo from "@assets/icons/pgc-logo.png";
 import raffLogo from "@assets/icons/raff-logo.png";
 import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
+import { ReactComponent as AddressIcon } from "@assets/icons/address-icon.svg";
+import { ReactComponent as PhoneIcon } from "@assets/icons/phone-icon.svg";
+import { ReactComponent as MailIcon } from "@assets/icons/mail-icon.svg";
 
 import {
 	caseData,
@@ -94,19 +97,19 @@ function Home() {
 					инструкцией по установке ПО и руководством пользователя.
 				</div>
 				<div className="link-container">
-					<Link to="/login" className="link link-orange">
+					<Link to="/login" className="link link-orange link-width">
 						<div className="link-content">Презентация возможностей</div>
 						<div className="link-content">
 							<ArrowIcon />
 						</div>
 					</Link>
-					<Link to="/login" className="link link-orange-mob">
+					<Link to="/login" className="link link-orange-mob link-width">
 						<div className="link-content">Инструкция по установке ПО</div>
 						<div className="link-content">
 							<ArrowIcon />
 						</div>
 					</Link>
-					<Link to="/login" className="link link-orange">
+					<Link to="/login" className="link link-orange link-width">
 						<div className="link-content">Руководство пользователя</div>
 						<div className="link-content">
 							<ArrowIcon />
@@ -115,52 +118,62 @@ function Home() {
 				</div>
 			</section>
 
-			{/* <section className="section">
-				<div className="section-title">Контакты</div>
-				<div className="text">
-					Мы будем рады ответить на любые вопросы.Специалисты на связи каждый
-					будний день с 10 до 19.
-				</div>
-				<div className="info-container">
-					<div className="info-part">
-						<ul className="info-list">
-							<li className="info-list-item">
-								<div className="icon-wrap"></div>
-								<div className="info-item-content">
-									111250, г. Москва, проезд Завода "Серп и Молот", д. 6 корп.1,
-									Бизнес центр "РОСТЭК"
-								</div>
-							</li>
-							<li className="info-list-item">
-								<div className="icon-wrap"></div>
-								<div className="info-item-content">
-									<div>+7 (495)662-11-31</div>
-									<div>+7 (495)662-11-32</div>
-									<div>+7 (495)662-11-33</div>
-								</div>
-							</li>
-							<li className="info-list-item">
-								<div className="icon-wrap"></div>
-								<div className="info-item-content">info@kpi-monitor.ru</div>
-							</li>
-						</ul>
+			<section className="section">
+				<div className="info-wrapper">
+					<div className="section-title title-width">Контакты</div>
+					<div className="text">
+						Мы будем рады ответить на любые вопросы.
+						<br />
+						Специалисты на связи каждый будний день с 10 до 19.
 					</div>
-					<div className="info-part">
-						<div className="info-text">
-							Также вы можете бесплатно испытать наш продукт, чтобы лично
-							оценить его возможности в демо-версии.Для покупки полной версии
-							с вами свяжется наш менеджер и уточнит все детали.
+					<div className="info-container">
+						<div className="info-part">
+							<ul className="info-list">
+								<li className="info-list-item">
+									<div className="icon-wrap">
+										<AddressIcon />
+									</div>
+									<div className="info-item-content">
+										111250, г. Москва, проезд Завода "Серп и Молот", д. 6
+										корп.1, Бизнес центр "РОСТЭК"
+									</div>
+								</li>
+								<li className="info-list-item">
+									<div className="icon-wrap">
+										<PhoneIcon />
+									</div>
+									<div className="info-item-content">
+										<div>+7 (495)662-11-31</div>
+										<div>+7 (495)662-11-32</div>
+										<div>+7 (495)662-11-33</div>
+									</div>
+								</li>
+								<li className="info-list-item">
+									<div className="icon-wrap">
+										<MailIcon />
+									</div>
+									<div className="info-item-content">info@kpi-monitor.ru</div>
+								</li>
+							</ul>
 						</div>
-
-						<Link to="/login" className="link link-align-start">
-							<div className="link-content">Попробовать</div>
-							<div className="link-content">
-								<ArrowIcon />
+						<div className="divider-adaptive"></div>
+						<div className="info-part">
+							<div className="info-text">
+								Также вы можете бесплатно испытать наш продукт, чтобы лично
+								оценить его возможности в демо-версии.Для покупки полной версии
+								с вами свяжется наш менеджер и уточнит все детали.
 							</div>
-						</Link>
+
+							<Link to="/login" className="link link-orange link-flex-end">
+								<div className="link-content">Попробовать</div>
+								<div className="link-content">
+									<ArrowIcon />
+								</div>
+							</Link>
+						</div>
 					</div>
 				</div>
-			</section> */}
+			</section>
 		</>
 	);
 }

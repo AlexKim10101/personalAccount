@@ -1,14 +1,3 @@
-.text {
-	font-size: 0.875rem;
-	font-weight: 400;
-	/* font-size: 1rem; */
-	/* max-width: 50%; */
-}
-
-.text > span {
-	font-weight: 800;
-}
-
 .cloud-version {
 	position: relative;
 	display: flex;
@@ -63,12 +52,6 @@
 
 .version-item-selected {
 	font-weight: 700;
-}
-
-.divider {
-	border-left: 2px solid white;
-	position: relative;
-	left: -6px;
 }
 
 .title-shift {
@@ -177,10 +160,6 @@ tr:last-child > td:last-child::before {
 }
 @media (min-width: 1025px) {
 	/* big landscape tablets, laptops, and desktops */
-	.text {
-		font-size: 1rem;
-		max-width: 43%;
-	}
 
 	.cloud-version {
 		gap: var(--gap-screen);

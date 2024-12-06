@@ -72,6 +72,18 @@ footer {
 	box-sizing: border-box;
 }
 
+.text {
+	font-size: 0.875rem;
+	font-weight: 400;
+	line-height: 1.4rem;
+	/* font-size: 1rem; */
+	/* max-width: 50%; */
+}
+
+.text > span {
+	font-weight: 800;
+}
+
 .section-home {
 	background-color: var(--grey-light-color);
 	position: relative;
@@ -304,12 +316,83 @@ footer {
 
 .link-orange {
 	background-color: var(--orange-color);
-	min-width: 270px;
+}
+
+.link-width {
+	min-width: 263px;
 }
 
 .link-content {
 	display: flex;
 	align-items: center;
+}
+
+.info-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	font-size: 0.875rem;
+}
+
+.title-width {
+	width: 100%;
+}
+
+.info-container {
+	color: var(--white-color);
+	padding: 40px 28px;
+	border-radius: var(--border-radius-screen);
+	background-color: var(--brand-color);
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-screen);
+}
+.info-part {
+	/* width: 49%; */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+}
+
+.info-list {
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.info-list-item {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.info-item-content {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.divider {
+	border-left: 2px solid white;
+
+	position: relative;
+	left: -6px;
+}
+
+.divider-adaptive {
+	border-top: 2px solid white;
+}
+
+.link-flex-end {
+	margin-top: auto;
+	align-self: flex-start;
 }
 
 @media (min-width: 320px) {
@@ -329,6 +412,29 @@ footer {
 }
 @media (min-width: 1025px) {
 	/* big landscape tablets, laptops, and desktops */
+	.text {
+		font-size: 1rem;
+		max-width: 43%;
+	}
+	.info-wrapper {
+		flex-direction: row;
+		gap: 10px;
+		font-size: 1rem;
+	}
+
+	.info-part {
+		width: 45%;
+	}
+
+	.info-container {
+		flex-direction: row;
+		max-width: 50%;
+	}
+
+	.divider-adaptive {
+		border-left: 2px solid white;
+	}
+
 	.mobile-version {
 		display: none;
 	}
