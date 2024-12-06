@@ -67,6 +67,8 @@
 
 .divider {
 	border-left: 2px solid white;
+	position: relative;
+	left: -6px;
 }
 
 .title-shift {
@@ -177,7 +179,7 @@ tr:last-child > td:last-child::before {
 	/* big landscape tablets, laptops, and desktops */
 	.text {
 		font-size: 1rem;
-		max-width: 50%;
+		max-width: 43%;
 	}
 
 	.cloud-version {

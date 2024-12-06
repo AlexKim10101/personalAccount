@@ -122,7 +122,7 @@ const Header: React.FC = () => {
 						</Typography>
 					))}
 				</Box>
-				<Link to="/login" className="link-to-login">
+				<Link to="/login" className="link">
 					<div className="link-content">Попробовать</div>
 					<div className="link-content">
 						<ArrowIcon />

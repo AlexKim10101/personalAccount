@@ -87,26 +87,26 @@ function Home() {
 			<AboutProductSection data={demoData} />
 			<CasesSection data={caseData} />
 			<PriceSection versions={versions} tableFields={tableFields} />
-			{/* <section className="section">
+			<section className="section">
 				<div className="section-title">Документация</div>
 				<div className="text">
 					Вы можете ознакомиться с презентацией возможностей продукта,
 					инструкцией по установке ПО и руководством пользователя.
 				</div>
 				<div className="link-container">
-					<Link to="/login" className="link-to-login link-align-start">
+					<Link to="/login" className="link link-orange">
 						<div className="link-content">Презентация возможностей</div>
 						<div className="link-content">
 							<ArrowIcon />
 						</div>
 					</Link>
-					<Link to="/login" className="link-to-login link-align-start">
+					<Link to="/login" className="link link-orange-mob">
 						<div className="link-content">Инструкция по установке ПО</div>
 						<div className="link-content">
 							<ArrowIcon />
 						</div>
 					</Link>
-					<Link to="/login" className="link-to-login link-align-start">
+					<Link to="/login" className="link link-orange">
 						<div className="link-content">Руководство пользователя</div>
 						<div className="link-content">
 							<ArrowIcon />
@@ -115,7 +115,7 @@ function Home() {
 				</div>
 			</section>
 
-			<section className="section">
+			{/* <section className="section">
 				<div className="section-title">Контакты</div>
 				<div className="text">
 					Мы будем рады ответить на любые вопросы.Специалисты на связи каждый
@@ -152,7 +152,7 @@ function Home() {
 							с вами свяжется наш менеджер и уточнит все детали.
 						</div>
 
-						<Link to="/login" className="link-to-login link-align-start">
+						<Link to="/login" className="link link-align-start">
 							<div className="link-content">Попробовать</div>
 							<div className="link-content">
 								<ArrowIcon />

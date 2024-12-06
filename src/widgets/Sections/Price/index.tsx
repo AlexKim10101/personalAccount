@@ -26,8 +26,8 @@ const PriceSection: React.FC<ICasesSection> = ({ versions, tableFields }) => {
 				<div className="version-title title-shift">Облачная версия</div>
 				<div className="version-control">
 					{versions.map((v, index) => (
-						<>
-							<div key={"version" + v.id} className="version-item-wrapper">
+						<React.Fragment key={"version" + v.id}>
+							<div className="version-item-wrapper">
 								{v.title}
 								<div
 									className={
@@ -44,7 +44,7 @@ const PriceSection: React.FC<ICasesSection> = ({ versions, tableFields }) => {
 							{index === versions.length - 1 ? null : (
 								<div className="divider"></div>
 							)}
-						</>
+						</React.Fragment>
 					))}
 				</div>
 				<table className="table-mob">
@@ -90,7 +90,7 @@ const PriceSection: React.FC<ICasesSection> = ({ versions, tableFields }) => {
 					оставить заявку на запрос цены, и наш менеджер свяжется с вами
 					в ближайшее время.
 				</div>
-				<Link to="/login" className="link-to-login link-align-start">
+				<Link to="/login" className="link link-align-start">
 					<div className="link-content">Запросить цену</div>
 					<div className="link-content">
 						<ArrowIcon />
