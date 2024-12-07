@@ -1,0 +1,33 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+	align-items: center;
+	width: 400px;
+	/* background-color: var(--grey-dark-color); */
+	padding: 40px;
+	font-family: Manrope;
+}
+
+.section-image > img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.form-container {
+	position: relative;
+	background-color: var(--white-color);
+	border-radius: 20px;
+}
+
+.logo-circle {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	top: -80px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
+}
