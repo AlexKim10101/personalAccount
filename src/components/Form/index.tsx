@@ -7,29 +7,30 @@ import {
 	FormControl,
 	FormHelperText,
 } from "@mui/material";
+import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
+
 import { styled } from "@mui/material/styles";
 
 import "./form.css";
 
-const StyledInput = styled(InputBase)(({ theme }) => ({
+const StyledInput = styled(InputBase)(() => ({
 	position: "relative",
 	width: "100%",
-	border: `1px solid #838383`, // Цвет рамки
-	borderRadius: theme.shape.borderRadius,
+	border: `1px solid #838383`,
+	borderRadius: "4px",
 	padding: "5px 10px",
 	fontSize: "1rem",
 	fontFamily: "inherit",
 	backgroundColor: "white",
 }));
 
-const StyledLabel = styled("label")(({ theme }) => ({
+const StyledLabel = styled("label")(() => ({
 	position: "absolute",
 	top: -24,
 	left: 5,
 	fontSize: "1rem",
 	fontFamily: "inherit",
-
-	color: theme.palette.text.secondary,
+	color: "#838383",
 }));
 
 interface CustomInputProps extends InputBaseProps {
@@ -64,11 +65,14 @@ const CustomInput: React.FC<CustomInputProps> = ({
 type FormData = {
 	email: string;
 	password: string;
+	name?: string;
 };
 
-type IFormProps = {};
+type IFormProps = {
+	enableNameField?: boolean;
+};
 
-const Form: React.FC<IFormProps> = () => {
+const Form: React.FC<IFormProps> = ({ enableNameField = false }) => {
 	const {
 		control,
 		handleSubmit,
@@ -76,8 +80,14 @@ const Form: React.FC<IFormProps> = () => {
 	} = useForm<FormData>();
 
 	const onSubmit = (data: FormData) => {
-		console.log("onSubmit", data);
+		if (enableNameField) {
+			console.log("onSubmit: registration", data);
+		} else {
+			console.log("onSubmit: login", data);
+		}
 	};
+
+	const btnText = enableNameField ? "Зарегистрироваться" : "Войти";
 
 	return (
 		<form className="form" onSubmit={handleSubmit(onSubmit)}>
@@ -86,7 +96,7 @@ const Form: React.FC<IFormProps> = () => {
 				control={control}
 				defaultValue=""
 				rules={{
-					required: "Email is required",
+					required: "Обязательное поле",
 					pattern: {
 						value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
 						message: "Invalid email format",
@@ -108,7 +118,7 @@ const Form: React.FC<IFormProps> = () => {
 				control={control}
 				defaultValue=""
 				rules={{
-					required: "Password is required",
+					required: "Обязательное поле",
 					minLength: {
 						value: 6,
 						message: "Password must be at least 6 characters",
@@ -126,9 +136,34 @@ const Form: React.FC<IFormProps> = () => {
 				)}
 			/>
 
-			<Button type="submit" variant="contained" color="primary">
-				Войти
-			</Button>
+			{enableNameField && (
+				<Controller
+					name="name"
+					control={control}
+					defaultValue=""
+					rules={{
+						maxLength: {
+							value: 50,
+							message: "Name must be less than 50 characters",
+						},
+					}}
+					render={({ field }) => (
+						<CustomInput
+							{...field}
+							label="ФИО (необязательное поле)"
+							error={!!errors.name}
+							helperText={errors.name?.message}
+						/>
+					)}
+				/>
+			)}
+
+			<button className="button" type="submit">
+				<div className="link-content">{btnText}</div>
+				<div className="link-content">
+					<ArrowIcon />
+				</div>
+			</button>
 		</form>
 	);
 };
