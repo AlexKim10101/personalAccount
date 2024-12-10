@@ -33,6 +33,19 @@ export const accountLinksData = [
 	},
 ];
 
+export const domens = [
+	{
+		id: "domen_1",
+		title: "Домен анкеты",
+		value: "https://kpi-monitor.survey.ru",
+	},
+	{
+		id: "domen_2",
+		title: "Домен конфигуратора",
+		value: "https://kpi-monitor.survey_settings.ru",
+	},
+];
+
 export const SCROLL_LIMIT = 2500;
 
 export const anchorData = [

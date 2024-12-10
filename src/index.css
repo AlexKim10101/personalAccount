@@ -447,7 +447,7 @@ main {
 		max-width: 1400px;
 		margin: 0 auto;
 	}
-
+	/* TODO: исправить max-width. (вывести в переменную) */
 	.section-home-content {
 		position: absolute;
 

@@ -9,7 +9,8 @@ import "./account.css";
 import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 import { Tab, Tabs, Typography } from "@mui/material";
-import { accountLinksData, tableFields, versions } from "consts/data";
+import { accountLinksData, tableFields, versions, domens } from "consts/data";
+import EditableList from "widgets/Sections/Domens";
 
 const LicensePage = () => {
 	const [currentVersion, setCurrentVersion] = useState(versions[0]);
@@ -105,7 +106,11 @@ const LicensePage = () => {
 		</div>
 	);
 };
-const DomensPage = () => <Typography>Domens Content</Typography>;
+const DomensPage = () => {
+	const [activeDomen, setActiveDomen] = useState<null | number>(null);
+
+	return <EditableList items={domens} />;
+};
 const UsersPage = () => <Typography>Users Content</Typography>;
 
 function AccountPage() {
