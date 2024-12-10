@@ -11,8 +11,27 @@ import {
 	ITableField,
 	IVersionData,
 } from "types";
+import { title } from "process";
 
 export const KPI_MONITOR_URL = "https://kpi-monitor.ru";
+
+export const accountLinksData = [
+	{
+		id: "accountLink_1",
+		title: "Лицензии",
+		url: "/account/license",
+	},
+	{
+		id: "accountLink_2",
+		title: "Домен",
+		url: "/account/domens",
+	},
+	{
+		id: "accountLink_3",
+		title: "Пользователи",
+		url: "/account/users",
+	},
+];
 
 export const SCROLL_LIMIT = 2500;
 

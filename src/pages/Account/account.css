@@ -63,6 +63,64 @@
 	min-width: 238px;
 }
 
+/* .css-jhczcq-MuiTabs-root */
+
+.links-container.MuiTabs-root {
+	min-height: 24px;
+}
+
+.links-container .MuiTabs-flexContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.links-with-divider:before {
+	content: "";
+	position: absolute;
+	left: -12px;
+	height: 1.5rem;
+	border-left: 0px solid #d4d4d4;
+	z-index: 100000;
+}
+
+.links-with-divider:first-child:before {
+	border-left: 0px;
+}
+
+.links-with-divider.MuiTab-root {
+	font-family: Manrope;
+	overflow: visible;
+	color: var(--black-color);
+	text-transform: none;
+	padding: 0px;
+	min-width: 0px;
+	min-height: 0px;
+	font-size: 0.875rem;
+	transition: none;
+}
+
+.links-with-divider.MuiTab-root.Mui-selected {
+	font-weight: 700;
+	color: var(--black-color);
+}
+
+.links-container .MuiTabs-indicator {
+	background-color: var(--brand-color);
+	/* display: none; */
+}
+
+.license-container {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.link-margin-top {
+	margin-top: 20px;
+}
+
 @media (min-width: 320px) {
 	/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
 }
@@ -76,6 +134,26 @@
 	/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
 }
 @media (min-width: 801px) {
+	.links-container .MuiTabs-flexContainer {
+		justify-content: flex-start;
+		gap: 20px;
+	}
+
+	.links-container .MuiTabs-indicator {
+		display: none;
+	}
+
+	.links-with-divider.MuiTab-root {
+		font-size: 1.25rem;
+	}
+	.links-with-divider.MuiTab-root.Mui-selected {
+		color: var(--brand-color);
+	}
+
+	.links-with-divider:before {
+		border-left: 2px solid black;
+	}
+
 	.account-container {
 		width: 84%;
 		max-width: 1400px;

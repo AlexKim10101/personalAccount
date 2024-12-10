@@ -22,7 +22,7 @@ root.render(
 			<Routes>
 				<Route path="/" element={<HomePage />} />
 				<Route path="login" element={<LoginPage />} />
-				<Route path="account" element={<AccountPage />} />
+				<Route path="account/*" element={<AccountPage />} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>
