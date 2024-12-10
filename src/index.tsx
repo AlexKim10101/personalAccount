@@ -2,8 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
 
-import Home from "./pages/Home";
-import Login from "./pages/Login";
+import HomePage from "./pages/Home";
+import LoginPage from "./pages/Login";
+import AccountPage from "pages/Account";
+
 import ScrollToHash from "@components/Scroll";
 
 import "normalize.css";
@@ -18,8 +20,9 @@ root.render(
 		<BrowserRouter>
 			<ScrollToHash />
 			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="login" element={<Login />} />
+				<Route path="/" element={<HomePage />} />
+				<Route path="login" element={<LoginPage />} />
+				<Route path="account" element={<AccountPage />} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>

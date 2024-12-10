@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { useForm, Controller } from "react-hook-form";
 import {
 	Button,
@@ -39,27 +39,29 @@ interface CustomInputProps extends InputBaseProps {
 	error?: boolean;
 }
 
-const CustomInput: React.FC<CustomInputProps> = ({
-	label,
-	helperText,
-	error,
-	...props
-}) => {
-	return (
-		<FormControl fullWidth>
-			{label && <StyledLabel>{label}</StyledLabel>}
-			<StyledInput {...props} />
-			{helperText && (
-				<FormHelperText
-					error={error}
-					sx={{ position: "absolute", bottom: "-24px", left: "5px", margin: 0 }}
-				>
-					{helperText}
-				</FormHelperText>
-			)}
-		</FormControl>
-	);
-};
+const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
+	({ label, helperText, error, ...props }, _ref) => {
+		return (
+			<FormControl fullWidth>
+				{label && <StyledLabel>{label}</StyledLabel>}
+				<StyledInput {...props} />
+				{helperText && (
+					<FormHelperText
+						error={error}
+						sx={{
+							position: "absolute",
+							bottom: "-24px",
+							left: "5px",
+							margin: 0,
+						}}
+					>
+						{helperText}
+					</FormHelperText>
+				)}
+			</FormControl>
+		);
+	}
+);
 
 // Описание данных формы
 type FormData = {
@@ -102,9 +104,9 @@ const Form: React.FC<IFormProps> = ({ enableNameField = false }) => {
 						message: "Invalid email format",
 					},
 				}}
-				render={({ field }) => (
+				render={props => (
 					<CustomInput
-						{...field} // включает value, onChange, onBlur и name
+						{...props.field} // включает value, onChange, onBlur и name
 						label="E-mail"
 						fullWidth
 						error={!!errors.email}
@@ -124,9 +126,9 @@ const Form: React.FC<IFormProps> = ({ enableNameField = false }) => {
 						message: "Password must be at least 6 characters",
 					},
 				}}
-				render={({ field }) => (
+				render={props => (
 					<CustomInput
-						{...field}
+						{...props.field}
 						label="Пароль"
 						fullWidth
 						type="password"

@@ -63,7 +63,7 @@
 	font-weight: 700;
 }
 
-.footer-link {
+.link.footer-link {
 	display: none;
 }
 
@@ -98,6 +98,9 @@
 
 	.footer-header {
 		display: none;
+	}
+	.link.footer-link {
+		display: flex;
 	}
 }
 @media (min-width: 1281px) {

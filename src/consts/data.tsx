@@ -12,6 +12,8 @@ import {
 	IVersionData,
 } from "types";
 
+export const KPI_MONITOR_URL = "https://kpi-monitor.ru";
+
 export const SCROLL_LIMIT = 2500;
 
 export const anchorData = [

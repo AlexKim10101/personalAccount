@@ -11,7 +11,7 @@ import {
 	MenuItem,
 } from "@mui/material";
 import "./footer.css";
-import { anchorData } from "consts/data";
+import { anchorData, KPI_MONITOR_URL } from "consts/data";
 import { ReactComponent as LogoIcon } from "@assets/icons/logo_kpi.svg";
 import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
 import { ReactComponent as AddressIcon } from "@assets/icons/address-icon.svg";
@@ -24,18 +24,19 @@ const Footer: React.FC = () => {
 			<div className="footer-container">
 				<div className="footer-left-section">
 					<div className="footer-nav">
-						<Typography
-							key="logo"
-							sx={{
-								display: "block",
-								color: "inherit",
-								textDecoration: "none",
-								margin: "0px",
-							}}
-						>
-							<LogoIcon />
-						</Typography>
-
+						<Link to={KPI_MONITOR_URL}>
+							<Typography
+								key="logo"
+								sx={{
+									display: "block",
+									color: "inherit",
+									textDecoration: "none",
+									margin: "0px",
+								}}
+							>
+								<LogoIcon />
+							</Typography>
+						</Link>
 						{anchorData.map(data => (
 							<Typography
 								key={data.name}

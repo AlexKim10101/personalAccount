@@ -5,7 +5,7 @@ import imgPath from "@assets/img/login-bg-image.jpg";
 import "./login.css";
 import CustomTabs from "@components/Tabs";
 
-function Account() {
+function LoginPage() {
 	const [activeTab, setActiveTab] = useState<number>(0);
 
 	return (
@@ -30,4 +30,4 @@ function Account() {
 	);
 }
 
-export default Account;
+export default LoginPage;

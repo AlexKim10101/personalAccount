@@ -293,7 +293,7 @@ main {
 .link {
 	display: flex;
 	gap: 20px;
-	font-family: inherit;
+	font-family: Manrope;
 	justify-content: space-between;
 	align-items: center;
 	white-space: nowrap;

@@ -12,7 +12,7 @@ import { Link } from "react-router";
 import { ReactComponent as BurgerIcon } from "@assets/icons/burger-menu-icon.svg";
 import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
 import { ReactComponent as LogoIcon } from "@assets/icons/logo_kpi.svg";
-import { anchorData, SCROLL_LIMIT } from "consts/data";
+import { anchorData, KPI_MONITOR_URL, SCROLL_LIMIT } from "consts/data";
 import "./header.css";
 
 const Header: React.FC = () => {
@@ -89,18 +89,19 @@ const Header: React.FC = () => {
 
 				{/* Горизонтальное меню для Desktop */}
 				<div className="block-desk">
-					<Typography
-						key="logo"
-						sx={{
-							display: "block",
-							color: "inherit",
-							textDecoration: "none",
-							margin: "0px",
-						}}
-					>
-						<LogoIcon />
-					</Typography>
-
+					<Link to={KPI_MONITOR_URL}>
+						<Typography
+							key="logo"
+							sx={{
+								display: "block",
+								color: "inherit",
+								textDecoration: "none",
+								margin: "0px",
+							}}
+						>
+							<LogoIcon />
+						</Typography>
+					</Link>
 					{anchorData.map(data => (
 						<Typography
 							key={data.name}
