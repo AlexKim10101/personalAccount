@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { useState, forwardRef } from "react";
 import { useForm, Controller } from "react-hook-form";
 import {
 	Button,
@@ -6,12 +6,16 @@ import {
 	InputBaseProps,
 	FormControl,
 	FormHelperText,
+	InputAdornment,
+	IconButton,
 } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
 
 import { styled } from "@mui/material/styles";
 
 import "./form.css";
+import { ISubmitBtnText } from "types";
 
 const StyledInput = styled(InputBase)(() => ({
 	position: "relative",
@@ -63,33 +67,49 @@ const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
 	}
 );
 
-// Описание данных формы
 type FormData = {
 	email: string;
 	password: string;
-	name?: string;
+	name: string;
 };
 
 type IFormProps = {
 	enableNameField?: boolean;
+	requiredNameField?: boolean;
+	enableResetBtn?: boolean;
+	defaultValues?: FormData;
+	submitBtnText: ISubmitBtnText;
+	closeModal?: () => void;
+	onSave?: (data: FormData) => void;
 };
 
-const Form: React.FC<IFormProps> = ({ enableNameField = false }) => {
+export const Form: React.FC<IFormProps> = ({
+	submitBtnText,
+	enableNameField = false,
+	requiredNameField = false,
+	enableResetBtn = false,
+	defaultValues = { email: "", password: "", name: "" },
+	closeModal,
+	onSave,
+}) => {
 	const {
 		control,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<FormData>();
-
+		reset,
+	} = useForm<FormData>({
+		defaultValues,
+		shouldUnregister: false,
+		mode: "onSubmit",
+	});
+	const [showPassword, setShowPassword] = useState(false);
 	const onSubmit = (data: FormData) => {
-		if (enableNameField) {
-			console.log("onSubmit: registration", data);
-		} else {
-			console.log("onSubmit: login", data);
-		}
+		onSave && onSave(data);
 	};
 
-	const btnText = enableNameField ? "Зарегистрироваться" : "Войти";
+	const handleReset = () => {
+		reset(defaultValues);
+	};
 
 	return (
 		<form className="form" onSubmit={handleSubmit(onSubmit)}>
@@ -106,7 +126,7 @@ const Form: React.FC<IFormProps> = ({ enableNameField = false }) => {
 				}}
 				render={props => (
 					<CustomInput
-						{...props.field} // включает value, onChange, onBlur и name
+						{...props.field}
 						label="E-mail"
 						fullWidth
 						error={!!errors.email}
@@ -131,9 +151,19 @@ const Form: React.FC<IFormProps> = ({ enableNameField = false }) => {
 						{...props.field}
 						label="Пароль"
 						fullWidth
-						type="password"
+						type={showPassword ? "text" : "password"}
 						error={!!errors.password}
 						helperText={errors.password?.message}
+						endAdornment={
+							<InputAdornment position="end">
+								<IconButton
+									onClick={() => setShowPassword(prev => !prev)}
+									edge="end"
+								>
+									{showPassword ? <VisibilityOff /> : <Visibility />}
+								</IconButton>
+							</InputAdornment>
+						}
 					/>
 				)}
 			/>
@@ -159,15 +189,23 @@ const Form: React.FC<IFormProps> = ({ enableNameField = false }) => {
 					)}
 				/>
 			)}
-
-			<button className="button" type="submit">
-				<div className="link-content">{btnText}</div>
-				<div className="link-content">
-					<ArrowIcon />
-				</div>
-			</button>
+			<div className="form-btn-wrapper">
+				<button className="form-button" type="submit">
+					<div className="link-content">{submitBtnText}</div>
+					<div className="link-content">
+						<ArrowIcon />
+					</div>
+				</button>
+				{enableResetBtn && (
+					<button
+						className="form-button form-button-grey"
+						type="button"
+						onClick={() => handleReset()}
+					>
+						<div className="link-content">Отменить</div>
+					</button>
+				)}
+			</div>
 		</form>
 	);
 };
-
-export default Form;

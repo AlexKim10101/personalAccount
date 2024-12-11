@@ -50,3 +50,5 @@ export type ITableField = {
 	id: IFieldsName;
 	title: string;
 };
+
+export type ISubmitBtnText = "Зарегистрироваться" | "Войти" | "Сохранить";

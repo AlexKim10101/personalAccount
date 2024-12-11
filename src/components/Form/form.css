@@ -6,3 +6,40 @@
 	width: 100%;
 	font-family: Manrope;
 }
+
+.form-btn-wrapper {
+	margin-top: -20px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.form-button {
+	display: flex;
+	gap: 20px;
+	font-family: inherit;
+	align-items: center;
+	white-space: nowrap;
+	border-radius: 20px;
+	padding-left: 17px;
+	padding-right: 17px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	background-color: var(--orange-color);
+	text-decoration: none;
+	color: var(--white-color);
+	border-width: 0px;
+	min-height: 40px;
+}
+
+.form-button-grey {
+	background-color: var(--grey-dark-color);
+}
+
+@media (min-width: 801px) {
+	.form-btn-wrapper {
+		flex-direction: row;
+		justify-content: center;
+		gap: 1rem;
+	}
+}
