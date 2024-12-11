@@ -11,7 +11,6 @@ import {
 	ITableField,
 	IVersionData,
 } from "types";
-import { title } from "process";
 
 export const KPI_MONITOR_URL = "https://kpi-monitor.ru";
 
@@ -44,6 +43,24 @@ export const domens = [
 		title: "Домен конфигуратора",
 		value: "https://kpi-monitor.survey_settings.ru",
 	},
+];
+
+export const users = [
+	{ id: "user_1", title: "petrovanatoliy@pochta.ru" },
+	{ id: "user_2", title: "petrovanatoliy@pochta.ru" },
+	{ id: "user_3", title: "petrovanatoliy@pochta.ru" },
+	{ id: "user_4", title: "petrovanatoliy@pochta.ru" },
+	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
+	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
+	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
+	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
+	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
+	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
+	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
+	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
+	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
+	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
+	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
 ];
 
 export const SCROLL_LIMIT = 2500;

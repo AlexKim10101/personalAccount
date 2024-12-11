@@ -1,0 +1,33 @@
+.users-section {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.users-section-title {
+	font-size: 1.25rem;
+}
+
+.user-list {
+	padding-inline-start: 1rem;
+}
+
+/* list-style-type */
+.user-list-item {
+	list-style-type: decimal;
+	margin-bottom: 8px;
+}
+
+.user-list-item-content {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	max-width: 430px;
+}
+
+.user-title {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

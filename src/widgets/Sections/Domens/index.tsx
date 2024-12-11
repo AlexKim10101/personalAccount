@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Box, Button, TextField, Typography, Stack } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import { ReactComponent as EditIcon } from "@assets/icons/svg/editIcon.svg";
 import { ReactComponent as CancelIcon } from "@assets/icons/svg/Cancel.svg";
 import { ReactComponent as ApproveIcon } from "@assets/icons/svg/Approve.svg";
-
-import SvgIcon from "@mui/material/SvgIcon";
 import "./domens.css";
 
 type DataItem = {
@@ -85,6 +83,8 @@ const EditableList: React.FC<EditableListProps> = ({ items, onSave }) => {
 							<Button
 								variant="contained"
 								color="primary"
+								disableRipple
+								disableElevation
 								onClick={() => handleEdit(item.id)}
 								disabled={activeEditor !== null}
 								className="domen-btn"
@@ -110,6 +110,8 @@ const EditableList: React.FC<EditableListProps> = ({ items, onSave }) => {
 								variant="contained"
 								onClick={() => handleSave(item.id)}
 								className="domen-btn"
+								disableRipple
+								disableElevation
 							>
 								<Box
 									sx={{
@@ -129,6 +131,8 @@ const EditableList: React.FC<EditableListProps> = ({ items, onSave }) => {
 								variant="outlined"
 								onClick={() => handleCancel(item.id)}
 								className="domen-btn"
+								disableRipple
+								disableElevation
 							>
 								<Box
 									sx={{

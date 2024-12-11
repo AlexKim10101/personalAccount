@@ -8,11 +8,18 @@ import { ReactComponent as ExitTwoIcon } from "@assets/icons/svg/exit_2.svg";
 import "./account.css";
 import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
-import { Tab, Tabs, Typography } from "@mui/material";
-import { accountLinksData, tableFields, versions, domens } from "consts/data";
+import { Tab, Tabs } from "@mui/material";
+import {
+	accountLinksData,
+	tableFields,
+	versions,
+	domens,
+	users,
+} from "consts/data";
 import EditableList from "widgets/Sections/Domens";
+import UsersSection from "widgets/Sections/Users";
 
-const LicensePage = () => {
+const LicenseSection = () => {
 	const [currentVersion, setCurrentVersion] = useState(versions[0]);
 	const filteredVersions = [currentVersion];
 
@@ -106,21 +113,18 @@ const LicensePage = () => {
 		</div>
 	);
 };
-const DomensPage = () => {
-	const [activeDomen, setActiveDomen] = useState<null | number>(null);
 
+const DomensSection = () => {
 	return <EditableList items={domens} />;
 };
-const UsersPage = () => <Typography>Users Content</Typography>;
 
 function AccountPage() {
 	const location = useLocation();
-
-	// Определение текущего активного таба
+	// TODO: вынести URL в коллекцию
 	const getActiveTabIndex = () => {
 		if (location.pathname.endsWith("/domens")) return 1;
 		if (location.pathname.endsWith("/users")) return 2;
-		return 0; // Default to "License"
+		return 0;
 	};
 
 	const activeTabIndex = getActiveTabIndex();
@@ -187,9 +191,9 @@ function AccountPage() {
 
 				<Box mt={2}>
 					<Routes>
-						<Route path="license" element={<LicensePage />} />
-						<Route path="domens" element={<DomensPage />} />
-						<Route path="users" element={<UsersPage />} />
+						<Route path="license" element={<LicenseSection />} />
+						<Route path="domens" element={<DomensSection />} />
+						<Route path="users" element={<UsersSection users={users} />} />
 						<Route
 							path="*"
 							element={<Navigate to="/account/license" replace />}
