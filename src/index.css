@@ -21,7 +21,7 @@
 		rgba(255, 153, 179, 0.2) 50%,
 		rgba(50, 89, 202, 0.2) 100%
 	); */
-
+	--container-max-width: 1200px;
 	--header-height: 80px;
 	--padding-screen: 8%;
 	--padding-mobile: 16px;
@@ -444,7 +444,7 @@ main {
 	}
 	.container {
 		width: 84%;
-		max-width: 1400px;
+		max-width: var(--container-max-width);
 		margin: 0 auto;
 	}
 	/* TODO: исправить max-width. (вывести в переменную) */

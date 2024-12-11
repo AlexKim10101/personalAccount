@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, Navigate, Route, Routes, useLocation } from "react-router";
 import { ReactComponent as EditIcon } from "@assets/icons/svg/editIcon.svg";
 import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
@@ -18,119 +18,19 @@ import {
 } from "consts/data";
 import EditableList from "widgets/Sections/Domens";
 import UsersSection from "widgets/Sections/Users";
-
-const LicenseSection = () => {
-	const [currentVersion, setCurrentVersion] = useState(versions[0]);
-	const filteredVersions = [currentVersion];
-
-	return (
-		<div className="license-container">
-			<div className="cloud-version">
-				<div className="version-title title-shift">Облачная версия</div>
-				<div className="version-control">
-					{versions.map((v, index) => (
-						<React.Fragment key={"version" + v.id}>
-							<div className="version-item-wrapper">
-								{v.title}
-								<div
-									className={
-										currentVersion.id === v.id
-											? "version-item version-item-selected"
-											: "version-item"
-									}
-									onClick={() => setCurrentVersion(versions[index])}
-								>
-									{v.title}
-								</div>
-							</div>
-
-							{index === versions.length - 1 ? null : (
-								<div className="divider"></div>
-							)}
-						</React.Fragment>
-					))}
-				</div>
-				<table className="table-mob">
-					<tbody>
-						{tableFields.map(field => (
-							<tr key={field.id}>
-								<td key={"f_c" + field.id}>{field.title}</td>
-								{filteredVersions.map(v => (
-									<td key={field.id + v.id}>{v.data[field.id]}</td>
-								))}
-							</tr>
-						))}
-					</tbody>
-				</table>
-
-				<table className="table-desk">
-					<thead>
-						<tr>
-							<th className="th" key="empty_field"></th>
-							{versions.map(v => (
-								<th className="th" key={v.id}>
-									{v.title}
-								</th>
-							))}
-						</tr>
-					</thead>
-					<tbody>
-						{tableFields.map(field => (
-							<tr key={field.id}>
-								<td key={"f_c" + field.id}>{field.title}</td>
-								{versions.map(v => (
-									<td key={field.id + v.id}>{v.data[field.id]}</td>
-								))}
-							</tr>
-						))}
-					</tbody>
-				</table>
-
-				<Link
-					to="/login"
-					className="link link-align-start link-orange link-margin-top"
-				>
-					<div className="link-content">Купить лицензию</div>
-					<div className="link-content">
-						<ArrowIcon />
-					</div>
-				</Link>
-			</div>
-			<div className="box-version ">
-				<div className="version-title">Коробочная версия</div>
-				<div className="text">
-					Стоимость коробочной версии может варьироваться, поэтому просим вас
-					оставить заявку на запрос цены, и наш менеджер свяжется с вами
-					в ближайшее время.
-				</div>
-				<Link to="/login" className="link link-align-start">
-					<div className="link-content">Запросить цену</div>
-					<div className="link-content">
-						<ArrowIcon />
-					</div>
-				</Link>
-			</div>
-		</div>
-	);
-};
-
-const DomensSection = () => {
-	return <EditableList items={domens} />;
-};
+import PriceSection from "widgets/Sections/Price";
 
 function AccountPage() {
 	const location = useLocation();
-	// TODO: вынести URL в коллекцию
+
 	const getActiveTabIndex = () => {
 		if (location.pathname.endsWith("/domens")) return 1;
 		if (location.pathname.endsWith("/users")) return 2;
 		return 0;
 	};
 
-	const activeTabIndex = getActiveTabIndex();
-
 	return (
-		<div className="account-container">
+		<div className="container account-container">
 			<div className="account-header">
 				<div className="icon-btn-wrapper">
 					<IconButton className="account-icon-btn">
@@ -176,8 +76,8 @@ function AccountPage() {
 			</div>
 
 			<Box>
-				<Tabs value={activeTabIndex} className="links-container">
-					{accountLinksData.map((item, index) => (
+				<Tabs value={getActiveTabIndex()} className="links-container">
+					{accountLinksData.map(item => (
 						<Tab
 							key={item.id}
 							label={item.title}
@@ -191,8 +91,17 @@ function AccountPage() {
 
 				<Box mt={2}>
 					<Routes>
-						<Route path="license" element={<LicenseSection />} />
-						<Route path="domens" element={<DomensSection />} />
+						<Route
+							path="license"
+							element={
+								<PriceSection
+									tableFields={tableFields}
+									versions={versions}
+									accountMode
+								/>
+							}
+						/>
+						<Route path="domens" element={<EditableList items={domens} />} />
 						<Route path="users" element={<UsersSection users={users} />} />
 						<Route
 							path="*"

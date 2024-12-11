@@ -61,7 +61,7 @@ header.hidden {
 	}
 	.header-container {
 		width: 84%;
-		max-width: 1400px;
+		max-width: var(--container-max-width);
 		margin: 0 auto;
 	}
 	/* big landscape tablets, laptops, and desktops */

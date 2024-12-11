@@ -1,12 +1,6 @@
 .account-container {
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
 	gap: 20px;
-	width: calc(100% - 48px);
-	margin: 0 auto;
 	padding-top: 2rem;
-
 	font-family: Manrope;
 }
 
@@ -118,7 +112,7 @@
 }
 
 .link-margin-top {
-	margin-top: 20px;
+	margin-top: 11px;
 }
 
 @media (min-width: 320px) {
@@ -134,6 +128,14 @@
 	/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
 }
 @media (min-width: 801px) {
+	.user-name {
+		font-size: 1.5rem;
+	}
+
+	.user-email {
+		font-size: 1.25rem;
+	}
+
 	.links-container .MuiTabs-flexContainer {
 		justify-content: flex-start;
 		gap: 20px;
