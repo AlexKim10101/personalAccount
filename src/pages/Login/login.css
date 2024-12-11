@@ -1,10 +1,12 @@
 .login-container {
 	display: flex;
-	flex-direction: column-reverse;
+	/* flex-direction: column-reverse; */
 
 	position: relative;
 	width: 100%;
-	background-color: var(--grey-light-color);
+	background-color: var(--white-color);
+	min-height: 100vh;
+	/* background-color: var(--grey-light-color); */
 }
 
 .section-form,
@@ -14,6 +16,23 @@
 
 .section-image {
 	overflow: hidden;
+}
+
+.section-image > img {
+	width: 100%;
+	object-fit: cover;
+}
+
+.logo-circle {
+	display: none;
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	top: -80px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
 }
 
 .section-form {
@@ -29,14 +48,15 @@
 .form-container {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 36px;
 	align-items: center;
 
 	padding: 20px 28px;
 	border-radius: 20px;
 
 	position: relative;
-	background-color: var(--white-color);
+	/* background-color: var(--white-color); */
+	background-color: var(--grey-light-color);
 
 	width: 73%;
 	max-width: 400px;
@@ -74,6 +94,7 @@
 	.login-container {
 		flex-direction: row;
 		height: 100vh;
+		background-color: var(--grey-light-color);
 	}
 	.section-form,
 	.section-image {
@@ -81,9 +102,21 @@
 		width: 50%;
 	}
 
+	.logo-circle {
+		display: block;
+	}
+
+	.form-container {
+		background-color: var(--white-color);
+	}
+
 	.section-form {
 		padding-top: 150px;
 		/* justify-content: center; */
+	}
+
+	.section-image > img {
+		height: 100%;
 	}
 }
 @media (min-width: 1025px) {

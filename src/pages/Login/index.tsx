@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import CustomTabs from "@components/Tabs";
 import Form from "@components/Form";
 import { ReactComponent as LogoIcon } from "@assets/icons/logo_kpi.svg";
 import imgPath from "@assets/img/login-bg-image.jpg";
 import "./login.css";
-import CustomTabs from "@components/Tabs";
 
 function LoginPage() {
 	const [activeTab, setActiveTab] = useState<number>(0);
