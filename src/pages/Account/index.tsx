@@ -1,26 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Navigate, Route, Routes, useLocation } from "react-router";
+
+import { Box, Tab, Tabs, IconButton, Modal, Typography } from "@mui/material";
+import EditableList from "widgets/Sections/Domens";
+import UsersSection from "widgets/Sections/Users";
+import PriceSection from "widgets/Sections/Price";
+
 import { ReactComponent as EditIcon } from "@assets/icons/svg/editIcon.svg";
 import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
 import { ReactComponent as ExitOneIcon } from "@assets/icons/svg/exit_1.svg";
 import { ReactComponent as ExitTwoIcon } from "@assets/icons/svg/exit_2.svg";
 
 import "./account.css";
-import IconButton from "@mui/material/IconButton";
-import Box from "@mui/material/Box";
-import { Tab, Tabs } from "@mui/material";
+
 import {
 	accountLinksData,
 	tableFields,
 	versions,
 	domens,
-	users,
+	FAKE_USERS_DATA,
+	FAKE_ACCOUNT_DATA,
 } from "consts/data";
-import EditableList from "widgets/Sections/Domens";
-import UsersSection from "widgets/Sections/Users";
-import PriceSection from "widgets/Sections/Price";
+import { Form } from "@components/Form";
 
-function AccountPage() {
+// type IEditProfile = {
+// 	handleClose: () => void;
+// 	defaultValues: IFormData;
+// };
+
+// const EditProfile: React.FC<IEditProfile> = ({
+// 	handleClose,
+// 	defaultValues,
+// }) => (
+// 	<Form
+// 		submitBtnText="Сохранить"
+// 		closeModal={() => handleClose()}
+// 		defaultValues={defaultValues}
+// 		enableNameField
+// 		enableResetBtn
+// 		onSave={data => console.log(data)}
+// 	/>
+// );
+
+const AccountPage = () => {
+	const [open, setOpen] = useState<boolean>(false);
+	const [modalContent, setModalContent] = useState<React.ReactNode>(null);
+
+	const handleOpen = (content: React.ReactNode) => {
+		setModalContent(content);
+		setOpen(true);
+	};
+	const handleClose = () => setOpen(false);
+
 	const location = useLocation();
 
 	const getActiveTabIndex = () => {
@@ -33,7 +64,21 @@ function AccountPage() {
 		<div className="container account-container">
 			<div className="account-header">
 				<div className="icon-btn-wrapper">
-					<IconButton className="account-icon-btn">
+					<IconButton
+						className="account-icon-btn"
+						onClick={() => {
+							handleOpen(
+								<Form
+									submitBtnText="Сохранить"
+									closeModal={() => handleClose()}
+									defaultValues={FAKE_ACCOUNT_DATA}
+									enableNameField
+									enableResetBtn
+									onSave={data => console.log(data)}
+								/>
+							);
+						}}
+					>
 						<EditIcon />
 					</IconButton>
 					<IconButton className="account-icon-btn">
@@ -102,7 +147,16 @@ function AccountPage() {
 							}
 						/>
 						<Route path="domens" element={<EditableList items={domens} />} />
-						<Route path="users" element={<UsersSection users={users} />} />
+						<Route
+							path="users"
+							element={
+								<UsersSection
+									users={FAKE_USERS_DATA}
+									handleOpen={handleOpen}
+									handleClose={handleClose}
+								/>
+							}
+						/>
 						<Route
 							path="*"
 							element={<Navigate to="/account/license" replace />}
@@ -110,8 +164,17 @@ function AccountPage() {
 					</Routes>
 				</Box>
 			</Box>
+
+			<Modal
+				open={open}
+				onClose={handleClose}
+				aria-labelledby="modal-modal-title"
+				aria-describedby="modal-modal-description"
+			>
+				<div className="modal-container">{modalContent}</div>
+			</Modal>
 		</div>
 	);
-}
+};
 
 export default AccountPage;

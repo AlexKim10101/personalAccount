@@ -26,6 +26,7 @@ const StyledInput = styled(InputBase)(() => ({
 	fontSize: "1rem",
 	fontFamily: "inherit",
 	backgroundColor: "white",
+	// marginTop:'30px'
 }));
 
 const StyledLabel = styled("label")(() => ({
@@ -46,7 +47,7 @@ interface CustomInputProps extends InputBaseProps {
 const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
 	({ label, helperText, error, ...props }, _ref) => {
 		return (
-			<FormControl fullWidth>
+			<FormControl fullWidth className="form-textfield">
 				{label && <StyledLabel>{label}</StyledLabel>}
 				<StyledInput {...props} />
 				{helperText && (
@@ -67,7 +68,7 @@ const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
 	}
 );
 
-type FormData = {
+export type IFormData = {
 	email: string;
 	password: string;
 	name: string;
@@ -77,10 +78,10 @@ type IFormProps = {
 	enableNameField?: boolean;
 	requiredNameField?: boolean;
 	enableResetBtn?: boolean;
-	defaultValues?: FormData;
+	defaultValues?: IFormData;
 	submitBtnText: ISubmitBtnText;
 	closeModal?: () => void;
-	onSave?: (data: FormData) => void;
+	onSave?: (data: IFormData) => void;
 };
 
 export const Form: React.FC<IFormProps> = ({
@@ -97,18 +98,20 @@ export const Form: React.FC<IFormProps> = ({
 		handleSubmit,
 		formState: { errors },
 		reset,
-	} = useForm<FormData>({
+	} = useForm<IFormData>({
 		defaultValues,
 		shouldUnregister: false,
 		mode: "onSubmit",
 	});
 	const [showPassword, setShowPassword] = useState(false);
-	const onSubmit = (data: FormData) => {
+	const onSubmit = (data: IFormData) => {
 		onSave && onSave(data);
+		closeModal && closeModal();
 	};
 
 	const handleReset = () => {
 		reset(defaultValues);
+		closeModal && closeModal();
 	};
 
 	return (

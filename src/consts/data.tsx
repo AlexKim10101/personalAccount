@@ -6,6 +6,7 @@ import { ReactComponent as GroupIcon } from "@assets/icons/ic_group.svg";
 import { ReactComponent as AutoIcon } from "@assets/icons/ic_auto.svg";
 import {
 	IAboutProductItem,
+	IAccountData,
 	ICaseDataItem,
 	IDemoDataItem,
 	ITableField,
@@ -45,22 +46,38 @@ export const domens = [
 	},
 ];
 
-export const users = [
-	{ id: "user_1", title: "petrovanatoliy@pochta.ru" },
-	{ id: "user_2", title: "petrovanatoliy@pochta.ru" },
-	{ id: "user_3", title: "petrovanatoliy@pochta.ru" },
-	{ id: "user_4", title: "petrovanatoliy@pochta.ru" },
-	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
-	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
-	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
-	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
-	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
-	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
-	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
-	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
-	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
-	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
-	// { id: "user_1", title: "petrovanatoliy@pochta.ru" },
+export const FAKE_ACCOUNT_DATA: IAccountData = {
+	id: "user_0",
+	name: "Иванов Иван Иванович",
+	email: "ivan@ivanov.ru",
+	password: "123456",
+};
+
+export const FAKE_USERS_DATA: IAccountData[] = [
+	{
+		id: "user_1",
+		name: "Иванов Иван Иванович",
+		email: "petrovanatoliy@pochta_1.ru",
+		password: "qwerty",
+	},
+	{
+		id: "user_2",
+		name: "Иванов Иван Иванович",
+		email: "petrovanatoliy@pochta_2.ru",
+		password: "qwerty",
+	},
+	{
+		id: "user_3",
+		name: "Иванов Иван Иванович",
+		email: "petrovanatoliy@pochta_3.ru",
+		password: "qwerty",
+	},
+	{
+		id: "user_4",
+		name: "Иванов Иван Иванович",
+		email: "petrovanatoliy@pochta_4.ru",
+		password: "qwerty",
+	},
 ];
 
 export const SCROLL_LIMIT = 2500;

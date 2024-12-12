@@ -5,37 +5,68 @@ import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
 import { ReactComponent as TrashIcon } from "@assets/icons/svg/trash.svg";
 
 import "./user.css";
-
-type UserItem = {
-	id: string;
-	title: string;
-};
+import { IAccountData } from "types";
+import { Form } from "@components/Form";
+import { DeleteUser } from "@components/DeleteUser";
 
 type EditableListProps = {
-	users: UserItem[];
+	users: IAccountData[];
+	handleOpen: (content: React.ReactNode) => void;
+	handleClose: () => void;
 	deleteUser?: (id: string) => void;
 };
 
-const User: React.FC<EditableListProps> = ({ users, deleteUser }) => {
+const User: React.FC<EditableListProps> = ({
+	users,
+	deleteUser,
+	handleOpen,
+	handleClose,
+}) => {
 	return (
 		<div className="users-section">
 			<div className="users-section-title">Список пользователей</div>
-			<Link to="/login" className="link link-orange link-min-width">
-				<div className="link-content">Продлить лицензию</div>
+			<Button
+				variant="contained"
+				onClick={() => {
+					handleOpen(
+						<>
+							<div className="modal-title">Добавление пользователя</div>
+							<Form
+								submitBtnText="Сохранить"
+								closeModal={() => handleClose()}
+								enableNameField
+								requiredNameField
+								enableResetBtn
+								onSave={data => console.log(data)}
+							/>
+						</>
+					);
+				}}
+				className="domen-btn orange-btn"
+				disableRipple
+				disableElevation
+			>
+				<div className="link-content">Добавить пользователя</div>
 				<div className="link-content">
 					<ArrowIcon />
 				</div>
-			</Link>
+			</Button>
 			<ol className="user-list">
 				{users.map(item => (
 					<li key={item.id} className="user-list-item">
 						<div className="user-list-item-content">
-							<div className="user-title">{item.title}</div>
+							<div className="user-title">{item.email}</div>
 							<div className="user-btn-wrapper">
 								<Button
 									variant="contained"
 									onClick={() => {
-										console.log("delete user");
+										handleOpen(
+											<DeleteUser
+												title={item.email}
+												onDelete={() => console.log("delete", item.email)}
+												closeModal={handleClose}
+											/>
+										);
 									}}
 									className="domen-btn"
 									disableRipple

@@ -1,6 +1,7 @@
 .users-section {
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start;
 	gap: 20px;
 }
 
@@ -9,6 +10,7 @@
 }
 
 .user-list {
+	align-self: stretch;
 	padding-inline-start: 1rem;
 }
 
@@ -30,4 +32,8 @@
 .user-title {
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.MuiButton-root.orange-btn {
+	background-color: var(--orange-color);
 }

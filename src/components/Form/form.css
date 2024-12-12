@@ -1,24 +1,32 @@
 .form {
 	display: flex;
 	flex-direction: column;
-	gap: 50px;
+	/* gap: 50px; */
 	align-items: center;
 	width: 100%;
+	min-width: 235px;
 	font-family: Manrope;
+	margin-top: -15px;
+}
+
+.form-textfield.MuiFormControl-root {
+	margin-top: 50px;
 }
 
 .form-btn-wrapper {
-	margin-top: -20px;
+	margin-top: 35px;
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
 }
 
 .form-button {
+	/* margin-top: 30px; */
 	display: flex;
 	gap: 20px;
 	font-family: inherit;
 	align-items: center;
+	justify-content: center;
 	white-space: nowrap;
 	border-radius: 20px;
 	padding-left: 17px;

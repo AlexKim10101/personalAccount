@@ -3,11 +3,9 @@
 	--orange-color: #f66c1e;
 	--white-color: #ffffff;
 	--black-color: #000000;
-
 	--peach-color: #ffe4d6;
 	--green-color: #53cb74;
 	--red-color: #c65252;
-
 	--brand-hover-color: #1f3e96;
 	--grey-light-color: #f4f4f4;
 	--grey-med-color: #d4d4d4;
@@ -15,12 +13,7 @@
 	--grey40-color: rgba(255, 255, 255, 0.4);
 
 	--gradient: linear-gradient(#f66c1e, #ff99b3, #3259ca);
-	/* --gradient: linear-gradient(
-		180deg,
-		rgba(246, 108, 30, 0.2) 0%,
-		rgba(255, 153, 179, 0.2) 50%,
-		rgba(50, 89, 202, 0.2) 100%
-	); */
+
 	--container-max-width: 1200px;
 	--header-height: 80px;
 	--padding-screen: 8%;
@@ -386,6 +379,22 @@ main {
 .link-flex-end {
 	margin-top: auto;
 	align-self: flex-start;
+}
+
+.modal-title {
+	text-align: center;
+	font-family: Manrope;
+	font-size: 1.4rem;
+	font-weight: 700;
+}
+
+.delete-text {
+	font-size: 1rem;
+	line-height: 1.25rem;
+}
+
+.delete-text > span {
+	font-weight: 700;
 }
 
 @media (min-width: 320px) {

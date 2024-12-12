@@ -52,3 +52,10 @@ export type ITableField = {
 };
 
 export type ISubmitBtnText = "Зарегистрироваться" | "Войти" | "Сохранить";
+
+export type IAccountData = {
+	id: string;
+	name: string;
+	email: string;
+	password: string;
+};
