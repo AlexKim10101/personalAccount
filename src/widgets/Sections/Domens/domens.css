@@ -20,6 +20,7 @@
 	display: flex;
 	gap: 20px;
 	font-family: Manrope;
+	font-size: 1rem;
 	justify-content: center;
 	align-items: center;
 	white-space: nowrap;
@@ -31,6 +32,7 @@
 	padding: 6px 16px;
 	background-color: var(--brand-color);
 	text-decoration: none;
+	text-transform: none;
 	color: var(--white-color);
 	min-width: 0;
 	min-height: 42px;

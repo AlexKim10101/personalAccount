@@ -10,6 +10,7 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	/* align-items: stretch; */
 	gap: 20px;
 }
 
@@ -180,9 +181,13 @@
 
 	.account-header {
 		flex-direction: row;
-		align-items: center;
-		justify-self: start;
+		align-items: stretch;
 		gap: 100px;
+	}
+
+	.user-info-container,
+	.user-license-container {
+		justify-content: space-between;
 	}
 
 	/* tablet, landscape iPad, lo-res laptops ands desktops */
