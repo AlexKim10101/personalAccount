@@ -78,6 +78,8 @@ main {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	/*  */
+	overflow: hidden;
 }
 .section-home-content {
 	/* background-color: rgba(202, 72, 72, 0.4); */
@@ -155,6 +157,7 @@ main {
 
 .mobile-version {
 	display: block;
+	overflow: hidden;
 }
 
 .section-about-product {
@@ -177,7 +180,7 @@ main {
 	padding: 20px;
 	margin: 5px;
 	border-radius: 20px;
-	box-sizing: border-box;
+	/* box-sizing: border-box; */
 }
 
 .product-item-header {
@@ -213,7 +216,7 @@ main {
 
 .product-list {
 	margin: 0;
-	padding: 0px 20px;
+	padding: 0px 10px;
 }
 
 .product-list-item {

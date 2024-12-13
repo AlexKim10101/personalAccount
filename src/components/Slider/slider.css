@@ -23,6 +23,12 @@
 	/* align-self: stretch; */
 }
 
+.slider-container {
+	width: 150%;
+	position: relative;
+	left: -5px;
+}
+
 .card {
 	/* position: absolute; */
 	/* top: 0;
@@ -30,7 +36,7 @@
 	bottom: 0;
 	right: 0; */
 
-	min-height: 125px;
+	min-height: 162px;
 
 	margin: 5px;
 	padding: 20px;
@@ -87,10 +93,15 @@
 		display: flex;
 	}
 	.card {
-		min-height: 220px;
+		min-height: 192px;
 	}
 	.card-title {
 		font-size: 0.65rem;
+	}
+
+	.slider-container {
+		width: 100%;
+		left: 0;
 	}
 }
 @media (min-width: 1281px) {

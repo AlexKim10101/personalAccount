@@ -37,7 +37,7 @@ const AboutProductSection: React.FC<IAboutProductSection> = ({ data }) => {
 				</div>
 				<div className="mobile-version">
 					<CardGallery
-						mobileSlidesToShow={1}
+						mobileSlidesToShow={2}
 						laptopSlidesToShow={3}
 						desctopSlidesToShow={4}
 					>

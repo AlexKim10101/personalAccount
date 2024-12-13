@@ -13,6 +13,7 @@ type ICardGallery = {
 	mobileSlidesToShow: number;
 	laptopSlidesToShow: number;
 	desctopSlidesToShow: number;
+	className?: string;
 };
 
 const CardGallery: React.FC<ICardGallery> = ({
@@ -20,8 +21,11 @@ const CardGallery: React.FC<ICardGallery> = ({
 	mobileSlidesToShow,
 	laptopSlidesToShow,
 	desctopSlidesToShow,
+	className,
 }) => {
 	const sliderRef = useRef<Slider | null>(null);
+
+	const containerClassName = `slider-container ${className}`;
 
 	const next = () => {
 		sliderRef.current?.slickNext();
@@ -36,6 +40,7 @@ const CardGallery: React.FC<ICardGallery> = ({
 		infinite: true,
 		speed: 500,
 		slidesToShow: desctopSlidesToShow,
+		focusOnSelect: false,
 		slidesToScroll: 1,
 		arrows: false,
 		responsive: [
@@ -43,12 +48,16 @@ const CardGallery: React.FC<ICardGallery> = ({
 				breakpoint: 768,
 				settings: {
 					slidesToShow: laptopSlidesToShow,
+					focusOnSelect: true,
+					autoplay: false,
 				},
 			},
 			{
 				breakpoint: 480,
 				settings: {
 					slidesToShow: mobileSlidesToShow,
+					focusOnSelect: true,
+					autoplay: false,
 				},
 			},
 		],

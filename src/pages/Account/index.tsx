@@ -23,25 +23,6 @@ import {
 } from "consts/data";
 import { Form } from "@components/Form";
 
-// type IEditProfile = {
-// 	handleClose: () => void;
-// 	defaultValues: IFormData;
-// };
-
-// const EditProfile: React.FC<IEditProfile> = ({
-// 	handleClose,
-// 	defaultValues,
-// }) => (
-// 	<Form
-// 		submitBtnText="Сохранить"
-// 		closeModal={() => handleClose()}
-// 		defaultValues={defaultValues}
-// 		enableNameField
-// 		enableResetBtn
-// 		onSave={data => console.log(data)}
-// 	/>
-// );
-
 const AccountPage = () => {
 	const [open, setOpen] = useState<boolean>(false);
 	const [modalContent, setModalContent] = useState<React.ReactNode>(null);
