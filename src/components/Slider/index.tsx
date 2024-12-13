@@ -13,7 +13,6 @@ type ICardGallery = {
 	mobileSlidesToShow: number;
 	laptopSlidesToShow: number;
 	desctopSlidesToShow: number;
-	className?: string;
 };
 
 const CardGallery: React.FC<ICardGallery> = ({
@@ -21,11 +20,8 @@ const CardGallery: React.FC<ICardGallery> = ({
 	mobileSlidesToShow,
 	laptopSlidesToShow,
 	desctopSlidesToShow,
-	className,
 }) => {
 	const sliderRef = useRef<Slider | null>(null);
-
-	const containerClassName = `slider-container ${className}`;
 
 	const next = () => {
 		sliderRef.current?.slickNext();

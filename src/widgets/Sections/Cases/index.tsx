@@ -89,7 +89,9 @@ const CasesSection: React.FC<ICasesSection> = ({ data }) => {
 				<div className="case-slider-wrapper">
 					<DemoSlider
 						ref={sliderRef}
+						fade={false}
 						handleActive={(count: number) => setActiveSlide(count)}
+						desctopSlidesToShow={1}
 					>
 						{activeCase.slides.map((item, index) => (
 							<div key={"slide" + index} className="demo-slide-item">
@@ -107,6 +109,9 @@ const CasesSection: React.FC<ICasesSection> = ({ data }) => {
 						<IconButton onClick={handleNext} className="icon-button">
 							<ForwardIcon />
 						</IconButton>
+					</div>
+					<div className="counter">
+						{activeSlide + 1}/{activeCase.slides.length}
 					</div>
 				</div>
 			</div>

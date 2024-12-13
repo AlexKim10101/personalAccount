@@ -7,26 +7,41 @@ import "./SliderStyles.css";
 type IDemoSlider = {
 	children: any;
 	handleActive: (count: number) => void;
+	className?: string;
+	fade: boolean;
+	mobileSlidesToShow?: number;
+	laptopSlidesToShow?: number;
+	desctopSlidesToShow?: number;
 };
 // forwardRef<Slider, OverlappingSliderProps>((_, ref)
 const DemoSlider = forwardRef<Slider, IDemoSlider>(
-	({ children, handleActive }, ref) => {
+	(
+		{
+			children,
+			handleActive,
+			className,
+			fade,
+			desctopSlidesToShow = 1,
+			laptopSlidesToShow = 1,
+			mobileSlidesToShow = 1,
+		},
+		ref
+	) => {
 		const settings = {
 			infinite: true,
-			slidesToShow: 1,
-			speed: 500,
+			slidesToShow: desctopSlidesToShow,
+			fade: false,
+			speed: fade ? 0 : 500,
 			arrows: false,
-			// autoplay: true,
 			autoplaySpeed: 3000,
 			pauseOnHover: true,
-			// beforeChange: (current, next) => {
-			// 	setOldSlide(current);
-			// 	setActiveSlide(next);
-			// },
-			afterChange: (current: number) => handleActive(current),
+			beforeChange: (_current: number, next: number) => handleActive(next),
 		};
+
+		const extraClassName = fade ? className : "";
+
 		return (
-			<div className="overlapping-slider">
+			<div className={`overlapping-slider ${extraClassName}`}>
 				<Slider ref={ref} {...settings}>
 					{children}
 				</Slider>

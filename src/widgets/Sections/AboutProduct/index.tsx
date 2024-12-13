@@ -28,6 +28,8 @@ const AboutProductSection: React.FC<IAboutProductSection> = ({ data }) => {
 		sliderRef.current?.slickPrev();
 	};
 
+	const nextSlideIndex = activeSlide === data.length - 1 ? 0 : activeSlide + 1;
+
 	return (
 		<section className="section-about-product" id="about-product">
 			<div className="subsection-grid">
@@ -90,10 +92,13 @@ const AboutProductSection: React.FC<IAboutProductSection> = ({ data }) => {
 				<div className="slider-wrapper">
 					<DemoSlider
 						ref={sliderRef}
+						fade={true}
 						handleActive={(count: number) => setActiveSlide(count)}
+						className="shadow-slider"
+						desctopSlidesToShow={1}
 					>
 						{data.map((item, index) => (
-							<div key={"slide" + index} className="demo-slide-item">
+							<div key={"slidde" + index} className="demo-slide-item">
 								<img src={item.imgPath} alt={"slide" + item.title} />
 							</div>
 						))}
@@ -109,6 +114,10 @@ const AboutProductSection: React.FC<IAboutProductSection> = ({ data }) => {
 							<ForwardIcon />
 						</IconButton>
 					</div>
+				</div>
+
+				<div className="next-slide-img-btn" onClick={handleNext}>
+					<img src={data[nextSlideIndex].imgPath} alt="next-slide" />
 				</div>
 			</div>
 		</section>
