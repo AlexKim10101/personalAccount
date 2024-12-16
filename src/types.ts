@@ -1,13 +1,23 @@
+export type IData = {
+	homePage: {
+		[key: string]: any;
+	};
+	loadingPage: { [key: string]: any };
+	accountPage: { [key: string]: any };
+	style: { [key: string]: any };
+	[key: string]: any;
+};
+
 export type IAboutProductItem = {
-	logo: ReturnType<React.FC>;
 	title: string;
 	content: string[];
+	path: string;
 };
 
 export type IDemoDataItem = {
-	imgPath: string;
+	path: string;
 	title: string;
-	content: string;
+	content: string[];
 };
 
 export type ICaseDataItem = {

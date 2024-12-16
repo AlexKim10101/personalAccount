@@ -10,6 +10,7 @@ import ScrollToHash from "@components/Scroll";
 
 import "normalize.css";
 import "./index.css";
+import { DataProvider } from "services/context";
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement
@@ -19,11 +20,13 @@ root.render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<ScrollToHash />
-			<Routes>
-				<Route path="/" element={<HomePage />} />
-				<Route path="login" element={<LoginPage />} />
-				<Route path="account/*" element={<AccountPage />} />
-			</Routes>
+			<DataProvider>
+				<Routes>
+					<Route path="/" element={<HomePage />} />
+					<Route path="login" element={<LoginPage />} />
+					<Route path="account/*" element={<AccountPage />} />
+				</Routes>
+			</DataProvider>
 		</BrowserRouter>
 	</React.StrictMode>
 );

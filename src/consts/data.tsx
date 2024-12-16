@@ -1,9 +1,3 @@
-import { ReactComponent as FlagIcon } from "@assets/icons/ic_flag.svg";
-import { ReactComponent as ConstructIcon } from "@assets/icons/ic_constructor.svg";
-import { ReactComponent as AnsIcon } from "@assets/icons/ic_collect.svg";
-import { ReactComponent as ChartIcon } from "@assets/icons/ic_chart.svg";
-import { ReactComponent as GroupIcon } from "@assets/icons/ic_group.svg";
-import { ReactComponent as AutoIcon } from "@assets/icons/ic_auto.svg";
 import {
 	IAboutProductItem,
 	IAccountData,
@@ -92,24 +86,23 @@ export const anchorData = [
 ];
 
 export const companies = [
-	{ name: "Телекоммуникация", path: "" },
-	{ name: "Ритейл", path: "" },
-	{ name: "Образование", path: "" },
-	{ name: "Энергетика", path: "" },
-	{ name: "Логистика", path: "" },
-	{ name: "Финансы", path: "" },
+	{ name: "Телекоммуникация", path: "/main-slides/slide-1.png" },
+	{ name: "Ритейл", path: "/main-slides/slide-2.png" },
+	{ name: "Образование", path: "/main-slides/slide-3.png" },
+	{ name: "Энергетика", path: "/main-slides/slide-4.png" },
+	{ name: "Логистика", path: "/main-slides/slide-5.png" },
+	{ name: "Финансы", path: "/main-slides/slide-6.png" },
 ];
 
 export const aboutProductData: IAboutProductItem[] = [
 	{
-		logo: <FlagIcon />,
 		title: "Российское ПО",
 		content: [
 			"Полностью российская разработка, KPI MONITOR и KPI MONITOR Анкетирование входят в Единый реестр российских программ.",
 		],
+		path: "icons/ic_flag.svg",
 	},
 	{
-		logo: <ConstructIcon />,
 		title: "Конструктор анкет",
 		content: [
 			"Гибкая настройка",
@@ -118,69 +111,74 @@ export const aboutProductData: IAboutProductItem[] = [
 			"Таймер на заполение",
 			"Произвольная стилизация анкеты",
 		],
+		path: "icons/ic_constructor.svg",
 	},
 	{
-		logo: <AnsIcon />,
 		title: "Сбор ответов",
 		content: [
 			"Пользовательских ссылок на прохождение анкет",
 			"Статистика по сбору ответов онлайн",
 			"Настройка защиты от повторных заполнений",
 		],
+		path: "icons/ic_collect.svg",
 	},
 	{
-		logo: <ChartIcon />,
 		title: "Анализ результатов",
 		content: [
 			"Интеграция с BI функционалом KPI MONITOR Analyzer для произвольного отображения результатов",
 			"Открытый API",
 			"Выгрузка результатов анкетирования в excel/pdf",
 		],
+		path: "icons/ic_chart.svg",
 	},
 	{
-		logo: <GroupIcon />,
 		title: "Совместное использование",
 		content: [
 			"Разграничение уровней видимости созданных анкет",
 			"Совместное редактирование анкет",
 			"Публикация результатов анкет коллегам и знакомым",
 		],
+		path: "icons/ic_group.svg",
 	},
 	{
-		logo: <AutoIcon />,
 		title: "Автоматизация",
 		content: [
 			"Настройка правил для проверки корректности заполнения",
 			"Условия видимости вопросов и страниц анкеты",
 			"Завершение анкетирования по сроку или сбору необходимого числа ответов",
 		],
+		path: "icons/ic_auto.svg",
 	},
 ];
 
 export const demoData: IDemoDataItem[] = [
 	{
 		title: "Управление анкетами",
-		content:
+		content: [
 			"С помощью этого модуля вы сможете создавать анкеты, публиковать их для заполнения и делиться результатами. Это отличный способ собрать нужную информацию быстро и эффективно.",
-		imgPath: "/demo-slides/slide-1.png",
+		],
+		path: "/demo-slides/slide-1.png",
 	},
 	{
 		title: "Стилизация",
-		content:
+		content: [
 			"Персонализируйте свою анкету, выбрав настройки, соответствующие вашему корпоративному стилю. Выделитесь среди других пользователей, показав свою индивидуальность.",
-		imgPath: "/demo-slides/slide-2.png",
+		],
+		path: "/demo-slides/slide-2.png",
 	},
 	{
 		title: "Мобильная адаптивность",
-		content:
+		content: [
 			"Заполнять анкету можно с любого мобильного устройства. Система запоминает ваши ответы, так что вы можете начать работу на компьютере и продолжить на смартфоне.",
-		imgPath: "/demo-slides/slide-3.png",
+		],
+		path: "/demo-slides/slide-3.png",
 	},
 	{
 		title: "Гибкая настройка",
-		content:
+		content: [
 			"Анкета может быть настроена под ваши нужды. Выбирайте типы вопросов, добавляйте пользовательские поля и устанавливайте различные правила для ответов.",
-		imgPath: "/demo-slides/slide-4.png",
+		],
+		path: "/demo-slides/slide-4.png",
 	},
 ];
 

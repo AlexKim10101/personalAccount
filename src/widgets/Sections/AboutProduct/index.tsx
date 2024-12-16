@@ -7,15 +7,36 @@ import { ReactComponent as BackIcon } from "@assets/icons/back-icon.svg";
 import GridComponent from "@components/GridComponent";
 import CardGallery from "@components/Slider";
 
-import { aboutProductData, companies } from "consts/data";
+import { aboutProductData, companies, demoData } from "consts/data";
 import DemoSlider from "@components/OverlapingSlider";
-import { IDemoDataItem } from "types";
+import { IAboutProductItem, IDemoDataItem } from "types";
+import Icon from "@components/Icon";
 
 type IAboutProductSection = {
-	data: IDemoDataItem[];
+	title: string;
+	features: {
+		slider: {
+			data: IAboutProductItem[];
+			mobileSlidesToShow: number;
+			laptopSlidesToShow: number;
+			desctopSlidesToShow: number;
+		};
+	};
+	demo: {
+		slider: {
+			data: IAboutProductItem[];
+			mobileSlidesToShow: number;
+			laptopSlidesToShow: number;
+			desctopSlidesToShow: number;
+		};
+	};
 };
 
-const AboutProductSection: React.FC<IAboutProductSection> = ({ data }) => {
+const AboutProductSection: React.FC<IAboutProductSection> = ({
+	features: { slider: featureSlider },
+	demo: { slider: demoSlider },
+	title,
+}) => {
 	const sliderRef = useRef<Slider | null>(null);
 
 	const [activeSlide, setActiveSlide] = useState(0);
@@ -28,27 +49,30 @@ const AboutProductSection: React.FC<IAboutProductSection> = ({ data }) => {
 		sliderRef.current?.slickPrev();
 	};
 
-	const nextSlideIndex = activeSlide === data.length - 1 ? 0 : activeSlide + 1;
+	const nextSlideIndex =
+		activeSlide === demoSlider.data.length - 1 ? 0 : activeSlide + 1;
 
 	return (
 		<section className="section-about-product" id="about-product">
 			<div className="subsection-grid">
-				<div className="section-about-product-title">О продукте</div>
+				<div className="section-about-product-title">{title}</div>
 				<div className="desctop-version">
-					<GridComponent data={aboutProductData} />
+					<GridComponent data={featureSlider.data} />
 				</div>
 				<div className="mobile-version">
 					<CardGallery
-						mobileSlidesToShow={2}
-						laptopSlidesToShow={3}
-						desctopSlidesToShow={4}
+						mobileSlidesToShow={featureSlider.mobileSlidesToShow}
+						laptopSlidesToShow={featureSlider.laptopSlidesToShow}
+						desctopSlidesToShow={featureSlider.desctopSlidesToShow}
 					>
-						{aboutProductData.map((item, index) => {
+						{featureSlider.data.map((item, index) => {
 							return (
 								<div key={"galleryProductItem" + index}>
 									<div className="product-item">
 										<div className="product-item-header">
-											<div className="product-icon-wrapper">{item.logo}</div>
+											<div className="product-icon-wrapper">
+												<Icon path={item.path} id={"icon" + index} />
+											</div>
 											{/* <img src={imgPath} /> */}
 											<div className="product-item-title">{item.title}</div>
 										</div>
@@ -80,14 +104,18 @@ const AboutProductSection: React.FC<IAboutProductSection> = ({ data }) => {
 			<div className="demo-slider-container">
 				<div className="slide-description">
 					<div className="demo-header">
-						<div className="demo-title">{data[activeSlide].title}</div>
+						<div className="demo-title">
+							{demoSlider.data[activeSlide].title}
+						</div>
 						<div className="btn-wrapper">
 							<IconButton onClick={handleNext} className="icon-button">
 								<ForwardIcon />
 							</IconButton>
 						</div>
 					</div>
-					<div className="demo-content">{data[activeSlide].content}</div>
+					<div className="demo-content">
+						{demoSlider.data[activeSlide].content[0]}
+					</div>
 				</div>
 				<div className="slider-wrapper">
 					<DemoSlider
@@ -97,9 +125,9 @@ const AboutProductSection: React.FC<IAboutProductSection> = ({ data }) => {
 						className="shadow-slider"
 						desctopSlidesToShow={1}
 					>
-						{data.map((item, index) => (
+						{demoSlider.data.map((item, index) => (
 							<div key={"slidde" + index} className="demo-slide-item">
-								<img src={item.imgPath} alt={"slide" + item.title} />
+								<img src={item.path} alt={"slide" + item.title} />
 							</div>
 						))}
 					</DemoSlider>
@@ -108,7 +136,7 @@ const AboutProductSection: React.FC<IAboutProductSection> = ({ data }) => {
 							<BackIcon />
 						</IconButton>
 						<span className="switcher-counter">
-							{activeSlide + 1}/{data.length}
+							{activeSlide + 1}/{demoSlider.data.length}
 						</span>
 						<IconButton onClick={handleNext} className="icon-button">
 							<ForwardIcon />
@@ -117,7 +145,7 @@ const AboutProductSection: React.FC<IAboutProductSection> = ({ data }) => {
 				</div>
 
 				<div className="next-slide-img-btn" onClick={handleNext}>
-					<img src={data[nextSlideIndex].imgPath} alt="next-slide" />
+					<img src={demoSlider.data[nextSlideIndex].path} alt="next-slide" />
 				</div>
 			</div>
 		</section>

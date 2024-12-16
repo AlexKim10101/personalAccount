@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography } from "@mui/material";
+import Icon from "@components/Icon";
 import "./gridComponent.css";
 import { IAboutProductItem } from "../../types";
 
@@ -13,7 +14,9 @@ const GridComponent: React.FC<IGridComponent> = ({ data }) => {
 			{data.map((item, index) => (
 				<div className="grid-item" key={"productGridItem" + index}>
 					<div className="grid-item-header">
-						<div className="icon-wrapper">{item.logo}</div>
+						<div className="icon-wrapper">
+							<Icon path={item.path} id={"icon" + index} />
+						</div>
 						<div className="grid-item-title">{item.title}</div>
 					</div>
 

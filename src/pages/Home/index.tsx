@@ -1,41 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router";
 import imgPath from "@assets/img/first-section-bg-image.png";
 import CardGallery from "@components/Slider";
-import { Typography } from "@mui/material";
-import erLogo from "@assets/icons/er-logo.png";
-import gorLogo from "@assets/icons/gorenje-logo.png";
-import meiLogo from "@assets/icons/mei-logo.png";
-import mosoblLogo from "@assets/icons/mosobl-logo.png";
-import pgcLogo from "@assets/icons/pgc-logo.png";
-import raffLogo from "@assets/icons/raff-logo.png";
+
 import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
 import { ReactComponent as AddressIcon } from "@assets/icons/address-icon.svg";
 import { ReactComponent as PhoneIcon } from "@assets/icons/phone-icon.svg";
 import { ReactComponent as MailIcon } from "@assets/icons/mail-icon.svg";
 
-import {
-	caseData,
-	companies,
-	demoData,
-	tableFields,
-	versions,
-} from "consts/data";
+import { caseData, demoData, tableFields, versions } from "consts/data";
 import AboutProductSection from "widgets/Sections/AboutProduct";
 import CasesSection from "widgets/Sections/Cases";
 import PriceSection from "widgets/Sections/Price";
 import Header from "widgets/Header";
 import Footer from "widgets/Footer";
+import { useData } from "services/context";
 
 function Home() {
-	const companiesImgPaths = [
-		erLogo,
-		gorLogo,
-		meiLogo,
-		mosoblLogo,
-		pgcLogo,
-		raffLogo,
-	];
+	const { homePage } = useData();
+
+	if (Object.keys(homePage).length === 0) {
+		return null;
+	}
+
+	console.log("homePage", homePage);
 
 	return (
 		<>
@@ -48,57 +36,55 @@ function Home() {
 						<div className="section-home-content">
 							<div className="section-home-header">
 								<span className="section-home-title">
-									KPI MONITOR Анкетирование
+									{homePage.main.title}
 								</span>
 								<span className="section-home-subtitle"> — </span>
 								<span className="section-home-subtitle">
-									сервис для создания опросов
+									{homePage.main.subtitle}
 								</span>
 							</div>
 							<div className="section-home-description">
-								<div className="section-description-title">О программе</div>
+								<div className="section-description-title">
+									{homePage.main.description.title}
+								</div>
 								<div className="section-description-content">
-									Модуль позволяет настроить любую анкету и провести
-									анкетирование среди сотрудников вашей компании или более
-									широкого круга лиц. Настраивайте произвольные вопросы, логику
-									заполнения и стилизацию и получайте статистику по заполнениям
-									в режиме реального времени на интерактивных дашбордах.
+									{homePage.main.description.content}
 								</div>
 							</div>
 						</div>
 					</section>
 
 					<section className="section-clients">
-						<div className="text">
-							Нашей компании доверяют более 50 клиентов из различных <br />
-							сфер: финансы, энергетика, ритейл и другие.
-						</div>
+						<div className="text">{homePage.clients.description.content}</div>
 						<CardGallery
-							mobileSlidesToShow={2}
-							laptopSlidesToShow={4}
-							desctopSlidesToShow={5}
+							mobileSlidesToShow={homePage.clients.slider.mobileSlidesToShow}
+							laptopSlidesToShow={homePage.clients.slider.laptopSlidesToShow}
+							desctopSlidesToShow={homePage.clients.slider.desctopSlidesToShow}
 						>
-							{companies.map((item, index) => {
-								const imgPath = companiesImgPaths[index];
-								return (
-									<div key={index} className="my-slide">
-										<div className="card">
-											<div className="card-title">{item.name}</div>
-											<img src={imgPath} alt={"logo" + item.name} />
-										</div>
+							{homePage.clients.slider.data.map((item: any, index: number) => (
+								<div key={index} className="my-slide">
+									<div className="card">
+										<div className="card-title">{item.name}</div>
+										<img src={item.path} alt={"logo" + item.name} />
 									</div>
-								);
-							})}
+								</div>
+							))}
 						</CardGallery>
 					</section>
-					<AboutProductSection data={demoData} />
-					<CasesSection data={caseData} />
-					<PriceSection versions={versions} tableFields={tableFields} />
+					<AboutProductSection
+						title={homePage.aboutProduct.title}
+						features={homePage.aboutProduct.features}
+						demo={homePage.aboutProduct.demo}
+					/>
+					<CasesSection data={homePage.cases} />
+					<PriceSection
+						versions={homePage.prices.versions}
+						tableFields={homePage.prices.tableFields}
+					/>
 					<section className="section" id="documentation">
-						<div className="section-title">Документация</div>
+						<div className="section-title">{homePage.documentation.title}</div>
 						<div className="text">
-							Вы можете ознакомиться с презентацией возможностей продукта,
-							инструкцией по установке ПО и руководством пользователя.
+							{homePage.documentation.description.content}
 						</div>
 						<div className="link-container">
 							<Link to="/login" className="link link-orange link-width">
@@ -124,11 +110,11 @@ function Home() {
 
 					<section className="section" id="contacts">
 						<div className="info-wrapper">
-							<div className="section-title title-width">Контакты</div>
+							<div className="section-title title-width">
+								{homePage.contacts.title}
+							</div>
 							<div className="text">
-								Мы будем рады ответить на любые вопросы.
-								<br />
-								Специалисты на связи каждый будний день с 10 до 19.
+								{homePage.contacts.description.content}
 							</div>
 							<div className="info-container">
 								<div className="info-part">
@@ -138,8 +124,7 @@ function Home() {
 												<AddressIcon />
 											</div>
 											<div className="info-item-content">
-												111250, г. Москва, проезд Завода "Серп и Молот", д. 6
-												корп.1, Бизнес центр "РОСТЭК"
+												{homePage.contacts.description.address}
 											</div>
 										</li>
 										<li className="info-list-item">
@@ -147,9 +132,11 @@ function Home() {
 												<PhoneIcon />
 											</div>
 											<div className="info-item-content">
-												<div>+7 (495)662-11-31</div>
-												<div>+7 (495)662-11-32</div>
-												<div>+7 (495)662-11-33</div>
+												{homePage.contacts.description.phoneNumbers.map(
+													(item: string, index: number) => (
+														<div key={"phone" + index}>{item}</div>
+													)
+												)}
 											</div>
 										</li>
 										<li className="info-list-item">
@@ -157,7 +144,7 @@ function Home() {
 												<MailIcon />
 											</div>
 											<div className="info-item-content">
-												info@kpi-monitor.ru
+												{homePage.contacts.description.eMail}
 											</div>
 										</li>
 									</ul>
@@ -165,17 +152,20 @@ function Home() {
 								<div className="divider-adaptive"></div>
 								<div className="info-part">
 									<div className="info-text">
-										Также вы можете бесплатно испытать наш продукт, чтобы лично
-										оценить его возможности в демо-версии.Для покупки полной
-										версии с вами свяжется наш менеджер и уточнит все детали.
+										{homePage.contacts.description.info}
 									</div>
-
-									<Link to="/login" className="link link-orange link-flex-end">
-										<div className="link-content">Попробовать</div>
-										<div className="link-content">
-											<ArrowIcon />
-										</div>
-									</Link>
+									{homePage.contacts.links.map((link: any) => (
+										<Link
+											key={link.id}
+											to={link.to}
+											className="link link-orange link-flex-end"
+										>
+											<div className="link-content">{link.title}</div>
+											<div className="link-content">
+												<ArrowIcon />
+											</div>
+										</Link>
+									))}
 								</div>
 							</div>
 						</div>
