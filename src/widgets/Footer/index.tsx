@@ -1,30 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router";
-
-import {
-	AppBar,
-	Box,
-	IconButton,
-	Toolbar,
-	Typography,
-	Menu,
-	MenuItem,
-} from "@mui/material";
+import { Typography } from "@mui/material";
+import Icons from "@components/Icon";
 import "./footer.css";
-import { anchorData, KPI_MONITOR_URL } from "consts/data";
 import { ReactComponent as LogoIcon } from "@assets/icons/logo_kpi.svg";
 import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
 import { ReactComponent as AddressIcon } from "@assets/icons/address-icon.svg";
 import { ReactComponent as PhoneIcon } from "@assets/icons/phone-icon.svg";
 import { ReactComponent as MailIcon } from "@assets/icons/mail-icon.svg";
+import { INavItem } from "types";
 
-const Footer: React.FC = () => {
+type IFooterProps = {
+	logo: {
+		url: string;
+		to: string;
+	};
+	navigation: INavItem[];
+};
+
+const Footer: React.FC<IFooterProps> = ({ logo, navigation }) => {
 	return (
 		<footer className="footer">
 			<div className="footer-container">
 				<div className="footer-left-section">
 					<div className="footer-nav">
-						<Link to={KPI_MONITOR_URL}>
+						<Link to={logo.to}>
 							<Typography
 								key="logo"
 								sx={{
@@ -34,14 +34,14 @@ const Footer: React.FC = () => {
 									margin: "0px",
 								}}
 							>
-								<LogoIcon />
+								<Icons path={logo.url} id="logo" size={40} />
 							</Typography>
 						</Link>
-						{anchorData.map(data => (
+						{navigation.map(item => (
 							<Typography
-								key={data.name}
+								key={item.title}
 								component={Link}
-								to={data.path}
+								to={item.path}
 								sx={{
 									display: "flex",
 									alignItems: "center",
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
 									"&:hover": { textDecoration: "underline" },
 								}}
 							>
-								{data.name}
+								{item.title}
 							</Typography>
 						))}
 					</div>
@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
 								margin: "0px",
 							}}
 						>
-							<LogoIcon />
+							<Icons path={logo.url} id="logo" size={40} />
 						</Typography>
 						KPI MONITOR Анкетирование
 					</div>

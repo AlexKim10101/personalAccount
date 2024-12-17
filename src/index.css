@@ -327,8 +327,16 @@ main {
 	color: var(--white-color);
 }
 
+.link-orange-mob {
+	background-color: var(--orange-color);
+}
+
 .link-orange {
 	background-color: var(--orange-color);
+}
+
+.link-orange-mob:nth-child(2n) {
+	background-color: var(--brand-color);
 }
 
 .link-width {
@@ -403,7 +411,7 @@ main {
 	border-top: 2px solid white;
 }
 
-.link-flex-end {
+.link-flex-start {
 	margin-top: auto;
 	align-self: flex-start;
 }
@@ -563,7 +571,7 @@ main {
 		flex-direction: row;
 	}
 
-	.link-orange-mob {
+	.link-orange-mob:nth-child(2n) {
 		background-color: var(--orange-color);
 	}
 }

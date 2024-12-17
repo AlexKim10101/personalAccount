@@ -100,8 +100,8 @@
 	}
 
 	.slider-container {
-		width: 100%;
-		left: 0;
+		width: calc(100% + 10px);
+		left: -5px;
 	}
 }
 @media (min-width: 1281px) {

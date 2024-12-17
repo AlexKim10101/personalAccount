@@ -4,7 +4,8 @@ import { IData } from "types";
 type ContextType = {
 	loading: boolean;
 	error: string | null;
-} & IData;
+	[key: string]: any;
+};
 
 export const Context = createContext<ContextType | undefined>(undefined);
 

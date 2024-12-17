@@ -1,13 +1,84 @@
 export type IData = {
-	homePage: {
+	pages: {
+		homePage: {
+			id: string;
+			navigation: INavItem[];
+			sections: {
+				main: {
+					title: string;
+					subtitle: string;
+					description: {
+						title: string;
+						content: string;
+					};
+				};
+				clients: {
+					description: {
+						content: string;
+					};
+					slider: ISlider;
+				};
+				aboutProduct: {
+					title: string;
+					features: { slider: ISlider };
+					demo: { slider: ISlider };
+				};
+				cases: ICaseDataItem[];
+				prices: {
+					versions: IVersionData[];
+					tableFields: ITableField[];
+				};
+				documentation: {
+					title: string;
+					description: {
+						content: string;
+					};
+					links: ILink[];
+				};
+				contacts: {
+					title: string;
+					description: {
+						content: string;
+						address: string;
+						phoneNumbers: string[];
+						eMail: string;
+						info: string;
+					};
+					links: ILink[];
+				};
+			};
+			header: {};
+			footer: {};
+		};
 		[key: string]: any;
 	};
-	loadingPage: { [key: string]: any };
-	accountPage: { [key: string]: any };
 	style: { [key: string]: any };
 	[key: string]: any;
 };
 
+export type ILink = {
+	id: string;
+	titlr: string;
+	to: string;
+};
+
+export type ISliderItem = {
+	title: string;
+	content: string[];
+	path: string;
+};
+
+export type ISlider = {
+	mobileSlidesToShow: number;
+	laptopSlidesToShow: number;
+	desctopSlidesToShow: number;
+	data: ISliderItem[];
+};
+
+export type INavItem = {
+	title: string;
+	path: string;
+};
 export type IAboutProductItem = {
 	title: string;
 	content: string[];

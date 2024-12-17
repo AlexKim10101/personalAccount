@@ -10,9 +10,10 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
 	const [data, setData] = useState<IData | null>(null);
 
 	const dataExist = !!data;
-	const homePage = dataExist ? data.homePage : {};
-	const loadingPage = dataExist ? data.loadingPage : {};
-	const accountPage = dataExist ? data.accountPage : {};
+	const homePage = dataExist ? data.pages.homePage : {};
+	const logo = dataExist ? data.logo : {};
+	const navigation = dataExist ? data.navigation : [];
+
 	const style = dataExist ? data.style : {};
 
 	useEffect(() => {
@@ -37,7 +38,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
 
 	return (
 		<Context.Provider
-			value={{ loading, error, homePage, loadingPage, accountPage, style }}
+			value={{ loading, error, homePage, logo, style, navigation }}
 		>
 			{children}
 		</Context.Provider>

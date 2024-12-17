@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
-import {
-	AppBar,
-	Box,
-	IconButton,
-	Toolbar,
-	Typography,
-	Menu,
-	MenuItem,
-} from "@mui/material";
+import { IconButton, Typography, Menu, MenuItem } from "@mui/material";
 import { Link } from "react-router";
 import { ReactComponent as BurgerIcon } from "@assets/icons/burger-menu-icon.svg";
 import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
-import { ReactComponent as LogoIcon } from "@assets/icons/logo_kpi.svg";
-import { anchorData, KPI_MONITOR_URL, SCROLL_LIMIT } from "consts/data";
+import { SCROLL_LIMIT } from "consts/data";
 import "./header.css";
+import Icons from "@components/Icon";
+import { INavItem } from "types";
 
-const Header: React.FC = () => {
+type IHeaderProps = {
+	logo: {
+		url: string;
+		to: string;
+	};
+	navigation: INavItem[];
+};
+
+const Header: React.FC<IHeaderProps> = ({ logo, navigation }) => {
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const [hidden, setHidden] = useState(false);
 	const isMenuOpen = Boolean(anchorEl);
@@ -69,11 +70,11 @@ const Header: React.FC = () => {
 							},
 						}}
 					>
-						{anchorData.map(data => (
+						{navigation.map(item => (
 							<MenuItem
-								key={data.name}
+								key={item.title}
 								component={Link}
-								to={data.path}
+								to={item.path}
 								onClick={handleMenuClose}
 								style={{
 									margin: "0px",
@@ -81,7 +82,7 @@ const Header: React.FC = () => {
 									fontFamily: "Manrope",
 								}}
 							>
-								{data.name}
+								{item.title}
 							</MenuItem>
 						))}
 					</Menu>
@@ -89,7 +90,7 @@ const Header: React.FC = () => {
 
 				{/* Горизонтальное меню для Desktop */}
 				<div className="block-desk">
-					<Link to={KPI_MONITOR_URL}>
+					<Link to={logo.to}>
 						<Typography
 							key="logo"
 							sx={{
@@ -99,14 +100,15 @@ const Header: React.FC = () => {
 								margin: "0px",
 							}}
 						>
-							<LogoIcon />
+							<Icons path={logo.url} id="logo" size={40} />
+							{/* <LogoIcon /> */}
 						</Typography>
 					</Link>
-					{anchorData.map(data => (
+					{navigation.map(item => (
 						<Typography
-							key={data.name}
+							key={item.title}
 							component={Link}
-							to={data.path}
+							to={item.path}
 							sx={{
 								display: "flex",
 								alignItems: "center",
@@ -117,7 +119,7 @@ const Header: React.FC = () => {
 								"&:hover": { textDecoration: "underline" },
 							}}
 						>
-							{data.name}
+							{item.title}
 						</Typography>
 					))}
 				</div>
