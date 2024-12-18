@@ -1,29 +1,27 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router";
-import imgPath from "@assets/img/first-section-bg-image.png";
-import CardGallery from "@components/Slider";
-
-import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
-import { ReactComponent as AddressIcon } from "@assets/icons/address-icon.svg";
-import { ReactComponent as PhoneIcon } from "@assets/icons/phone-icon.svg";
-import { ReactComponent as MailIcon } from "@assets/icons/mail-icon.svg";
+import { useData } from "services/context";
 
 import AboutProductSection from "widgets/Sections/AboutProduct";
 import CasesSection from "widgets/Sections/Cases";
 import PriceSection from "widgets/Sections/Price";
 import Header from "widgets/Header";
 import Footer from "widgets/Footer";
-import { useData } from "services/context";
+import CardGallery from "@components/Slider";
+
+import { ReactComponent as ArrowIcon } from "@assets/icons/arrow-icon.svg";
+import { ReactComponent as AddressIcon } from "@assets/icons/address-icon.svg";
+import { ReactComponent as PhoneIcon } from "@assets/icons/phone-icon.svg";
+import { ReactComponent as MailIcon } from "@assets/icons/mail-icon.svg";
 
 function Home() {
-	const { homePage, logo, navigation } = useData();
-	console.log("pages", homePage);
+	const { homePage, logo } = useData();
 
-	if (Object.keys(homePage).length === 0) {
-		return null;
-	}
+	if (!homePage) return null;
 
 	const {
+		header,
+		footer,
 		sections: {
 			main,
 			clients,
@@ -35,15 +33,17 @@ function Home() {
 		},
 	} = homePage;
 
-	console.log("homePage", homePage);
-
 	return (
 		<>
-			<Header logo={logo} navigation={navigation} />
+			<Header logo={logo} navigation={header.navigation} />
 			<div className="container">
 				<main>
 					<section className="section-home" id="home">
-						<img className="background-image" src={imgPath} alt="section-bg" />
+						<img
+							className="background-image"
+							src={main.bgImgPath}
+							alt="section-bg"
+						/>
 						<div className="background-container"></div>
 						<div className="section-home-content">
 							<div className="section-home-header">
@@ -84,11 +84,8 @@ function Home() {
 						features={aboutProduct.features}
 						demo={aboutProduct.demo}
 					/>
-					<CasesSection data={cases} />
-					<PriceSection
-						versions={prices.versions}
-						tableFields={prices.tableFields}
-					/>
+					<CasesSection data={cases.data} />
+					<PriceSection {...prices} />
 					<section className="section" id="documentation">
 						<div className="section-title">{documentation.title}</div>
 						<div className="text">{documentation.description.content}</div>
@@ -166,7 +163,7 @@ function Home() {
 					</section>
 				</main>
 			</div>
-			<Footer logo={logo} navigation={navigation} />
+			<Footer logo={logo} navigation={footer.navigation} />
 		</>
 	);
 }

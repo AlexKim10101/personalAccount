@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router";
 import { Box, Button } from "@mui/material";
-import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
+import { ReactComponent as ArrowIcon } from "@assets/icons/arrow-icon.svg";
 import { ReactComponent as TrashIcon } from "@assets/icons/svg/trash.svg";
 
 import "./user.css";

@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router";
+
 import { Typography } from "@mui/material";
 import Icons from "@components/Icon";
-import "./footer.css";
-import { ReactComponent as LogoIcon } from "@assets/icons/logo_kpi.svg";
-import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
+import { ReactComponent as ArrowIcon } from "@assets/icons/arrow-icon.svg";
 import { ReactComponent as AddressIcon } from "@assets/icons/address-icon.svg";
 import { ReactComponent as PhoneIcon } from "@assets/icons/phone-icon.svg";
 import { ReactComponent as MailIcon } from "@assets/icons/mail-icon.svg";
+import "./footer.css";
 import { INavItem } from "types";
 
 type IFooterProps = {
@@ -41,7 +41,7 @@ const Footer: React.FC<IFooterProps> = ({ logo, navigation }) => {
 							<Typography
 								key={item.title}
 								component={Link}
-								to={item.path}
+								to={`#${item.path}`}
 								sx={{
 									display: "flex",
 									alignItems: "center",

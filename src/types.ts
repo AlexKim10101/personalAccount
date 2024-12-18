@@ -2,33 +2,44 @@ export type IData = {
 	pages: {
 		homePage: {
 			id: string;
-			navigation: INavItem[];
+
 			sections: {
 				main: {
+					id: string;
 					title: string;
 					subtitle: string;
+					bgImgPath: string;
 					description: {
 						title: string;
 						content: string;
 					};
 				};
 				clients: {
+					id: string;
 					description: {
 						content: string;
 					};
 					slider: ISlider;
 				};
 				aboutProduct: {
+					id: string;
 					title: string;
 					features: { slider: ISlider };
 					demo: { slider: ISlider };
 				};
-				cases: ICaseDataItem[];
+				cases: {
+					id: string;
+					data: ICaseDataItem[];
+				};
 				prices: {
+					id: string;
+					title: string;
 					versions: IVersionData[];
+					conditions: IСonditionsData[];
 					tableFields: ITableField[];
 				};
 				documentation: {
+					id: string;
 					title: string;
 					description: {
 						content: string;
@@ -36,6 +47,7 @@ export type IData = {
 					links: ILink[];
 				};
 				contacts: {
+					id: string;
 					title: string;
 					description: {
 						content: string;
@@ -47,9 +59,11 @@ export type IData = {
 					links: ILink[];
 				};
 			};
-			header: {};
-			footer: {};
+			header: { id: string; navigation: INavItem[] };
+			footer: { id: string; navigation: INavItem[] };
 		};
+		loadingPage: { id: string };
+		accountPage: { id: string };
 		[key: string]: any;
 	};
 	style: { [key: string]: any };
@@ -116,6 +130,11 @@ type IFieldsName =
 	| "linkCount";
 
 export type IVersionData = {
+	title: string;
+	description: string;
+};
+
+export type IСonditionsData = {
 	id: string;
 	title: string;
 	data: {
@@ -139,4 +158,11 @@ export type IAccountData = {
 	name: string;
 	email: string;
 	password: string;
+};
+
+export type IRule = {
+	required?: string;
+	pattern?: { value: any; message: string };
+	minLength?: { value: any; message: string };
+	maxLength?: { value: any; message: string };
 };

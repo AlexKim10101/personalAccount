@@ -10,12 +10,12 @@ import {
 	IconButton,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
+import { ReactComponent as ArrowIcon } from "@assets/icons/arrow-icon.svg";
 
 import { styled } from "@mui/material/styles";
 
 import "./form.css";
-import { ISubmitBtnText } from "types";
+import { IRule, ISubmitBtnText } from "types";
 
 const StyledInput = styled(InputBase)(() => ({
 	position: "relative",
@@ -80,6 +80,7 @@ type IFormProps = {
 	enableResetBtn?: boolean;
 	defaultValues?: IFormData;
 	submitBtnText: ISubmitBtnText;
+	rules?: { email?: IRule; password?: IRule; name?: IRule };
 	closeModal?: () => void;
 	onSave?: (data: IFormData) => void;
 };
@@ -89,6 +90,7 @@ export const Form: React.FC<IFormProps> = ({
 	enableNameField = false,
 	requiredNameField = false,
 	enableResetBtn = false,
+	rules,
 	defaultValues = { email: "", password: "", name: "" },
 	closeModal,
 	onSave,
@@ -104,6 +106,10 @@ export const Form: React.FC<IFormProps> = ({
 		mode: "onSubmit",
 	});
 	const [showPassword, setShowPassword] = useState(false);
+	const emailRule = rules ? (rules.email ? rules.email : {}) : {};
+	const passwordRule = rules ? (rules.password ? rules.password : {}) : {};
+	const nameRule = rules ? (rules.name ? rules.name : {}) : {};
+
 	const onSubmit = (data: IFormData) => {
 		onSave && onSave(data);
 		closeModal && closeModal();
@@ -120,13 +126,7 @@ export const Form: React.FC<IFormProps> = ({
 				name="email"
 				control={control}
 				defaultValue=""
-				rules={{
-					required: "Обязательное поле",
-					pattern: {
-						value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-						message: "Invalid email format",
-					},
-				}}
+				rules={emailRule}
 				render={props => (
 					<CustomInput
 						{...props.field}
@@ -142,13 +142,7 @@ export const Form: React.FC<IFormProps> = ({
 				name="password"
 				control={control}
 				defaultValue=""
-				rules={{
-					required: "Обязательное поле",
-					minLength: {
-						value: 6,
-						message: "Password must be at least 6 characters",
-					},
-				}}
+				rules={passwordRule}
 				render={props => (
 					<CustomInput
 						{...props.field}
@@ -176,12 +170,7 @@ export const Form: React.FC<IFormProps> = ({
 					name="name"
 					control={control}
 					defaultValue=""
-					rules={{
-						maxLength: {
-							value: 50,
-							message: "Name must be less than 50 characters",
-						},
-					}}
+					rules={nameRule}
 					render={({ field }) => (
 						<CustomInput
 							{...field}

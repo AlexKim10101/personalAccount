@@ -1,14 +1,11 @@
 import React, { useRef, useState } from "react";
 import Slider from "react-slick";
-import { Typography } from "@mui/material";
 import { IconButton } from "@mui/material";
+import DemoSlider from "@components/OverlapingSlider";
 import { ReactComponent as ForwardIcon } from "@assets/icons/forward-icon.svg";
 import { ReactComponent as BackIcon } from "@assets/icons/back-icon.svg";
-import GridComponent from "@components/GridComponent";
-import CardGallery from "@components/Slider";
-import DemoSlider from "@components/OverlapingSlider";
-import { ICaseDataItem } from "types";
 import "./cases.css";
+import { ICaseDataItem } from "types";
 
 type ICasesSection = {
 	data: ICaseDataItem[];

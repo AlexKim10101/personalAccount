@@ -1,23 +1,23 @@
 import React, { useState } from "react";
-import { ITableField, IVersionData } from "types";
+import { ITableField, IСonditionsData } from "types";
 import "./tableComponent.css";
 
 type ITableComponentProps = {
-	versions: IVersionData[];
+	conditions: IСonditionsData[];
 	tableFields: ITableField[];
 };
 
 const TableComponent: React.FC<ITableComponentProps> = ({
-	versions,
+	conditions,
 	tableFields,
 }) => {
-	const [currentVersion, setCurrentVersion] = useState(versions[0]);
+	const [currentVersion, setCurrentVersion] = useState(conditions[0]);
 	const filteredVersions = [currentVersion];
 
 	return (
 		<>
 			<div className="table-control">
-				{versions.map((v, index) => (
+				{conditions.map((v, index) => (
 					<React.Fragment key={"version" + v.id}>
 						<div className="control-item-wrapper">
 							{v.title}
@@ -27,13 +27,13 @@ const TableComponent: React.FC<ITableComponentProps> = ({
 										? "control-item control-item-selected"
 										: "control-item"
 								}
-								onClick={() => setCurrentVersion(versions[index])}
+								onClick={() => setCurrentVersion(conditions[index])}
 							>
 								{v.title}
 							</div>
 						</div>
 
-						{index === versions.length - 1 ? null : (
+						{index === conditions.length - 1 ? null : (
 							<div className="divider"></div>
 						)}
 					</React.Fragment>
@@ -56,7 +56,7 @@ const TableComponent: React.FC<ITableComponentProps> = ({
 				<thead>
 					<tr>
 						<th className="th" key="empty_field"></th>
-						{versions.map(v => (
+						{conditions.map(v => (
 							<th className="th" key={v.id}>
 								{v.title}
 							</th>
@@ -67,7 +67,7 @@ const TableComponent: React.FC<ITableComponentProps> = ({
 					{tableFields.map(field => (
 						<tr key={field.id}>
 							<td key={"f_c" + field.id}>{field.title}</td>
-							{versions.map(v => (
+							{conditions.map(v => (
 								<td key={field.id + v.id}>{v.data[field.id]}</td>
 							))}
 						</tr>

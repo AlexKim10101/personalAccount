@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { IconButton, Typography, Menu, MenuItem } from "@mui/material";
 import { Link } from "react-router";
+import { IconButton, Typography, Menu, MenuItem } from "@mui/material";
+import Icons from "@components/Icon";
 import { ReactComponent as BurgerIcon } from "@assets/icons/burger-menu-icon.svg";
-import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
+import { ReactComponent as ArrowIcon } from "@assets/icons/arrow-icon.svg";
 import { SCROLL_LIMIT } from "consts/data";
 import "./header.css";
-import Icons from "@components/Icon";
 import { INavItem } from "types";
 
 type IHeaderProps = {
@@ -74,7 +74,7 @@ const Header: React.FC<IHeaderProps> = ({ logo, navigation }) => {
 							<MenuItem
 								key={item.title}
 								component={Link}
-								to={item.path}
+								to={`#${item.path}`}
 								onClick={handleMenuClose}
 								style={{
 									margin: "0px",
@@ -108,7 +108,7 @@ const Header: React.FC<IHeaderProps> = ({ logo, navigation }) => {
 						<Typography
 							key={item.title}
 							component={Link}
-							to={item.path}
+							to={`#${item.path}`}
 							sx={{
 								display: "flex",
 								alignItems: "center",

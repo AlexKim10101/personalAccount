@@ -2,15 +2,15 @@ import React, { useRef, useState } from "react";
 import Slider from "react-slick";
 import { Typography } from "@mui/material";
 import { IconButton } from "@mui/material";
-import { ReactComponent as ForwardIcon } from "@assets/icons/forward-icon.svg";
-import { ReactComponent as BackIcon } from "@assets/icons/back-icon.svg";
 import GridComponent from "@components/GridComponent";
 import CardGallery from "@components/Slider";
-
-import { aboutProductData, companies, demoData } from "consts/data";
 import DemoSlider from "@components/OverlapingSlider";
-import { IAboutProductItem, IDemoDataItem } from "types";
 import Icon from "@components/Icon";
+
+import { ReactComponent as ForwardIcon } from "@assets/icons/forward-icon.svg";
+import { ReactComponent as BackIcon } from "@assets/icons/back-icon.svg";
+
+import { IAboutProductItem } from "types";
 
 type IAboutProductSection = {
 	title: string;

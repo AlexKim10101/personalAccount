@@ -255,27 +255,27 @@ export const tableFields: ITableField[] = [
 	{ id: "linkCount", title: "Количество ссылок на заполнение" },
 ];
 
-export const versions: IVersionData[] = [
-	{
-		id: "demo",
-		title: "Демо-доступ",
-		data: {
-			price: "Бесплатно",
-			totalSurveys: "2",
-			totalAdmins: "1",
-			responseCount: "50",
-			linkCount: "2",
-		},
-	},
-	{
-		id: "base",
-		title: "Базовая лицензия",
-		data: {
-			price: "5000 ₽/месяц",
-			totalSurveys: "∞",
-			totalAdmins: "5",
-			responseCount: "∞",
-			linkCount: "∞",
-		},
-	},
-];
+// export const versions: IVersionData[] = [
+// 	{
+// 		id: "demo",
+// 		title: "Демо-доступ",
+// 		data: {
+// 			price: "Бесплатно",
+// 			totalSurveys: "2",
+// 			totalAdmins: "1",
+// 			responseCount: "50",
+// 			linkCount: "2",
+// 		},
+// 	},
+// 	{
+// 		id: "base",
+// 		title: "Базовая лицензия",
+// 		data: {
+// 			price: "5000 ₽/месяц",
+// 			totalSurveys: "∞",
+// 			totalAdmins: "5",
+// 			responseCount: "∞",
+// 			linkCount: "∞",
+// 		},
+// 	},
+// ];

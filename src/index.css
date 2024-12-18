@@ -455,7 +455,7 @@ main {
 	}
 	.text {
 		font-size: 1rem;
-		max-width: 43%;
+		max-width: 50%;
 	}
 	.info-wrapper {
 		flex-direction: row;

@@ -10,11 +10,6 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
 	const [data, setData] = useState<IData | null>(null);
 
 	const dataExist = !!data;
-	const homePage = dataExist ? data.pages.homePage : {};
-	const logo = dataExist ? data.logo : {};
-	const navigation = dataExist ? data.navigation : [];
-
-	const style = dataExist ? data.style : {};
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -36,9 +31,27 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
 		fetchData();
 	}, []);
 
+	if (!dataExist) {
+		return null;
+	}
+
+	const {
+		pages: { homePage, accountPage, loadingPage },
+		style,
+		logo,
+	} = data;
+
 	return (
 		<Context.Provider
-			value={{ loading, error, homePage, logo, style, navigation }}
+			value={{
+				loading,
+				error,
+				homePage,
+				accountPage,
+				loadingPage,
+				logo,
+				style,
+			}}
 		>
 			{children}
 		</Context.Provider>

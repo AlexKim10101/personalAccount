@@ -1,5 +1,5 @@
-import React, { useState, forwardRef } from "react";
-import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
+import React from "react";
+import { ReactComponent as ArrowIcon } from "@assets/icons/arrow-icon.svg";
 import "./deleteUser.css";
 
 type IDeleteUser = {

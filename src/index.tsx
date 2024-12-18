@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
+import { DataProvider } from "services/context";
 
 import HomePage from "./pages/Home";
 import LoginPage from "./pages/Login";
@@ -10,7 +11,6 @@ import ScrollToHash from "@components/Scroll";
 
 import "normalize.css";
 import "./index.css";
-import { DataProvider } from "services/context";
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement

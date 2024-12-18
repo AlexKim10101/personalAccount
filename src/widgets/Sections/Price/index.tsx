@@ -1,30 +1,36 @@
 import React from "react";
 import { Link } from "react-router";
-import { ReactComponent as ArrowIcon } from "@assets/icons/icon1.svg";
-import { ITableField, IVersionData } from "types";
-
-import "./Price.css";
 import TableComponent from "@components/TableComponent";
+import { ReactComponent as ArrowIcon } from "@assets/icons/arrow-icon.svg";
+import "./Price.css";
+import { ITableField, IСonditionsData, IVersionData } from "types";
 
 type IPriceSection = {
+	id: string;
+	title: string;
+	description: { content: string };
 	versions: IVersionData[];
+	conditions: IСonditionsData[];
 	tableFields: ITableField[];
 	accountMode?: boolean;
 };
 
 const PriceSection: React.FC<IPriceSection> = ({
+	id,
+	title,
+	description,
 	versions,
+	conditions,
 	tableFields,
 	accountMode = false,
 }) => {
 	return (
-		<section className="section" id="prices">
+		<section className="section" id={id}>
 			{!accountMode && (
 				<>
-					<div className="section-title">Прайс и комплектация</div>
+					<div className="section-title">{title}</div>
 					<div className="text">
-						Мы предлагаем возможность выбора{" "}
-						<span>коробочной или облачной версии</span>.
+						<p dangerouslySetInnerHTML={{ __html: description.content }} />
 					</div>
 				</>
 			)}
@@ -37,9 +43,9 @@ const PriceSection: React.FC<IPriceSection> = ({
 							: "version-title title-shift"
 					}
 				>
-					Облачная версия
+					{versions[0].title}
 				</div>
-				<TableComponent tableFields={tableFields} versions={versions} />
+				<TableComponent tableFields={tableFields} conditions={conditions} />
 			</div>
 
 			{accountMode && (
@@ -55,12 +61,8 @@ const PriceSection: React.FC<IPriceSection> = ({
 			)}
 
 			<div className="box-version">
-				<div className="version-title">Коробочная версия</div>
-				<div className="text">
-					Стоимость коробочной версии может варьироваться, поэтому просим вас
-					оставить заявку на запрос цены, и наш менеджер свяжется с вами
-					в ближайшее время.
-				</div>
+				<div className="version-title">{versions[1].title}</div>
+				<div className="text">{versions[1].description}</div>
 				<Link to="/login" className="link link-align-start">
 					<div className="link-content">Запросить цену</div>
 					<div className="link-content">
