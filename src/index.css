@@ -38,32 +38,26 @@ body {
 	src: url("/src/assets/fonts/Manrope-VariableFont_wght.ttf");
 }
 
-main {
-	/* background-color: var(--green-color); */
-	flex-grow: 1;
-	padding-top: var(--header-height);
+.container {
 	display: flex;
 	flex-direction: column;
 	gap: 40px;
-}
 
-.container {
-	display: flex;
 	position: relative;
-	flex-direction: column;
-	font-family: Manrope;
-	width: 100%;
+	padding-top: var(--header-height);
 	padding-left: var(--padding-mobile);
 	padding-right: var(--padding-mobile);
+
 	box-sizing: border-box;
+	width: 100%;
+
+	font-family: Manrope;
 }
 
 .text {
 	font-size: 0.875rem;
 	font-weight: 400;
 	line-height: 1.4rem;
-	/* font-size: 1rem; */
-	/* max-width: 50%; */
 }
 
 .text > span {
@@ -229,9 +223,6 @@ main {
 	flex-direction: column;
 	gap: 20px;
 	overflow: hidden;
-
-	/* flex-direction: row;
-	justify-content: space-between; */
 }
 
 .next-slide-img-btn {
@@ -242,7 +233,9 @@ main {
 	right: 0;
 	z-index: 1;
 	background: #000;
+	cursor: pointer;
 }
+
 .next-slide-img-btn > img {
 	width: 100%;
 	opacity: 0.6;
@@ -455,7 +448,7 @@ main {
 	}
 	.text {
 		font-size: 1rem;
-		max-width: 50%;
+		max-width: 43%;
 	}
 	.info-wrapper {
 		flex-direction: row;

@@ -155,11 +155,11 @@
 								"content": "Итогом работы стал интерактивный отчет о состоянии Инклюзивной образовательной среды каждого региона РФ с возможностью агрегации и оценки интегрального индекса РФ. Мониторинг проводился совместно с Федеральным центром по развитию инклюзивного общего и дополнительного образования."
 							},
 							"slides": [
-								"/case-slides/case-one-slide1.jpg",
-								"/case-slides/case-one-slide2.jpg",
-								"/case-slides/case-one-slide3.jpg",
-								"/case-slides/case-one-slide4.jpg",
-								"/case-slides/case-one-slide5.jpg"
+								"/case-slides/case-one-slide1.png",
+								"/case-slides/case-one-slide2.png",
+								"/case-slides/case-one-slide3.png",
+								"/case-slides/case-one-slide4.png",
+								"/case-slides/case-one-slide5.png"
 							],
 							"statisticPoints": [
 								{ "title": "Длительность кампании:", "content": "2 месяца" },
@@ -186,9 +186,9 @@
 								"content": "На основе расчета показателей и собранной во время анкетирования информации ежегодно рассчитывается коэффициент результативности кафедр, влияющий на стратегию развития ВУЗа."
 							},
 							"slides": [
-								"/case-slides/case-two-slide1.jpg",
-								"/case-slides/case-two-slide2.jpg",
-								"/case-slides/case-two-slide3.jpg"
+								"/case-slides/case-two-slide1.png",
+								"/case-slides/case-two-slide2.png",
+								"/case-slides/case-two-slide3.png"
 							],
 							"statisticPoints": [
 								{ "title": "Число сотрудников:", "content": "2 тысячи" },
@@ -331,28 +331,77 @@
 		},
 		"loadingPage": {
 			"id": "loadingPage",
-			"validationRules": {
-				"email": {
-					"required": "Обязательное поле",
-					"pattern": {
-						"value": "/^[^s@]+@[^s@]+.[^s@]+$/",
-						"message": "Неверный формат"
-					}
+			"bgImgUrl": "/img/login-bg-image.jpg",
+			"sections": [
+				{
+					"id": "authorization",
+					"title": "Вход",
+					"titleBtn": "Войти",
+					"formFields": [
+						{
+							"id": "email",
+							"label": "E-mail",
+							"validationRules": {
+								"required": "Обязательное поле",
+								"pattern": {
+									"value": "/^[^s@]+@[^s@]+.[^s@]+$/",
+									"message": "Неверный формат"
+								}
+							}
+						},
+						{
+							"id": "password",
+							"label": "Пароль",
+							"validationRules": {
+								"required": "Обязательное поле",
+								"minLength": {
+									"value": 6,
+									"message": "Пароль должен состоять из 6 и более символов"
+								}
+							}
+						}
+					]
 				},
-				"password": {
-					"required": "Обязательное поле",
-					"minLength": {
-						"value": 6,
-						"message": "Пароль должен состоять из 6 и более символов"
-					}
-				},
-				"name": {
-					"maxLength": {
-						"value": 50,
-						"message": "Имя не должно превышать 50 символов"
-					}
+				{
+					"id": "registration",
+					"title": "Регистрация",
+					"titleBtn": "Зарегистрироваться",
+					"formFields": [
+						{
+							"id": "email",
+							"label": "E-mail",
+							"validationRules": {
+								"required": "Обязательное поле",
+								"pattern": {
+									"value": "/^[^s@]+@[^s@]+.[^s@]+$/",
+									"message": "Неверный формат"
+								}
+							}
+						},
+						{
+							"id": "password",
+							"label": "Пароль",
+							"validationRules": {
+								"required": "Обязательное поле",
+								"minLength": {
+									"value": 6,
+									"message": "Пароль должен состоять из 6 и более символов"
+								}
+							}
+						},
+						{
+							"id": "name",
+							"label": "ФИО (необязательное поле)",
+							"validationRules": {
+								"maxLength": {
+									"value": 50,
+									"message": "Имя не должно превышать 50 символов"
+								}
+							}
+						}
+					]
 				}
-			}
+			]
 		},
 		"accountPage": {
 			"id": "accountPage",
@@ -361,6 +410,42 @@
 				"email": "ivan@ivanov.ru",
 				"value": "8 дней"
 			},
+
+			"formFields": [
+				{
+					"id": "email",
+					"label": "E-mail",
+					"validationRules": {
+						"required": "Обязательное поле",
+						"pattern": {
+							"value": "/^[^s@]+@[^s@]+.[^s@]+$/",
+							"message": "Неверный формат"
+						}
+					}
+				},
+				{
+					"id": "password",
+					"label": "Пароль",
+					"validationRules": {
+						"required": "Обязательное поле",
+						"minLength": {
+							"value": 6,
+							"message": "Пароль должен состоять из 6 и более символов"
+						}
+					}
+				},
+				{
+					"id": "name",
+					"label": "ФИО",
+					"validationRules": {
+						"required": "Обязательное поле",
+						"maxLength": {
+							"value": 50,
+							"message": "Имя не должно превышать 50 символов"
+						}
+					}
+				}
+			],
 
 			"sections": [
 				{
@@ -427,6 +512,41 @@
 					"id": "accountLink_3",
 					"title": "Пользователи",
 					"url": "/account/users",
+					"formFields": [
+						{
+							"id": "email",
+							"label": "E-mail",
+							"validationRules": {
+								"required": "Обязательное поле",
+								"pattern": {
+									"value": "/^[^s@]+@[^s@]+.[^s@]+$/",
+									"message": "Неверный формат"
+								}
+							}
+						},
+						{
+							"id": "password",
+							"label": "Пароль",
+							"validationRules": {
+								"required": "Обязательное поле",
+								"minLength": {
+									"value": 2,
+									"message": "Пароль должен состоять из 2 и более символов"
+								}
+							}
+						},
+						{
+							"id": "name",
+							"label": "ФИО",
+							"validationRules": {
+								"required": "Обязательное поле",
+								"maxLength": {
+									"value": 50,
+									"message": "Имя не должно превышать 50 символов"
+								}
+							}
+						}
+					],
 					"users": [
 						{
 							"id": "user_1",

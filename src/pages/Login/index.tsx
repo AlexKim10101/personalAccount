@@ -6,17 +6,14 @@ import CustomTabs from "@components/Tabs";
 import { Form } from "@components/Form";
 import Icons from "@components/Icon";
 
-import imgPath from "@assets/img/login-bg-image.jpg";
-import { transformValidationRules } from "utils/parserValidationRule";
 import "./login.css";
-import { ISubmitBtnText } from "types";
 
 const LoginPage = () => {
 	const [activeTab, setActiveTab] = useState<number>(0);
-	const actions: ISubmitBtnText[] = ["Войти", "Зарегистрироваться"];
 	const { loadingPage, logo } = useData();
-	const { validationRules } = loadingPage;
-	const rules = transformValidationRules(validationRules);
+	const { sections, bgImgUrl } = loadingPage;
+	const activeSection = sections[activeTab];
+	const tabs = sections.map((s: any) => s.title);
 
 	return (
 		<div className="login-container">
@@ -30,19 +27,18 @@ const LoginPage = () => {
 					<CustomTabs
 						activeTab={activeTab}
 						setActiveTab={(i: number) => setActiveTab(i)}
-						tabs={["Вход", "Регистрация"]}
+						tabs={tabs}
 					/>
 					<Form
-						submitBtnText={actions[activeTab]}
-						enableNameField={activeTab === 1}
+						submitBtnText={activeSection.titleBtn}
 						closeModal={() => console.log("closeModal")}
 						onSave={data => console.log("onSave", data)}
-						rules={rules}
+						formFields={activeSection.formFields}
 					/>
 				</div>
 			</div>
 			<div className="section-image">
-				<img src={imgPath} alt="manager" />
+				<img src={bgImgUrl} alt="manager" />
 			</div>
 		</div>
 	);

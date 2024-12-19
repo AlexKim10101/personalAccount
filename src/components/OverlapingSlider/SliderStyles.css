@@ -1,25 +1,14 @@
-/* .overlapping-slider .my-super-slide {
-	display: flex !important;
-	justify-content: center;
-	align-items: center;
-	height: 200px;
-}
-h3 {
-	display: block;
-}
-
-.overlapping-slider .slick-current {
-	background-color: green;
-}
-
-.overlapping-slider .slick-active:not(.slick-current) {
-	background-color: blueviolet;
-	position: relative;
-	left: -400px;
-	z-index: -1;
-} */
-
-/* .slick-slide slick-active slick-current */
-
 .shadow-slider {
+	position: relative;
+}
+
+.shadow-slider::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: var(--grey-light-color);
+	z-index: -1;
 }

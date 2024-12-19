@@ -13,7 +13,7 @@ type IDemoSlider = {
 	laptopSlidesToShow?: number;
 	desctopSlidesToShow?: number;
 };
-// forwardRef<Slider, OverlappingSliderProps>((_, ref)
+
 const DemoSlider = forwardRef<Slider, IDemoSlider>(
 	(
 		{
@@ -30,8 +30,8 @@ const DemoSlider = forwardRef<Slider, IDemoSlider>(
 		const settings = {
 			infinite: true,
 			slidesToShow: desctopSlidesToShow,
-			fade: false,
-			speed: fade ? 0 : 500,
+			fade: fade,
+			// speed: fade ? 0 : 500,
 			arrows: false,
 			autoplaySpeed: 3000,
 			pauseOnHover: true,

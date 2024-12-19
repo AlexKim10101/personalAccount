@@ -38,7 +38,7 @@ const AccountPage = () => {
 
 	if (!accountPage) return null;
 
-	const { sections, user } = accountPage;
+	const { sections, user, formFields } = accountPage;
 
 	return (
 		<div className="container account-container">
@@ -52,9 +52,9 @@ const AccountPage = () => {
 									submitBtnText="Сохранить"
 									closeModal={() => handleClose()}
 									defaultValues={FAKE_ACCOUNT_DATA}
-									enableNameField
 									enableResetBtn
 									onSave={data => console.log(data)}
+									formFields={formFields}
 								/>
 							);
 						}}
@@ -131,6 +131,7 @@ const AccountPage = () => {
 									users={sections[2].users}
 									handleOpen={handleOpen}
 									handleClose={handleClose}
+									formFields={sections[2].formFields}
 								/>
 							}
 						/>

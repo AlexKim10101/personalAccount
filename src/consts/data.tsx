@@ -4,7 +4,6 @@ import {
 	ICaseDataItem,
 	IDemoDataItem,
 	ITableField,
-	IVersionData,
 } from "types";
 
 export const KPI_MONITOR_URL = "https://kpi-monitor.ru";
