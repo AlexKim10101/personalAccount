@@ -1,4 +1,5 @@
 import React from "react";
+import { PrimaryButton } from "@components/CustomButton";
 import { ReactComponent as ArrowIcon } from "@assets/icons/arrow-icon.svg";
 import "./deleteUser.css";
 
@@ -21,27 +22,27 @@ export const DeleteUser: React.FC<IDeleteUser> = ({
 				{` ?`}
 			</div>
 			<div className="delete-btn-wrapper">
-				<button
-					className="form-button"
+				<PrimaryButton
 					type="button"
 					onClick={() => {
 						onDelete();
 						closeModal();
 					}}
+					className="orange-button"
 				>
 					<div className="link-content">Удалить</div>
 					<div className="link-content">
 						<ArrowIcon />
 					</div>
-				</button>
+				</PrimaryButton>
 
-				<button
-					className="form-button form-button-grey"
+				<PrimaryButton
 					type="button"
 					onClick={() => closeModal()}
+					className="grey-button"
 				>
 					<div className="link-content">Отменить</div>
-				</button>
+				</PrimaryButton>
 			</div>
 		</div>
 	);

@@ -7,6 +7,7 @@ import { ReactComponent as ArrowIcon } from "@assets/icons/arrow-icon.svg";
 import { SCROLL_LIMIT } from "consts/data";
 import "./header.css";
 import { INavItem } from "types";
+import { PrimaryLink } from "@components/CustomLink";
 
 type IHeaderProps = {
 	logo: {
@@ -124,12 +125,12 @@ const Header: React.FC<IHeaderProps> = ({ logo, navigation }) => {
 					))}
 				</div>
 
-				<Link to="/login" className="link">
+				<PrimaryLink to="/login">
 					<div className="link-content">Попробовать</div>
 					<div className="link-content">
 						<ArrowIcon />
 					</div>
-				</Link>
+				</PrimaryLink>
 			</div>
 		</header>
 	);

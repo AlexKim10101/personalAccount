@@ -4,6 +4,7 @@ import { ReactComponent as EditIcon } from "@assets/icons/svg/editIcon.svg";
 import { ReactComponent as CancelIcon } from "@assets/icons/svg/Cancel.svg";
 import { ReactComponent as ApproveIcon } from "@assets/icons/svg/Approve.svg";
 import "./domens.css";
+import { PrimaryButton } from "@components/CustomButton";
 
 type DataItem = {
 	id: string;
@@ -80,14 +81,9 @@ const EditableList: React.FC<EditableListProps> = ({ items, onSave }) => {
 					/>
 					{editState[item.id] === null ? (
 						<div className="domen-btn-wrapper">
-							<Button
-								variant="contained"
-								color="primary"
-								disableRipple
-								disableElevation
+							<PrimaryButton
 								onClick={() => handleEdit(item.id)}
 								disabled={activeEditor !== null}
-								className="domen-btn"
 							>
 								<Box
 									sx={{
@@ -102,17 +98,11 @@ const EditableList: React.FC<EditableListProps> = ({ items, onSave }) => {
 								>
 									<EditIcon />
 								</Box>
-							</Button>
+							</PrimaryButton>
 						</div>
 					) : (
 						<div className="domen-btn-wrapper">
-							<Button
-								variant="contained"
-								onClick={() => handleSave(item.id)}
-								className="domen-btn"
-								disableRipple
-								disableElevation
-							>
+							<PrimaryButton onClick={() => handleSave(item.id)}>
 								<Box
 									sx={{
 										width: 24,
@@ -126,14 +116,8 @@ const EditableList: React.FC<EditableListProps> = ({ items, onSave }) => {
 								>
 									<ApproveIcon />
 								</Box>
-							</Button>
-							<Button
-								variant="outlined"
-								onClick={() => handleCancel(item.id)}
-								className="domen-btn"
-								disableRipple
-								disableElevation
-							>
+							</PrimaryButton>
+							<PrimaryButton onClick={() => handleCancel(item.id)}>
 								<Box
 									sx={{
 										width: 24,
@@ -147,7 +131,7 @@ const EditableList: React.FC<EditableListProps> = ({ items, onSave }) => {
 								>
 									<CancelIcon />
 								</Box>
-							</Button>
+							</PrimaryButton>
 						</div>
 					)}
 				</div>

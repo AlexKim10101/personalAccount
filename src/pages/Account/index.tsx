@@ -16,6 +16,7 @@ import "./account.css";
 import { FAKE_ACCOUNT_DATA } from "consts/data";
 import { Form } from "@components/Form";
 import { useData } from "services/context";
+import { PrimaryLink } from "@components/CustomLink";
 
 const AccountPage = () => {
 	const [open, setOpen] = useState<boolean>(false);
@@ -80,23 +81,23 @@ const AccountPage = () => {
 
 					<div className="user-email">{user.email}</div>
 
-					<Link to="/login" className="link link-min-width">
+					<PrimaryLink to="/login" className="link-min-width">
 						<div className="link-content">Перейти в конфигуратор</div>
 						<div className="link-content">
 							<ArrowIcon />
 						</div>
-					</Link>
+					</PrimaryLink>
 				</div>
 
 				<div className="user-license-container">
 					<div className="license-title">Базовая лицензия:</div>
 					<div className="license-value">{user.value}</div>
-					<Link to="/login" className="link link-orange link-min-width">
+					<PrimaryLink to="/login" className="link-orange link-min-width">
 						<div className="link-content">Продлить лицензию</div>
 						<div className="link-content">
 							<ArrowIcon />
 						</div>
-					</Link>
+					</PrimaryLink>
 				</div>
 			</div>
 

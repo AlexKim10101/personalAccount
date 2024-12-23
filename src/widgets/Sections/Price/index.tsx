@@ -4,6 +4,7 @@ import TableComponent from "@components/TableComponent";
 import { ReactComponent as ArrowIcon } from "@assets/icons/arrow-icon.svg";
 import "./Price.css";
 import { ITableField, IСonditionsData, IVersionData } from "types";
+import { PrimaryLink } from "@components/CustomLink";
 
 type IPriceSection = {
 	id: string;
@@ -49,26 +50,23 @@ const PriceSection: React.FC<IPriceSection> = ({
 			</div>
 
 			{accountMode && (
-				<Link
-					to="/login"
-					className="link link-align-start link-orange link-margin-top"
-				>
+				<PrimaryLink to="/login" className="link-align-start link-orange">
 					<div className="link-content">Купить лицензию</div>
 					<div className="link-content">
 						<ArrowIcon />
 					</div>
-				</Link>
+				</PrimaryLink>
 			)}
 
 			<div className="box-version">
 				<div className="version-title">{versions[1].title}</div>
 				<div className="text">{versions[1].description}</div>
-				<Link to="/login" className="link link-align-start">
+				<PrimaryLink to="/login" className="link-align-start">
 					<div className="link-content">Запросить цену</div>
 					<div className="link-content">
 						<ArrowIcon />
 					</div>
-				</Link>
+				</PrimaryLink>
 			</div>
 		</section>
 	);

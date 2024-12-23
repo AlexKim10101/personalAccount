@@ -41,7 +41,7 @@ body {
 .container {
 	display: flex;
 	flex-direction: column;
-	gap: 40px;
+	gap: 32px;
 
 	position: relative;
 	padding-top: var(--header-height);
@@ -185,11 +185,10 @@ body {
 	font-weight: 700;
 	font-size: 1rem;
 }
+
 .product-icon-wrapper {
 	background-color: var(--white-color);
 	border-radius: 50%;
-	/* width: 2.5rem;
-	height: 2.5rem; */
 	width: 40px;
 	height: 40px;
 
@@ -198,6 +197,7 @@ body {
 	align-items: center;
 	justify-content: center;
 }
+
 .product-item-title {
 	max-width: 75%;
 	font-size: 0.825rem;
@@ -211,9 +211,6 @@ body {
 .product-list {
 	margin: 0;
 	padding: 0px 10px;
-}
-
-.product-list-item {
 }
 
 .demo-slider-container {
@@ -262,6 +259,7 @@ body {
 
 	/* width: 70%; */
 }
+
 .demo-title {
 	font-size: 1rem;
 	font-weight: 600;
@@ -274,7 +272,6 @@ body {
 
 .switcher {
 	display: none;
-	/* display: block; */
 }
 
 .counter {
@@ -301,39 +298,6 @@ body {
 	justify-content: space-between;
 	gap: 20px;
 	flex-wrap: wrap;
-}
-
-.link {
-	display: flex;
-	gap: 20px;
-	font-family: Manrope;
-	justify-content: space-between;
-	align-items: center;
-	white-space: nowrap;
-	border-radius: 20px;
-	padding-left: 17px;
-	padding-right: 17px;
-	padding-top: 8px;
-	padding-bottom: 8px;
-	background-color: var(--brand-color);
-	text-decoration: none;
-	color: var(--white-color);
-}
-
-.link-orange-mob {
-	background-color: var(--orange-color);
-}
-
-.link-orange {
-	background-color: var(--orange-color);
-}
-
-.link-orange-mob:nth-child(2n) {
-	background-color: var(--brand-color);
-}
-
-.link-width {
-	min-width: 263px;
 }
 
 .link-content {
@@ -364,10 +328,8 @@ body {
 	gap: var(--gap-screen);
 }
 .info-part {
-	/* width: 49%; */
 	display: flex;
 	flex-direction: column;
-	/* align-items: center; */
 	gap: 40px;
 }
 
@@ -487,6 +449,7 @@ body {
 		width: 84%;
 		max-width: var(--container-max-width);
 		margin: 0 auto;
+		gap: 40px;
 	}
 	/* TODO: исправить max-width. (вывести в переменную) */
 	.section-home-content {
@@ -527,7 +490,6 @@ body {
 
 	.demo-slider-container {
 		flex-direction: row;
-		/* justify-content: space-between; */
 	}
 
 	.slide-description {
@@ -562,10 +524,6 @@ body {
 
 	.link-container {
 		flex-direction: row;
-	}
-
-	.link-orange-mob:nth-child(2n) {
-		background-color: var(--orange-color);
 	}
 }
 @media (min-width: 1281px) {

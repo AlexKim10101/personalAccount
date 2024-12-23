@@ -37,9 +37,7 @@
 }
 
 .footer-nav {
-	/* display: flex; */
 	display: none;
-
 	gap: 12px;
 	align-items: center;
 }
@@ -61,10 +59,6 @@
 	align-items: center;
 	font-size: 0.875rem;
 	font-weight: 700;
-}
-
-.link.footer-link {
-	display: none;
 }
 
 .footer-text {
@@ -98,9 +92,6 @@
 
 	.footer-header {
 		display: none;
-	}
-	.link.footer-link {
-		display: flex;
 	}
 }
 @media (min-width: 1281px) {

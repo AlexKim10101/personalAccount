@@ -7,6 +7,7 @@ import "./user.css";
 import { IAccountData } from "types";
 import { Form, IFormField } from "@components/Form";
 import { DeleteUser } from "@components/DeleteUser";
+import { PrimaryButton } from "@components/CustomButton";
 
 type EditableListProps = {
 	users: IAccountData[];
@@ -57,8 +58,8 @@ const User: React.FC<EditableListProps> = ({
 						<div className="user-list-item-content">
 							<div className="user-title">{item.email}</div>
 							<div className="user-btn-wrapper">
-								<Button
-									variant="contained"
+								<PrimaryButton
+									className=""
 									onClick={() => {
 										handleOpen(
 											<DeleteUser
@@ -68,9 +69,6 @@ const User: React.FC<EditableListProps> = ({
 											/>
 										);
 									}}
-									className="domen-btn"
-									disableRipple
-									disableElevation
 								>
 									<Box
 										sx={{
@@ -85,7 +83,7 @@ const User: React.FC<EditableListProps> = ({
 									>
 										<TrashIcon />
 									</Box>
-								</Button>
+								</PrimaryButton>
 							</div>
 						</div>
 					</li>

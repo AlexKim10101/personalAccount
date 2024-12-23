@@ -9,6 +9,7 @@ import { ReactComponent as PhoneIcon } from "@assets/icons/phone-icon.svg";
 import { ReactComponent as MailIcon } from "@assets/icons/mail-icon.svg";
 import "./footer.css";
 import { INavItem } from "types";
+import { PrimaryLink } from "@components/CustomLink";
 
 type IFooterProps = {
 	logo: {
@@ -16,9 +17,16 @@ type IFooterProps = {
 		to: string;
 	};
 	navigation: INavItem[];
+	contacts: any;
+	content: string;
 };
 
-const Footer: React.FC<IFooterProps> = ({ logo, navigation }) => {
+const Footer: React.FC<IFooterProps> = ({
+	logo,
+	navigation,
+	contacts,
+	content,
+}) => {
 	return (
 		<footer className="footer">
 			<div className="footer-container">
@@ -57,12 +65,12 @@ const Footer: React.FC<IFooterProps> = ({ logo, navigation }) => {
 						))}
 					</div>
 
-					<Link to="/login" className="link link-orange footer-link">
+					<PrimaryLink to="/login" className="link-orange footer-link">
 						<div className="link-content">Попробовать</div>
 						<div className="link-content">
 							<ArrowIcon />
 						</div>
-					</Link>
+					</PrimaryLink>
 
 					<div className="footer-header">
 						<Typography
@@ -79,14 +87,7 @@ const Footer: React.FC<IFooterProps> = ({ logo, navigation }) => {
 						KPI MONITOR Анкетирование
 					</div>
 
-					<div className="footer-text">
-						Решение KPI MONITOR Анкетирование входит в состав программного
-						продукта KPI MONITOR Analyzer в качестве модуля анкетирования. KPI
-						MONITOR Анкетирование может выступать самостоятельным продуктом для
-						формирования анкет и сбора ответов, но механизмы визуализации
-						полученных данных доступны только в программном продукте KPI MONITOR
-						Analyzer.
-					</div>
+					<div className="footer-text">{content}</div>
 				</div>
 
 				<div className="footer-left-right">
@@ -98,8 +99,7 @@ const Footer: React.FC<IFooterProps> = ({ logo, navigation }) => {
 										<AddressIcon />
 									</div>
 									<div className="info-item-content">
-										111250, г. Москва, проезд Завода "Серп и Молот", д. 6
-										корп.1, Бизнес центр "РОСТЭК"
+										{contacts.description.address}
 									</div>
 								</li>
 								<li className="info-list-item">
@@ -107,16 +107,20 @@ const Footer: React.FC<IFooterProps> = ({ logo, navigation }) => {
 										<PhoneIcon />
 									</div>
 									<div className="info-item-content">
-										<div>+7 (495)662-11-31</div>
-										<div>+7 (495)662-11-32</div>
-										<div>+7 (495)662-11-33</div>
+										{contacts.description.phoneNumbers.map(
+											(item: string, index: number) => (
+												<div key={"phone" + index}>{item}</div>
+											)
+										)}
 									</div>
 								</li>
 								<li className="info-list-item">
 									<div className="footer-icon-wrap">
 										<MailIcon />
 									</div>
-									<div className="info-item-content">info@kpi-monitor.ru</div>
+									<div className="info-item-content">
+										{contacts.description.eMail}
+									</div>
 								</li>
 							</ul>
 						</div>

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router";
 import { useData } from "services/context";
 
 import AboutProductSection from "widgets/Sections/AboutProduct";
@@ -13,6 +12,7 @@ import { ReactComponent as ArrowIcon } from "@assets/icons/arrow-icon.svg";
 import { ReactComponent as AddressIcon } from "@assets/icons/address-icon.svg";
 import { ReactComponent as PhoneIcon } from "@assets/icons/phone-icon.svg";
 import { ReactComponent as MailIcon } from "@assets/icons/mail-icon.svg";
+import { PrimaryLink } from "@components/CustomLink";
 
 function Home() {
 	const { homePage, logo } = useData();
@@ -90,16 +90,16 @@ function Home() {
 					<div className="text">{documentation.description.content}</div>
 					<div className="link-container">
 						{documentation.links.map((link: any) => (
-							<Link
+							<PrimaryLink
 								key={link.id}
 								to={link.to}
-								className="link link-orange-mob link-width"
+								className="link-orange-mob link-width"
 							>
 								<div className="link-content">{link.title}</div>
 								<div className="link-content">
 									<ArrowIcon />
 								</div>
-							</Link>
+							</PrimaryLink>
 						))}
 					</div>
 				</section>
@@ -145,23 +145,28 @@ function Home() {
 							<div className="info-part">
 								<div className="info-text">{contacts.description.info}</div>
 								{contacts.links.map((link: any) => (
-									<Link
+									<PrimaryLink
 										key={link.id}
 										to={link.to}
-										className="link link-orange link-flex-start"
+										className="link-orange link-flex-start"
 									>
 										<div className="link-content">{link.title}</div>
 										<div className="link-content">
 											<ArrowIcon />
 										</div>
-									</Link>
+									</PrimaryLink>
 								))}
 							</div>
 						</div>
 					</div>
 				</section>
 			</main>
-			<Footer logo={logo} navigation={footer.navigation} />
+			<Footer
+				logo={logo}
+				navigation={footer.navigation}
+				contacts={contacts}
+				content={footer.content}
+			/>
 		</>
 	);
 }
