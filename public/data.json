@@ -310,7 +310,7 @@
 				"navigation": [
 					{ "title": "Главная", "path": "home" },
 					{ "title": "О продукте", "path": "about-product" },
-					{ "title": "Кейсы", "path": "#cases" },
+					{ "title": "Кейсы", "path": "cases" },
 					{ "title": "Прайс и комплектации", "path": "prices" },
 					{ "title": "Документация", "path": "documentation" },
 					{ "title": "Контакты", "path": "contacts" }
@@ -344,7 +344,7 @@
 							"validationRules": {
 								"required": "Обязательное поле",
 								"pattern": {
-									"value": "/^[^s@]+@[^s@]+.[^s@]+$/",
+									"value": "/^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@([a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?.)*(aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$/",
 									"message": "Неверный формат"
 								}
 							}
@@ -373,7 +373,7 @@
 							"validationRules": {
 								"required": "Обязательное поле",
 								"pattern": {
-									"value": "/^[^s@]+@[^s@]+.[^s@]+$/",
+									"value": "/^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@([a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?.)*(aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$/",
 									"message": "Неверный формат"
 								}
 							}

@@ -54,9 +54,9 @@ const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
 					<FormHelperText
 						error={error}
 						sx={{
-							position: "absolute",
-							bottom: "-24px",
-							left: "5px",
+							// position: "absolute",
+							// top: "48px",
+							// left: "5px",
 							margin: 0,
 						}}
 					>
@@ -134,6 +134,9 @@ export const Form: React.FC<IFormProps> = ({
 								{...field}
 								label={formField.label}
 								fullWidth
+								inputProps={{
+									spellCheck: false,
+								}}
 								type={
 									formField.id === "password"
 										? showPassword
