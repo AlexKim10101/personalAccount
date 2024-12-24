@@ -9,14 +9,13 @@ import {
 	IconButton,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { ReactComponent as ArrowIcon } from "@assets/icons/arrow-icon.svg";
-
 import { styled } from "@mui/material/styles";
+import { PrimaryButton } from "@components/CustomButton";
+import { ReactComponent as ArrowIcon } from "@assets/icons/arrow-icon.svg";
 
 import "./form.css";
 import { IRule, ISubmitBtnText } from "types";
 import { transformToRegExp } from "utils/parserValidationRule";
-import { PrimaryButton } from "@components/CustomButton";
 
 const StyledInput = styled(InputBase)(() => ({
 	position: "relative",

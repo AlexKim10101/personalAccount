@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router";
 import { DataProvider } from "services/context";
 
 import HomePage from "./pages/Home";
@@ -18,7 +18,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
 	<React.StrictMode>
-		<BrowserRouter>
+		<HashRouter>
 			<ScrollToHash />
 			<DataProvider>
 				<Routes>
@@ -27,6 +27,6 @@ root.render(
 					<Route path="account/*" element={<AccountPage />} />
 				</Routes>
 			</DataProvider>
-		</BrowserRouter>
+		</HashRouter>
 	</React.StrictMode>
 );
