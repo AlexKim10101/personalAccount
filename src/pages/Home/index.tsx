@@ -93,7 +93,7 @@ function Home() {
 							<PrimaryLink
 								key={link.id}
 								to={link.to}
-								className="link-orange-mob link-width"
+								className="link-orange-mob link-min-width link-large"
 							>
 								<div className="link-content">{link.title}</div>
 								<div className="link-content">

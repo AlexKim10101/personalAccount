@@ -1,5 +1,6 @@
 :root {
 	--brand-color: #3259ca;
+	--brand-hover-color: #1f3e96;
 	--orange-color: #f66c1e;
 	--white-color: #ffffff;
 	--black-color: #000000;
@@ -231,6 +232,8 @@ body {
 	z-index: 1;
 	background: #000;
 	cursor: pointer;
+	overflow: hidden;
+	border-radius: 8px;
 }
 
 .next-slide-img-btn > img {
